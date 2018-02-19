@@ -1,14 +1,61 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle="left">
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>¿Quienes Somos?</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <button ion-button menuToggle="left">
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Quienes Somos</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
 
+    <ion-list>
+        <accordion-list *ngFor="let item of items; let index = index"
+                        [title]="item.title"
+                        [expanded]="index === 0">
+            <div text-wrap text-justify innerHtml="{{item.content}}"></div>
+        </accordion-list>
+
+        <br/>
+        <ion-item class="valores-section" text-center text-wrap>
+            <div class="icon">
+                <img src="assets/imgs/mision-icon.png">
+            </div>
+            <ion-card-header>
+                <b>MISIÓN</b>
+            </ion-card-header>
+
+            <ion-card-content>
+                Representar, defender, desarrollar y promocionar los intereses del sector Comercio, Servicios y Turismo ante las instituciones gubernamentales, la iniciativa privada y la sociedad.
+            </ion-card-content>
+        </ion-item>
+        <br/>
+        <ion-item class="valores-section" text-center text-wrap>
+            <div class="icon">
+                <img src="assets/imgs/vision-icon.png">
+            </div>
+            <ion-card-header>
+                <b>VISIÓN</b>
+            </ion-card-header>
+
+            <ion-card-content>
+                Ser el organismo empresarial con mayor influencia y socios en el Estado de Querétaro.
+            </ion-card-content>
+        </ion-item>
+        <br/>
+        <ion-item class="valores-section" text-center text-wrap>
+            <div class="icon">
+                <img src="assets/imgs/valores-icon.png">
+            </div>
+            <ion-card-header>
+                <b>VALORES</b>
+            </ion-card-header>
+
+            <ion-card-content>
+                Honestidad, Lealtad, Liderazgo, Actitud de servicio, Trabajo en equipo.
+            </ion-card-content>
+        </ion-item>
+    </ion-list>
 </ion-content>
