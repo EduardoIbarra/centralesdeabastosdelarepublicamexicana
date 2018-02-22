@@ -1,6 +1,8 @@
 import {Component, ViewChild} from '@angular/core';
-import {Content, IonicPage, NavController, NavParams, Slides} from 'ionic-angular';
+import {Content, IonicPage, ModalController, NavController, NavParams, Slides} from 'ionic-angular';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {CalendarModal, CalendarModalOptions, CalendarResult} from "ion2-calendar";
+import * as moment from 'moment'
 
 @IonicPage()
 @Component({
@@ -28,7 +30,10 @@ export class RegisterFormPage {
         LegalRepresentative: null,
         Rfc: null,
         Curp: null,
-        BirthDay: null,
+        BirthDay: {
+            text: null,
+            value: null
+        },
         WebPage: null,
         Email: null,
         Fax: null,
@@ -54,7 +59,8 @@ export class RegisterFormPage {
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
-        public formBuilder: FormBuilder
+        public formBuilder: FormBuilder,
+        public modalCtrl: ModalController
     ) {
 
         //Form validations
@@ -159,6 +165,27 @@ export class RegisterFormPage {
         });
     }
 
+    openCalendar() {
+        const options: CalendarModalOptions = {
+            title: 'Selecciona Fecha',
+            autoDone: true,
+            closeLabel: 'Cerrar'
+        };
+        let myCalendar =  this.modalCtrl.create(CalendarModal, {
+            options: options
+        });
+
+        myCalendar.present();
+
+        myCalendar.onDidDismiss((date: CalendarResult, type: string) => {
+            console.log(date);
+            if(date){
+                this.RegisterFormData.BirthDay.value = date.string;
+                this.RegisterFormData.BirthDay.text = moment(date.string).format('LL');
+            }
+        })
+    }
+
     ionViewDidLoad() {
         this.slides.lockSwipes(true);
     }
@@ -168,6 +195,10 @@ export class RegisterFormPage {
         this.content.scrollToTop(1000);
         this.slides.slideNext();
         this.slides.lockSwipes(true);
+
+        if(this.slideIndex === 2){
+            console.log(this.RegisterFormData);
+        }
     }
 
     prev() {

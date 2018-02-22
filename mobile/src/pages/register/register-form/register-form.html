@@ -82,7 +82,8 @@
 
                     <ion-item>
                         <ion-label floating color="secondary">Fecha de Nacimiento</ion-label>
-                        <ion-input type="text" formControlName="BirthDay" [(ngModel)]="RegisterFormData.BirthDay"
+                        <ion-input type="text" formControlName="BirthDay" [(ngModel)]="RegisterFormData.BirthDay.text"
+                                   (ionFocus)="openCalendar()" readonly
                                    [class.invalid]="!RegisterForm1.controls.BirthDay.valid && (RegisterForm1.controls.BirthDay.dirty || submitAttemptForm1)"
                                    [class.valid]="RegisterForm1.controls.BirthDay.valid"></ion-input>
                         <ion-icon item-end name="md-calendar" color="primary"></ion-icon>

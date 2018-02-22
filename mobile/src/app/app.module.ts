@@ -7,6 +7,7 @@ import {MyApp} from './app.component';
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {Keyboard} from "@ionic-native/keyboard";
+import {CalendarModule} from "ion2-calendar";
 
 @NgModule({
     declarations: [
@@ -14,6 +15,7 @@ import {Keyboard} from "@ionic-native/keyboard";
     ],
     imports: [
         BrowserModule,
+        CalendarModule,
         IonicModule.forRoot(MyApp,{
             platforms: {
                 ios: {
