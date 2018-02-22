@@ -12,16 +12,16 @@
 <ion-content padding>
 
     <ion-list>
-        <accordion-list *ngFor="let item of items; let index = index"
+        <accordion-list *ngFor="let item of items; let i = index"
                         [title]="item.title"
-                        [expanded]="index === 0">
+                        [expanded]="i === 0">
             <div text-wrap text-justify innerHtml="{{item.content}}"></div>
         </accordion-list>
 
         <br/>
         <ion-item class="valores-section" text-center text-wrap>
-            <div class="icon">
-                <img src="assets/imgs/mision-icon.png">
+            <div class="circled-icon">
+                <img src="assets/img/mision-icon.png">
             </div>
             <ion-card-header>
                 <b>MISIÓN</b>
@@ -33,8 +33,8 @@
         </ion-item>
         <br/>
         <ion-item class="valores-section" text-center text-wrap>
-            <div class="icon">
-                <img src="assets/imgs/vision-icon.png">
+            <div class="circled-icon">
+                <img src="assets/img/vision-icon.png">
             </div>
             <ion-card-header>
                 <b>VISIÓN</b>
@@ -46,8 +46,8 @@
         </ion-item>
         <br/>
         <ion-item class="valores-section" text-center text-wrap>
-            <div class="icon">
-                <img src="assets/imgs/valores-icon.png">
+            <div class="circled-icon">
+                <img src="assets/img/valores-icon.png">
             </div>
             <ion-card-header>
                 <b>VALORES</b>

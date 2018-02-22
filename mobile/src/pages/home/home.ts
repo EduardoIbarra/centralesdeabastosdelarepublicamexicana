@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the HomePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -14,6 +8,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'home.html',
 })
 export class HomePage {
+
+    imgaes = [
+        {
+            imageUrl: 'assets/img/carousel/1.jpg',
+            quote: 'Mas de 115 años impulsando el Comercio y Turismo en Querétaro.',
+        },
+        {
+            imageUrl: 'assets/img/carousel/2.jpg',
+            quote: 'Paga tu Predial en Febrero con un descuento del 8%',
+        }
+    ];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

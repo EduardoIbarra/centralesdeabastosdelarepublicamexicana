@@ -1,0 +1,10 @@
+page-register-form {
+  .swiper-pagination-progress .swiper-pagination-progressbar{
+    background: map_get($colors, secondary) !important;
+  }
+
+  ion-slides{
+    height: inherit;
+  }
+
+}

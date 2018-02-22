@@ -6,7 +6,6 @@ import { Component, ElementRef, Input, Renderer, ViewChild } from '@angular/core
 })
 export class AccordionListComponent {
   @Input() textColor: string = '#000';
-  // @Input() contentColor: string = '#F9F9F9';
   @Input() title: string;
   @Input() hasMargin: boolean = true;
   @Input() expanded: boolean;

@@ -19,13 +19,48 @@
   src: url("../assets/fonts/lato.woff2");
 }
 
-*{
+* {
   font-family: Lato;
 }
 
+.no-rotate {
+  transform: rotate(0deg) !important;
+}
+
+.circled-icon {
+  background: map_get($colors, primary);
+  height: 100px;
+  width: 100px;
+  border-radius: 60%;
+  margin: 0 auto;
+  img {
+    position: relative;
+    top: 32px;
+    height: 35px;
+    right: 1px;
+  }
+}
+
+.title-border-bottom {
+  font-weight: bold;
+  text-transform: uppercase;
+  border-bottom: 3px solid map_get($colors, primary) !important;
+  &.list-header-md {
+    border-top: none;
+  }
+}
+
 .dark-menu {
-  .activated{
-    background:  map_get($colors, dark) !important;
+  .menu-logo-img {
+    text-align: center;
+    img {
+      width: 100px;
+      border-radius: 35px;
+    }
+
+  }
+  .activated {
+    background: map_get($colors, dark) !important;
   }
   ion-content, button, ion-toolbar, .toolbar-background-md, .toolbar-background-ios, .toolbar-title {
     font-size: 15px;
@@ -37,7 +72,7 @@
       border: none !important;
       margin-bottom: 10px;
     }
-    .menu-item{
+    .menu-item {
       height: 50px;
       line-height: 0;
       .menu-item-border {
@@ -48,7 +83,80 @@
     }
   }
 
-  .toolbar-background-md, .toolbar-background-ios{
+  .toolbar-background-md, .toolbar-background-ios {
     border-bottom: 1px solid #7b7b7b !important
   }
+}
+
+.invalid {
+  border: 1px solid transparent !important;
+  border-bottom: 2px solid map_get($colors, danger) !important;
+}
+
+.valid {
+  border: 1px solid transparent !important;
+  border-bottom: 2px solid map_get($colors, secondary) !important;
+}
+
+.error-message {
+  font-size: 0.8em;
+  color: map_get($colors, danger) !important;
+}
+
+.optional-input-label {
+  color: map_get($colors, secondary);
+  font-size: small;
+}
+
+form {
+  ion-item {
+    ion-input, ion-textarea, ion-select {
+      border-bottom: 1px solid #bfbfbf !important;
+    }
+    .item-inner {
+      border: 1px solid transparent !important;
+    }
+  }
+  .list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block {
+    border-bottom: 1px solid transparent !important;
+  }
+}
+
+//Remove android validation lines on input
+.item-md.item-input.input-has-focus .item-inner {
+  //border-bottom-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.list-md .item-input.input-has-focus:last-child {
+  //border-bottom-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.list-md .item-input.input-has-focus:last-child .item-inner {
+  box-shadow: none;
+}
+
+.item-md.item-input.ng-valid.input-has-value:not(.input-has-focus) .item-inner {
+  border-bottom-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):last-child {
+  border-bottom-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):last-child .item-inner {
+  box-shadow: none;
+}
+
+.item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus) .item-inner {
+  border-bottom-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.list-md .item-input.ng-invalid.ng-touched:not(.input-has-focus):last-child {
+  border-bottom-color: transparent !important;
+  box-shadow: none !important;
 }

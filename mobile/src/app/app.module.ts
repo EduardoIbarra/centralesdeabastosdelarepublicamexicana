@@ -6,6 +6,7 @@ import {MyApp} from './app.component';
 
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
+import {Keyboard} from "@ionic-native/keyboard";
 
 @NgModule({
     declarations: [
@@ -13,15 +14,22 @@ import {SplashScreen} from '@ionic-native/splash-screen';
     ],
     imports: [
         BrowserModule,
-        IonicModule.forRoot(MyApp),
+        IonicModule.forRoot(MyApp,{
+            platforms: {
+                ios: {
+                    backButtonText: 'Atrás'
+                }
+            }
+        }),
     ],
     bootstrap: [IonicApp],
     entryComponents: [
-        MyApp
+        MyApp,
     ],
     providers: [
         StatusBar,
         SplashScreen,
+        Keyboard,
         {provide: ErrorHandler, useClass: IonicErrorHandler}
     ]
 })

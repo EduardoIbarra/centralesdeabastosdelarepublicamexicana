@@ -2,6 +2,7 @@ import {Component, ViewChild} from '@angular/core';
 import {Nav, Platform} from 'ionic-angular';
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
+import {Keyboard} from '@ionic-native/keyboard';
 
 @Component({
     templateUrl: 'app.html'
@@ -13,7 +14,7 @@ export class MyApp {
 
     pages: Array<{ title: string, component: any }>;
 
-    constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+    constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public keyboard: Keyboard) {
         this.initializeApp();
 
 
@@ -31,6 +32,7 @@ export class MyApp {
         this.platform.ready().then(() => {
             this.statusBar.styleDefault();
             this.splashScreen.hide();
+            this.keyboard.hideKeyboardAccessoryBar(false);
         });
     }
 
