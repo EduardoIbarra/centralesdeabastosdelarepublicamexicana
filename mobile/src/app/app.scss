@@ -108,6 +108,10 @@
   font-size: small;
 }
 
+.no-overflow{
+    overflow: initial;
+}
+
 form {
   ion-item {
     ion-input, ion-textarea, ion-select {
