@@ -60,7 +60,7 @@
 
                     <ion-item>
                         <ion-label floating color="secondary">RFC</ion-label>
-                        <ion-input type="text" formControlName="Rfc" [(ngModel)]="RegisterFormData.Rfc"
+                        <ion-input type="text" formControlName="Rfc" [(ngModel)]="RegisterFormData.Rfc" (keyup)="transformToUppercase('RFC')"
                                    [class.invalid]="!RegisterForm1.controls.Rfc.valid && (RegisterForm1.controls.Rfc.dirty || submitAttemptForm1)"
                                    [class.valid]="RegisterForm1.controls.Rfc.valid"></ion-input>
                         <ion-icon item-end name="md-copy" color="primary"></ion-icon>
@@ -71,7 +71,7 @@
 
                     <ion-item>
                         <ion-label floating color="secondary">CURP</ion-label>
-                        <ion-input type="text" formControlName="Curp" [(ngModel)]="RegisterFormData.Curp"
+                        <ion-input type="text" formControlName="Curp" [(ngModel)]="RegisterFormData.Curp" (keyup)="transformToUppercase('CURP')"
                                    [class.invalid]="!RegisterForm1.controls.Curp.valid && (RegisterForm1.controls.Curp.dirty || submitAttemptForm1)"
                                    [class.valid]="RegisterForm1.controls.Curp.valid"></ion-input>
                         <ion-icon item-end name="ios-paper-outline" color="primary"></ion-icon>

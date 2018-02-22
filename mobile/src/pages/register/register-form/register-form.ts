@@ -80,20 +80,24 @@ export class RegisterFormPage {
                 Validators.required,
                 Validators.minLength(13),
                 Validators.maxLength(13),
+                Validators.pattern('^([0-9]+[a-zA-Z]+|[a-zA-Z]+[0-9]+)[0-9a-zA-Z]*$'),
             ])],
             LocalPhone: ['', Validators.compose([
                 Validators.minLength(10),
                 Validators.maxLength(10),
+                Validators.pattern('/^\\d+$/'),
             ])],
             Cellphone: ['', Validators.compose([
                 Validators.required,
                 Validators.minLength(10),
                 Validators.maxLength(10),
+                Validators.pattern('/^\\d+$/'),
             ])],
             Curp: ['', Validators.compose([
                 Validators.required,
                 Validators.minLength(18),
                 Validators.maxLength(18),
+                Validators.pattern('^([0-9]+[a-zA-Z]+|[a-zA-Z]+[0-9]+)[0-9a-zA-Z]*$'),
             ])],
             BirthDay: ['', Validators.compose([
                 Validators.required
@@ -103,7 +107,9 @@ export class RegisterFormPage {
                 Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'),
                 Validators.required
             ])],
-            Fax: ['', Validators.compose([])]
+            Fax: ['', Validators.compose([
+                Validators.pattern('/^\\d+$/'),
+            ])]
         });
 
         this.RegisterForm2 = formBuilder.group({
@@ -127,6 +133,7 @@ export class RegisterFormPage {
                 Validators.required,
                 Validators.minLength(5),
                 Validators.maxLength(5),
+                Validators.pattern('/^\\d+$/'),
             ])],
         });
 
@@ -147,17 +154,22 @@ export class RegisterFormPage {
                 Validators.required,
                 Validators.minLength(5),
                 Validators.maxLength(5),
+                Validators.pattern('/^\\d+$/'),
             ])],
             BusinessPhone: ['', Validators.compose([
                 Validators.minLength(10),
                 Validators.maxLength(10),
+                Validators.pattern('/^\\d+$/'),
             ])],
             BusinessCellphone: ['', Validators.compose([
                 Validators.required,
                 Validators.minLength(10),
                 Validators.maxLength(10),
+                Validators.pattern('/^\\d+$/'),
             ])],
-            BusinessFax: ['', Validators.compose([])],
+            BusinessFax: ['', Validators.compose([
+                Validators.pattern('/^\\d+$/'),
+            ])],
             BusinessEmail: ['', Validators.compose([
                 Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'),
                 Validators.required
@@ -171,7 +183,7 @@ export class RegisterFormPage {
             autoDone: true,
             closeLabel: 'Cerrar'
         };
-        let myCalendar =  this.modalCtrl.create(CalendarModal, {
+        let myCalendar = this.modalCtrl.create(CalendarModal, {
             options: options
         });
 
@@ -179,7 +191,7 @@ export class RegisterFormPage {
 
         myCalendar.onDidDismiss((date: CalendarResult, type: string) => {
             console.log(date);
-            if(date){
+            if (date) {
                 this.RegisterFormData.BirthDay.value = date.string;
                 this.RegisterFormData.BirthDay.text = moment(date.string).format('LL');
             }
@@ -188,6 +200,11 @@ export class RegisterFormPage {
 
     ionViewDidLoad() {
         this.slides.lockSwipes(true);
+    }
+
+    transformToUppercase(inputType){
+        if(inputType === 'RFC') this.RegisterFormData.Rfc = this.RegisterFormData.Rfc.toUpperCase();
+        if(inputType === 'CURP')this.RegisterFormData.Curp = this.RegisterFormData.Curp.toUpperCase();
     }
 
     next() {

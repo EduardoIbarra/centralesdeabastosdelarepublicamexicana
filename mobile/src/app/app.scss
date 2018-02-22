@@ -117,7 +117,7 @@ form {
       border: 1px solid transparent !important;
     }
   }
-  .list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block {
+  .list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block, .list-md .item-input:last-child {
     border-bottom: 1px solid transparent !important;
   }
 }
