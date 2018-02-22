@@ -1,0 +1,66 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle="left">
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Afiliación</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+    <ion-list>
+        <ion-list-header class="title-border-bottom" text-center>¡Afíliate ya!</ion-list-header>
+        <br/>
+
+        <ion-grid>
+            <ion-row>
+                <ion-col col-6>
+                    <ion-item text-center text-wrap no-lines>
+                        <div class="circled-icon" (tap)="goToPage('BenefitsPage')" >
+                            <img src="assets/img/register/benefits.png">
+                        </div>
+                        <ion-card-header class="no-overflow">
+                            <b>BENEFICIOS</b>
+                        </ion-card-header>
+                    </ion-item>
+                </ion-col>
+                <ion-col col-6>
+                    <ion-item text-center text-wrap no-lines>
+                        <div class="circled-icon" (tap)="goToPage('RegisterFormPage')">
+                            <img src="assets/img/register/register.png">
+                        </div>
+                        <ion-card-header class="no-overflow">
+                            <b>REGISTRO</b>
+                        </ion-card-header>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+        <br/>
+        <accordion-list *ngFor="let item of items; let i = index"
+                        [title]="item.title"
+                        [expanded]="i === 0" text-wrap>
+            <p *ngFor="let l of item.content" text-wrap text-justify padding-bottom>
+                <ion-icon name="{{l.icon? l.icon: 'md-checkmark'}}" *ngIf="l.isItemList || l.hasIcon" class="no-rotate"></ion-icon>
+                <b *ngIf="l.bold && !l.phoneNumber">{{l.text}}</b>
+                <span *ngIf="!l.bold && !l.phoneNumber">{{l.text}}</span>
+                <span *ngIf="l.phoneNumber" [innerHtml]="linkify(l.phoneNumber)">{{linkify(l.phoneNumber)}}</span> <span *ngIf="l.ext">{{l.ext}}</span>
+            </p>
+        </accordion-list>
+        <br/>
+        <ion-list-header class="title-border-bottom" text-center>Tipos de membresía</ion-list-header>
+        <div class="membership-img" text-center>
+            <p>Pellizca o doble click en la imagen</p>
+            <ion-slides [zoom]="true">
+                <ion-slide>
+                    <div class="swiper-zoom-container">
+                        <img src="assets/img/register/membresia.jpg">
+                    </div>
+                </ion-slide>
+            </ion-slides>
+        </div>
+    </ion-list>
+</ion-content>

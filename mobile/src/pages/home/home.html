@@ -1,18 +1,54 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+
+    <ion-navbar>
+        <button ion-button menuToggle="left">
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Inicio</ion-title>
+    </ion-navbar>
+
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+<ion-content>
+    <div class="carousel-container">
+        <ion-slides [loop]="true" [pager]="true" [speed]="false" [autoplay]="5000" effect="fade">
+            <ion-slide *ngFor="let i of imgaes">
+                <figure class="figure-content">
+                    <img [src]="i.imageUrl"/>
+                    <figcaption>
+                        <blockquote>
+                            <p>{{i.quote}}</p>
+                        </blockquote>
+                    </figcaption>
+                </figure>
+            </ion-slide>
+        </ion-slides>
+    </div>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+    <ion-grid>
+        <ion-row>
+            <ion-col col-6>
+                <ion-item text-center text-wrap no-lines>
+                    <div class="circled-icon" (tap)="goToPage('BenefitsPage')" >
+                        <img src="assets/img/register/benefits.png">
+                    </div>
+                    <ion-card-header class="no-overflow">
+                        <b>BENEFICIOS</b>
+                    </ion-card-header>
+                </ion-item>
+            </ion-col>
+            <ion-col col-6>
+                <ion-item text-center text-wrap no-lines>
+                    <div class="circled-icon" (tap)="goToPage('RegisterFormPage')">
+                        <img src="assets/img/register/register.png">
+                    </div>
+                    <ion-card-header class="no-overflow">
+                        <b>REGISTRO</b>
+                    </ion-card-header>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
 </ion-content>

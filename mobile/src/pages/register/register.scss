@@ -1,0 +1,8 @@
+page-register {
+  .membership-img{
+    margin: 0 auto;
+    p{
+      color: map_get($colors, secondary);
+    }
+  }
+}
