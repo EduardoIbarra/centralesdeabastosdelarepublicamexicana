@@ -3,15 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="19cba34d-3cb8-460f-aec0-d65782c82364" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/mobile/config.xml" afterPath="$PROJECT_DIR$/mobile/config.xml" />
-      <change beforePath="$PROJECT_DIR$/mobile/src/app/app.component.ts" afterPath="$PROJECT_DIR$/mobile/src/app/app.component.ts" />
-      <change beforePath="$PROJECT_DIR$/mobile/src/app/app.html" afterPath="$PROJECT_DIR$/mobile/src/app/app.html" />
-      <change beforePath="$PROJECT_DIR$/mobile/src/app/app.module.ts" afterPath="$PROJECT_DIR$/mobile/src/app/app.module.ts" />
-      <change beforePath="$PROJECT_DIR$/mobile/src/app/app.scss" afterPath="$PROJECT_DIR$/mobile/src/app/app.scss" />
-      <change beforePath="$PROJECT_DIR$/mobile/src/pages/benefits/benefits.scss" afterPath="$PROJECT_DIR$/mobile/src/pages/benefits/benefits.scss" />
-      <change beforePath="$PROJECT_DIR$/mobile/src/pages/login/login.html" afterPath="$PROJECT_DIR$/mobile/src/pages/login/login.html" />
-      <change beforePath="$PROJECT_DIR$/mobile/src/pages/register/register.html" afterPath="$PROJECT_DIR$/mobile/src/pages/register/register.html" />
-      <change beforePath="$PROJECT_DIR$/mobile/src/pages/register/register.ts" afterPath="$PROJECT_DIR$/mobile/src/pages/register/register.ts" />
+      <change beforePath="$PROJECT_DIR$/mobile/src/pages/contact/contact.html" afterPath="$PROJECT_DIR$/mobile/src/pages/contact/contact.html" />
+      <change beforePath="$PROJECT_DIR$/mobile/src/pages/contact/contact.ts" afterPath="$PROJECT_DIR$/mobile/src/pages/contact/contact.ts" />
     </list>
     <ignored path=".idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,12 +16,52 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="board-people.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="board-people.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mobile/src/pages/board/board-people/board-people.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="30" lean-forward="true" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
+            <state relative-caret-position="345">
+              <caret line="23" column="130" lean-forward="false" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="130" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="benefits.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mobile/src/pages/benefits/benefits.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="15" selection-end-column="15" />
+              <folding>
+                <element signature="n#div#0;n#ion-content#0;n#!!top" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="contact.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/mobile/src/pages/contact/contact.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="14" column="39" lean-forward="false" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+              <caret line="21" column="39" lean-forward="false" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
+              <caret line="28" column="39" lean-forward="false" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
+              <folding>
+                <element signature="e#509#515#0" expanded="true" />
+                <element signature="e#827#833#0" expanded="true" />
+                <element signature="e#1215#1221#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="contact.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mobile/src/pages/contact/contact.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="3" lean-forward="true" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
+              <folding>
+                <element signature="e#0#42#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -65,6 +98,7 @@
       <find>[(ngModel)]=&quot;RegisterForm1</find>
       <find>opcion</find>
       <find>fech</find>
+      <find>, public navParams: NavParams</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -106,7 +140,6 @@
         <option value="$PROJECT_DIR$/mobile/src/pages/infox/infox.html" />
         <option value="$PROJECT_DIR$/mobile/config.xml" />
         <option value="$PROJECT_DIR$/mobile/src/pages/login/login.html" />
-        <option value="$PROJECT_DIR$/mobile/src/pages/contact/contact.html" />
         <option value="$PROJECT_DIR$/mobile/src/app/app.html" />
         <option value="$PROJECT_DIR$/mobile/src/app/app.scss" />
         <option value="$PROJECT_DIR$/mobile/src/app/app.component.ts" />
@@ -121,6 +154,8 @@
         <option value="$PROJECT_DIR$/mobile/src/pages/board/board-people/board-people.scss" />
         <option value="$PROJECT_DIR$/mobile/src/pages/board/board-people/board-people.html" />
         <option value="$PROJECT_DIR$/mobile/src/pages/board/board-people/board-people.ts" />
+        <option value="$PROJECT_DIR$/mobile/src/pages/contact/contact.ts" />
+        <option value="$PROJECT_DIR$/mobile/src/pages/contact/contact.html" />
       </list>
     </option>
   </component>
@@ -229,32 +264,7 @@
               <item name="mobile" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="benefits" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="centralesdeabastosdelarepublicamexicana" type="b2602c69:ProjectViewProjectNode" />
-              <item name="centralesdeabastosdelarepublicamexicana" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="mobile" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="board" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="centralesdeabastosdelarepublicamexicana" type="b2602c69:ProjectViewProjectNode" />
-              <item name="centralesdeabastosdelarepublicamexicana" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="mobile" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="board" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="board-people" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="centralesdeabastosdelarepublicamexicana" type="b2602c69:ProjectViewProjectNode" />
-              <item name="centralesdeabastosdelarepublicamexicana" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="mobile" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="register" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="contact" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="centralesdeabastosdelarepublicamexicana" type="b2602c69:ProjectViewProjectNode" />
@@ -322,12 +332,12 @@
       <workItem from="1519326901947" duration="134000" />
       <workItem from="1519379850773" duration="399000" />
       <workItem from="1519405130081" duration="5173000" />
-      <workItem from="1519424405118" duration="19596000" />
+      <workItem from="1519424405118" duration="20225000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77750000" />
+    <option name="totallyTimeSpent" value="78379000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1461" y="131" width="1440" height="878" extended-state="0" />
@@ -337,7 +347,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31673053" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.77905494" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18884121" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -366,11 +376,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/mobile/src/assets/img/benefits/canaco-pub.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mobile/src/app/main.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -628,14 +633,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/pages/contact/contact.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mobile/src/app/app.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -676,16 +673,6 @@
           <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding>
             <element signature="e#0#41#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/pages/benefits/benefits.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="4" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="95" selection-end-column="10" />
-          <folding>
-            <element signature="n#div#0;n#ion-content#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -748,9 +735,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mobile/src/pages/board/board-people/board-people.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="30" lean-forward="true" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
+        <state relative-caret-position="345">
+          <caret line="23" column="130" lean-forward="false" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="130" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/pages/benefits/benefits.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="15" selection-end-column="15" />
+          <folding>
+            <element signature="n#div#0;n#ion-content#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/pages/contact/contact.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="3" lean-forward="true" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/pages/contact/contact.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="14" column="39" lean-forward="false" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+          <caret line="21" column="39" lean-forward="false" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
+          <caret line="28" column="39" lean-forward="false" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
+          <folding>
+            <element signature="e#509#515#0" expanded="true" />
+            <element signature="e#827#833#0" expanded="true" />
+            <element signature="e#1215#1221#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
