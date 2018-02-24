@@ -28,11 +28,20 @@
 }
 
 .circled-icon {
-  background: map_get($colors, primary);
-  height: 100px;
-  width: 100px;
-  border-radius: 60%;
-  margin: 0 auto;
+  &.activated {
+    background: none !important;
+    .img-container {
+      background: map_get($colors, secondary) !important;
+    }
+  }
+  .img-container {
+    background: map_get($colors, primary);
+    height: 100px;
+    width: 100px;
+    border-radius: 60%;
+    margin: 0 auto;
+  }
+
   img {
     position: relative;
     top: 32px;
@@ -42,9 +51,16 @@
 }
 
 .title-border-bottom {
-  font-weight: bold;
-  text-transform: uppercase;
   border-bottom: 3px solid map_get($colors, primary) !important;
+  font-weight: bold;
+  &.list-header-md {
+    border-top: none;
+  }
+}
+
+.title-border-bottom-infox {
+  border-bottom: 3px solid map_get($colors, infox) !important;
+  font-weight: bold;
   &.list-header-md {
     border-top: none;
   }
@@ -75,10 +91,15 @@
     .menu-item {
       height: 50px;
       line-height: 0;
+      ion-icon {
+        top: 17px;
+        position: absolute;
+      }
       .menu-item-border {
         border-bottom: 3px solid map_get($colors, primary) !important;
         position: absolute;
         padding-bottom: 15px;
+        margin-left: 23px;
       }
     }
   }
@@ -108,8 +129,18 @@
   font-size: small;
 }
 
-.no-overflow{
-    overflow: initial;
+.no-overflow {
+  overflow: initial;
+}
+
+.big-header-button {
+  button {
+    top: -5px !important;
+    ion-icon {
+      font-size: 35px;
+      font-weight: 900;
+    }
+  }
 }
 
 form {

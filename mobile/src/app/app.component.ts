@@ -13,16 +13,17 @@ export class MyApp {
 
     rootPage: any = 'HomePage';
 
-    pages: Array<{ title: string, component: any }>;
+    pages: Array<{ title: string, component: any, icon: string }>;
 
     constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public keyboard: Keyboard) {
         this.initializeApp();
         this.pages = [
-            {title: 'INICIO', component: 'HomePage'},
-            {title: '¿QUIENES SOMOS?', component: 'AboutPage'},
-            {title: '¡AFÍLIATE AHORA!', component: 'RegisterPage'},
-            {title: 'BENEFICIOS', component: 'BenefitsPage'},
-            {title: '¿QUÉ ES INFOX?', component: 'InfoxPage'},
+            {title: 'INICIO', component: 'HomePage', icon: 'home'},
+            {title: '¡AFÍLIATE AHORA!', component: 'RegisterPage', icon: 'md-clipboard'},
+            {title: 'INICIAR SESIÓN', component: 'LoginPage', icon: 'md-exit'},
+            {title: 'BENEFICIOS', component: 'BenefitsPage', icon: 'logo-buffer'},
+            {title: '¿QUÉ ES INFOX?', component: 'InfoxPage', icon: 'information-circle'},
+            {title: '¿QUIENES SOMOS?', component: 'AboutPage', icon: 'ios-people'},
         ];
 
         moment.updateLocale('es', {
