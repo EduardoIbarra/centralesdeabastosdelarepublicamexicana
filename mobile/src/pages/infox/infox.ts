@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the InfoxPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import {IonicPage, NavController, NavParams, Platform} from 'ionic-angular';
+import { Market } from '@ionic-native/market';
 
 @IonicPage()
 @Component({
@@ -15,11 +9,28 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class InfoxPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    packageName: any = {
+        android: 'infox.buscador',
+        ios: 'id1277925047',
+    };
+
+    isIos: boolean;
+  constructor(
+      public navCtrl: NavController,
+      public navParams: NavParams,
+      public platform: Platform,
+      public market: Market
+  ) {
+
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad InfoxPage');
+      this.isIos = this.platform.is('ios');
+  }
+
+  openMarket(){
+      if(this.isIos)this.market.open(this.packageName.ios);
+      if(!this.isIos)this.market.open(this.packageName.android);
   }
 
 }

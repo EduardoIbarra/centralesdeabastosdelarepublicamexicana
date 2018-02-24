@@ -8,6 +8,7 @@ import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {Keyboard} from "@ionic-native/keyboard";
 import {CalendarModule} from "ion2-calendar";
+import { Market } from '@ionic-native/market';
 
 @NgModule({
     declarations: [
@@ -32,6 +33,7 @@ import {CalendarModule} from "ion2-calendar";
         StatusBar,
         SplashScreen,
         Keyboard,
+        Market,
         {provide: ErrorHandler, useClass: IonicErrorHandler}
     ]
 })

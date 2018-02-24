@@ -1,15 +1,37 @@
 <ion-header>
 
-  <ion-navbar class="big-header-button">
-    <button ion-button menuToggle="left">
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>¿Qué es Infox?</ion-title>
-  </ion-navbar>
+    <ion-navbar class="big-header-button">
+        <button ion-button menuToggle="left">
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>¿Qué es Infox?</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
 
+    <div text-center class="logo">
+        <img src="assets/img/infox/logo-infox.png">
+    </div>
+
+    <br/>
+    <ion-list no-lines>
+        <ion-list-header class="title-border-bottom-infox" text-center>Descripción</ion-list-header>
+        <ion-item text-justify text-wrap class="description">
+            <p>
+                Es un buscador comercial que te permite encontrar negocios, servicios, lugares, escuelas, hoteles, etc. dentro y fuera de tu localidad.
+            </p>
+        </ion-item>
+    </ion-list>
+
+    <br/>
+
+    <div text-center>
+        <button ion-button color="infox" (tap)="openMarket()">
+            <ion-icon name="appstore"></ion-icon>
+            &nbsp;Descargar Infox
+        </button>
+    </div>
 </ion-content>

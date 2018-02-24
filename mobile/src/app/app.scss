@@ -58,6 +58,14 @@
   }
 }
 
+.title-border-bottom-infox {
+  border-bottom: 3px solid map_get($colors, infox) !important;
+  font-weight: bold;
+  &.list-header-md {
+    border-top: none;
+  }
+}
+
 .dark-menu {
   .menu-logo-img {
     text-align: center;
