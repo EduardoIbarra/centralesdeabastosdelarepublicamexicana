@@ -1,6 +1,6 @@
 <ion-header>
 
-    <ion-navbar>
+    <ion-navbar class="big-header-button">
         <ion-title>Registro</ion-title>
     </ion-navbar>
 
@@ -8,10 +8,7 @@
 
 
 <ion-content padding>
-    <ion-list-header class="title-border-bottom" text-center>Registrate en linea</ion-list-header>
-    <br/>
-
-    <div text-center>
+    <div text-center class="steps-label">
         <ion-title>Paso {{slideIndex+1}} de 3</ion-title>
     </div>
     <br/>
@@ -20,7 +17,7 @@
             <form [formGroup]="RegisterForm1">
                 <ion-list>
                     <br/>
-                    <ion-list-header text-wrap text-center><b>Información Personal</b></ion-list-header>
+                    <ion-list-header text-wrap text-center class="title-border-bottom">Información Personal</ion-list-header>
                     <ion-item>
                         <ion-label floating color="secondary">Clave del socio</ion-label>
                         <ion-input type="text" formControlName="PartnerKey" [(ngModel)]="RegisterFormData.PartnerKey"
@@ -152,6 +149,7 @@
             <br/>
             <div text-ceter>
                 <button ion-button color="secondary" round (tap)="next()">
+                    Siguiente&nbsp;
                     <ion-icon name="md-arrow-forward"></ion-icon>
                 </button>
             </div>
@@ -160,9 +158,9 @@
             <form [formGroup]="RegisterForm2">
                 <ion-list>
                     <br/>
-                    <ion-list-header text-wrap text-center><b>Domicilio Personal</b></ion-list-header>
+                    <ion-list-header text-wrap text-center class="title-border-bottom"><b>Domicilio Personal</b></ion-list-header>
                     <ion-item>
-                        <ion-label floating color="secondary">Domicilio Fiscal</ion-label>
+                        <ion-label floating color="secondary">Domicilio Personal</ion-label>
                         <ion-input type="text" formControlName="UserAddress" [(ngModel)]="RegisterFormData.UserAddress"
                                    [class.invalid]="!RegisterForm2.controls.UserAddress.valid && (RegisterForm2.controls.UserAddress.dirty || submitAttemptForm2)"
                                    [class.valid]="RegisterForm2.controls.UserAddress.valid"></ion-input>
@@ -227,10 +225,12 @@
                     <ion-col col-6 text-left>
                         <button ion-button color="secondary" round (tap)="prev()">
                             <ion-icon name="md-arrow-back"></ion-icon>
+                            &nbsp;Atrás
                         </button>
                     </ion-col>
                     <ion-col col-6 text-right>
                         <button ion-button color="secondary" round (tap)="next()">
+                            Siguiente&nbsp;
                             <ion-icon name="md-arrow-forward"></ion-icon>
                         </button>
                     </ion-col>
@@ -241,7 +241,7 @@
             <form [formGroup]="RegisterForm3">
                 <ion-list>
                     <br/>
-                    <ion-list-header text-wrap text-center><b>Domicilio Fiscal</b></ion-list-header>
+                    <ion-list-header text-wrap text-center class="title-border-bottom"><b>Domicilio Fiscal</b></ion-list-header>
                     <ion-item>
                         <ion-label floating color="secondary">Domicilio Comercial</ion-label>
                         <ion-input type="text" formControlName="BusinessAddress" [(ngModel)]="RegisterFormData.BusinessAddress"
@@ -336,14 +336,16 @@
             <br/>
             <ion-grid no-padding>
                 <ion-row>
-                    <ion-col col-6 text-left>
+                    <ion-col col-4 text-left>
                         <button ion-button color="secondary" round (tap)="prev()">
                             <ion-icon name="md-arrow-back"></ion-icon>
+                            &nbsp;Atrás
                         </button>
                     </ion-col>
-                    <ion-col col-6 text-right>
+                    <ion-col col-8 text-right>
                         <button ion-button color="secondary" round (tap)="next()">
                             <ion-icon name="md-done-all"></ion-icon>
+                            &nbsp;Registrarse
                         </button>
                     </ion-col>
                 </ion-row>

@@ -1,0 +1,52 @@
+page-login {
+
+  .transparent-header {
+    .toolbar-background,
+    ion-navbar, ion-header {
+      background-color: transparent !important;
+      z-index: 9999;
+      position: absolute;
+    }
+    .header-md::after, .toolbar-background-ios {
+      background-image: none;
+      border-bottom: 0;
+    }
+    .header-ios .toolbar-background-ios, .footer-ios .toolbar-background-ios {
+      border: 0;
+    }
+  }
+
+  .scroll-content {
+    margin-top: 0 !important;
+  }
+
+  .login-container {
+    position: absolute;
+    top: 0;
+    padding: 10vw 5vw;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    .logo {
+      width: 45%;
+      height: auto;
+      margin-bottom: 5vh;
+    }
+
+    .input-icon {
+      top: 11px;
+      position: relative;
+    }
+  }
+
+  .infox-watermark {
+    bottom: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    opacity: 0.7;
+    img {
+      width: 25vw;
+    }
+  }
+}

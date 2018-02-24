@@ -1,9 +1,9 @@
 <ion-header>
-    <ion-navbar>
+    <ion-navbar class="big-header-button">
         <button ion-button menuToggle="left">
             <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title>Afiliación</ion-title>
+        <ion-title>¡Afíliate Ya!</ion-title>
     </ion-navbar>
 
 </ion-header>
@@ -11,30 +11,27 @@
 <ion-content padding>
 
     <ion-list>
-        <ion-list-header class="title-border-bottom" text-center>¡Afíliate ya!</ion-list-header>
-        <br/>
-
         <ion-grid>
             <ion-row>
                 <ion-col col-6>
-                    <ion-item text-center text-wrap no-lines>
-                        <div class="circled-icon" (tap)="goToPage('BenefitsPage')" >
+                    <button ion-item detail-none text-center text-wrap no-lines class="circled-icon" (tap)="goToPage('BenefitsPage')">
+                        <div class="img-container">
                             <img src="assets/img/register/benefits.png">
                         </div>
                         <ion-card-header class="no-overflow">
                             <b>BENEFICIOS</b>
                         </ion-card-header>
-                    </ion-item>
+                    </button>
                 </ion-col>
                 <ion-col col-6>
-                    <ion-item text-center text-wrap no-lines>
-                        <div class="circled-icon" (tap)="goToPage('RegisterFormPage')">
+                    <button ion-item detail-none text-center text-wrap no-lines class="circled-icon" (tap)="goToPage('RegisterFormPage')">
+                        <div class="img-container">
                             <img src="assets/img/register/register.png">
                         </div>
                         <ion-card-header class="no-overflow">
                             <b>REGISTRO</b>
                         </ion-card-header>
-                    </ion-item>
+                    </button>
                 </ion-col>
             </ion-row>
         </ion-grid>
@@ -51,7 +48,7 @@
             </p>
         </accordion-list>
         <br/>
-        <ion-list-header class="title-border-bottom" text-center>Tipos de membresía</ion-list-header>
+        <ion-list-header class="title-border-bottom" text-center><b>Tipos de membresía</b></ion-list-header>
         <div class="membership-img" text-center>
             <p>Pellizca o doble click en la imagen</p>
             <ion-slides [zoom]="true">
