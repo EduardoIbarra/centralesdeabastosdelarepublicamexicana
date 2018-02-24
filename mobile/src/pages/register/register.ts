@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {SharedService} from "../../services/shared.service";
 
 @IonicPage()
 @Component({
@@ -12,6 +13,7 @@ export class RegisterPage {
 
     constructor(
         public navCtrl: NavController,
+        public sharedService: SharedService,
         public navParams: NavParams
     ) {
     }
@@ -110,19 +112,6 @@ export class RegisterPage {
             }
         ]
     }
-
-
-    linkify(inputText) {
-        let regex = new RegExp(
-            "\\+?\\(?\\d*\\)? ?\\(?\\d+\\)?\\d*([\\s./-]?\\d{2,})+",
-            "g"
-        );
-        let output = inputText.replace(regex, function (m) {
-            let match = m.replace(/ /g, '');
-            return '<a href="tel:' + match + '">' + m + '</a>';
-        });
-        return output;
-    };
 
     goToPage(page){
         this.navCtrl.push(page);

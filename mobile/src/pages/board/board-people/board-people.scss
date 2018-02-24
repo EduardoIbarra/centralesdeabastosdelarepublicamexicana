@@ -1,0 +1,24 @@
+page-board-people {
+  .item-list {
+    ion-grid{
+      padding: 0 !important;
+    }
+    img {
+      width: 80%;
+      height: auto;
+      margin: 0 auto;
+    }
+    ion-card {
+      height: 100% !important;
+      margin: 0 auto !important;
+      border-bottom: 2px solid map_get($colors, primary);
+      box-shadow: none;
+      ion-card-content {
+        padding: 10px 5px !important;
+      }
+    }
+  }
+
+
+
+}

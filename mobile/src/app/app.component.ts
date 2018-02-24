@@ -12,7 +12,7 @@ export class MyApp {
     @ViewChild(Nav) nav: Nav;
 
     rootPage: any = 'HomePage';
-
+activePage: any;
     pages: Array<{ title: string, component: any, icon: string }>;
 
     constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public keyboard: Keyboard) {
@@ -21,10 +21,14 @@ export class MyApp {
             {title: 'INICIO', component: 'HomePage', icon: 'home'},
             {title: '¡AFÍLIATE AHORA!', component: 'RegisterPage', icon: 'md-clipboard'},
             {title: 'INICIAR SESIÓN', component: 'LoginPage', icon: 'md-exit'},
+            {title: 'DIRECTORIO', component: 'BoardPage', icon: 'md-book'},
             {title: 'BENEFICIOS', component: 'BenefitsPage', icon: 'logo-buffer'},
             {title: '¿QUÉ ES INFOX?', component: 'InfoxPage', icon: 'information-circle'},
             {title: '¿QUIENES SOMOS?', component: 'AboutPage', icon: 'ios-people'},
+            {title: 'CONTÁCTANOS', component: 'ContactPage', icon: 'ios-chatbubbles'},
         ];
+
+        this.activePage = this.pages[0];
 
         moment.updateLocale('es', {
             monthsShort: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"],
@@ -45,5 +49,15 @@ export class MyApp {
 
     openPage(page) {
         this.nav.setRoot(page.component);
+        this.activePage = page;
+    }
+
+    //Higlight tab on sidemenu
+    checkActive(page) {
+        if (page.component == 'LanguageSelectionPage') {
+            return false;
+        } else {
+            return page == this.activePage;
+        }
     }
 }

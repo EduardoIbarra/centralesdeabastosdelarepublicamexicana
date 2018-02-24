@@ -9,6 +9,7 @@ import {SplashScreen} from '@ionic-native/splash-screen';
 import {Keyboard} from "@ionic-native/keyboard";
 import {CalendarModule} from "ion2-calendar";
 import { Market } from '@ionic-native/market';
+import {SharedService} from "../services/shared.service";
 
 @NgModule({
     declarations: [
@@ -34,6 +35,7 @@ import { Market } from '@ionic-native/market';
         SplashScreen,
         Keyboard,
         Market,
+        SharedService,
         {provide: ErrorHandler, useClass: IonicErrorHandler}
     ]
 })

@@ -23,6 +23,10 @@
   font-family: Lato;
 }
 
+.activeHighlight {
+  background-color: map-get($colors, dark) !important;
+}
+
 .no-rotate {
   transform: rotate(0deg) !important;
 }
@@ -53,6 +57,7 @@
 .title-border-bottom {
   border-bottom: 3px solid map_get($colors, primary) !important;
   font-weight: bold;
+  text-transform: uppercase;
   &.list-header-md {
     border-top: none;
   }
@@ -92,7 +97,7 @@
       height: 50px;
       line-height: 0;
       ion-icon {
-        top: 17px;
+        top: 14px;
         position: absolute;
       }
       .menu-item-border {

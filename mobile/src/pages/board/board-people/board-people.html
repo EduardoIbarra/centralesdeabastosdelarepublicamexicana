@@ -1,0 +1,36 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>{{title}}</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <div class="item-list">
+        <ion-grid>
+            <ion-row *ngFor="let item of items">
+                <ion-card>
+                    <ion-card-content class="image-container" text-center text-wrap>
+                        <img [src]="item.imgUrl">
+                        <br/>
+                        <div *ngIf="type === 0">
+                            {{item.name}}
+                            <br/>
+                            <span *ngIf="item.companyName"><b>{{item.companyName}}</b></span>
+                        </div>
+                        <div *ngIf="type === 1 || type === 2">
+                           Tel. <span [innerHtml]="sharedService.linkify(item.phone)">{{sharedService.linkify(item.phone)}}</span> Ext. {{item.ext}}
+                            <br/>
+                            <span>{{item.email}}</span>
+                        </div>
+                        <br/>
+                    </ion-card-content>
+                </ion-card>
+            </ion-row>
+        </ion-grid>
+    </div>
+    <br/>
+    <br/>
+</ion-content>

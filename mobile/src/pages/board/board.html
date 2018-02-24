@@ -1,0 +1,49 @@
+<ion-header>
+    <ion-navbar class="big-header-button">
+        <button ion-button menuToggle="left">
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Directorio</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list no-lines class="board-item-list">
+        <ion-list-header text-center text-wrap class="title-border-bottom">Directorio CANACO</ion-list-header>
+
+        <button ion-item detail-none class="board-item" (tap)="goToSubItems(0)">
+            <ion-card>
+                <ion-card-content text-center text-wrap>
+                    <img src="assets/img/board/consejo.png">
+                    <br/>
+                    Consejo Directivo
+                </ion-card-content>
+            </ion-card>
+        </button>
+
+        <br/>
+        <button ion-item detail-none class="board-item" (tap)="goToSubItems(1)">
+            <ion-card>
+                <ion-card-content text-center text-wrap>
+                    <img src="assets/img/board/administrativo.png">
+                    <br/>
+                    Administrativo
+                </ion-card-content>
+            </ion-card>
+        </button>
+        <br/>
+        <button ion-item detail-none class="board-item" (tap)="goToSubItems(2)">
+            <ion-card>
+                <ion-card-content text-center text-wrap>
+                    <img src="assets/img/board/asesores.png">
+                    <br/>
+                    Asesores de Afiliación
+                </ion-card-content>
+            </ion-card>
+        </button>
+
+
+    </ion-list>
+
+</ion-content>
