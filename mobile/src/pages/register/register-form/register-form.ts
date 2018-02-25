@@ -21,11 +21,12 @@ export class RegisterFormPage {
     submitAttemptForm1: boolean = false;
     submitAttemptForm2: boolean = false;
     submitAttemptForm3: boolean = false;
+    validRfcInput: boolean = true;
 
     RegisterFormData: any = {
         //First form slide
         PartnerKey: null,
-        CompanyName: null,
+        SocialDenomination: null,
         LegalRepresentative: null,
         Rfc: null,
         Curp: null,
@@ -59,9 +60,8 @@ export class RegisterFormPage {
         this.RegisterForm1 = formBuilder.group({
             PartnerKey: ['', Validators.compose([
                 Validators.minLength(5),
-                Validators.required
             ])],
-            CompanyName: ['', Validators.compose([
+            SocialDenomination: ['', Validators.compose([
                 Validators.minLength(5),
                 Validators.required
             ])],
@@ -70,20 +70,20 @@ export class RegisterFormPage {
             ])],
             Rfc: ['', Validators.compose([
                 Validators.required,
-                Validators.minLength(13),
+                Validators.minLength(12),
                 Validators.maxLength(13),
                 Validators.pattern('^([0-9]+[a-zA-Z]+|[a-zA-Z]+[0-9]+)[0-9a-zA-Z]*$'),
             ])],
             HomePhone: ['', Validators.compose([
                 Validators.minLength(10),
                 Validators.maxLength(10),
-                Validators.pattern('/^\\d+$/'),
+                Validators.pattern('^[0-9]*$'),
             ])],
             Cellphone: ['', Validators.compose([
                 Validators.required,
                 Validators.minLength(10),
                 Validators.maxLength(10),
-                Validators.pattern('/^\\d+$/'),
+                Validators.pattern('^[0-9]*$'),
             ])],
             Curp: ['', Validators.compose([
                 Validators.required,
@@ -96,23 +96,23 @@ export class RegisterFormPage {
             ])],
             WebPage: ['', Validators.compose([])],
             Email: ['', Validators.compose([
-                Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'),
-                Validators.required
+                Validators.required,
+                Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
             ])],
         });
 
         this.RegisterForm2 = formBuilder.group({
             UserAddress: ['', Validators.compose([
-                Validators.minLength(5),
-                Validators.required
+                Validators.required,
+                Validators.minLength(5)
             ])],
             UserSettlement: ['', Validators.compose([
-                Validators.minLength(5),
-                Validators.required
+                Validators.required,
+                Validators.minLength(5)
             ])],
             UserStreets: ['', Validators.compose([
-                Validators.minLength(10),
-                Validators.required
+                Validators.required,
+                Validators.minLength(10)
             ])],
             UserCity: ['', Validators.compose([
                 Validators.required,
@@ -121,18 +121,18 @@ export class RegisterFormPage {
             UserPostalCode: ['', Validators.compose([
                 Validators.minLength(5),
                 Validators.maxLength(5),
-                Validators.pattern('/^\\d+$/'),
+                Validators.pattern('^[0-9]*$'),
             ])],
         });
 
         this.RegisterForm3 = formBuilder.group({
             BusinessAddress: ['', Validators.compose([
-                Validators.minLength(5),
-                Validators.required
+                Validators.required,
+                Validators.minLength(5)
             ])],
             BusinessSettlement: ['', Validators.compose([
-                Validators.minLength(5),
-                Validators.required
+                Validators.required,
+                Validators.minLength(5)
             ])],
             BusinessStreets: ['', Validators.compose([
                 Validators.required,
@@ -141,24 +141,41 @@ export class RegisterFormPage {
             BusinessPostalCode: ['', Validators.compose([
                 Validators.minLength(5),
                 Validators.maxLength(5),
-                Validators.pattern('/^\\d+$/'),
+                Validators.pattern('^[0-9]*$'),
             ])],
             BusinessPhone: ['', Validators.compose([
                 Validators.minLength(10),
                 Validators.maxLength(10),
-                Validators.pattern('/^\\d+$/'),
+                Validators.pattern('^[0-9]*$'),
             ])],
+        });
+
+        //Change chars to uppercase on change
+        this.RegisterForm1.controls['Rfc'].valueChanges.subscribe((Rfc) => {
+            if (Rfc) this.RegisterFormData.Rfc = this.RegisterFormData.Rfc.toUpperCase();
+            if (this.RegisterFormData.SocialDenomination === 'Fiscal' && this.RegisterFormData.Rfc) this.validRfcInput = this.RegisterFormData.Rfc.length === 13;
+            if (this.RegisterFormData.SocialDenomination === 'Moral' && this.RegisterFormData.Rfc) this.validRfcInput = this.RegisterFormData.Rfc.length === 12;
+
+        });
+
+        this.RegisterForm1.controls['Curp'].valueChanges.subscribe((Curp) => {
+            if (Curp) this.RegisterFormData.Curp = this.RegisterFormData.Curp.toUpperCase()
+        });
+
+        this.RegisterForm1.controls['SocialDenomination'].valueChanges.subscribe(SocialDenomination => {
+            if (SocialDenomination == 'Fiscal' && this.RegisterFormData.Rfc) this.validRfcInput = this.RegisterFormData.Rfc.length === 13;
+            if (SocialDenomination == 'Moral' && this.RegisterFormData.Rfc) this.validRfcInput = this.RegisterFormData.Rfc.length === 12;
         });
     }
 
     ionViewDidLoad() {
         this.slides.lockSwipes(true);
-        this.navBar.backButtonClick = (e: UIEvent) =>{
+        this.navBar.backButtonClick = (e: UIEvent) => {
             this.showBackButtonAlert();
         }
     }
 
-    showBackButtonAlert(){
+    showBackButtonAlert() {
         let alert = this.alertCtrl.create({
             title: 'Cancelar Afiliación',
             message: 'La información que ha ingresado se perderá.',
@@ -169,7 +186,7 @@ export class RegisterFormPage {
                 handler: () => {
                     this.navCtrl.pop();
                 }
-            },{
+            }, {
                 text: 'Seguir aquí',
                 cssClass: 'color-primary-light bold',
             }]
@@ -178,19 +195,30 @@ export class RegisterFormPage {
         alert.present();
     }
 
-    transformToUppercase(inputType){
-        if(inputType === 'RFC') this.RegisterFormData.Rfc = this.RegisterFormData.Rfc.toUpperCase();
-        if(inputType === 'CURP')this.RegisterFormData.Curp = this.RegisterFormData.Curp.toUpperCase();
-    }
-
-    next() {
-        this.slides.lockSwipes(false);
-        this.content.scrollToTop(1000);
-        this.slides.slideNext();
-        this.slides.lockSwipes(true);
-
-        if(this.slideIndex === 2){
-            console.log(this.RegisterFormData);
+    next(formNumber) {
+        if (formNumber === 1) {
+            if (this.RegisterForm1.valid) {
+                this.submitAttemptForm1 = false;
+                this.swipeNext();
+            } else {
+                this.submitAttemptForm1 = true;
+            }
+        }
+        if (formNumber === 2) {
+            if (this.RegisterForm2.valid) {
+                this.submitAttemptForm2 = false;
+                this.swipeNext();
+            } else {
+                this.submitAttemptForm2 = true;
+            }
+        }
+        if (formNumber === 3) {
+            if (this.RegisterForm3.valid) {
+                this.submitAttemptForm3 = false;
+                this.registerUser();
+            } else {
+                this.submitAttemptForm3 = true;
+            }
         }
     }
 
@@ -201,8 +229,20 @@ export class RegisterFormPage {
         this.slides.lockSwipes(true);
     }
 
-    getSlideIndex(){
+    swipeNext() {
+        this.slides.lockSwipes(false);
+        this.content.scrollToTop(1000);
+        this.slides.slideNext();
+        this.slides.lockSwipes(true);
+    }
+
+    getSlideIndex() {
         this.slideIndex = this.slides.getActiveIndex();
+    }
+
+    registerUser() {
+        console.log('Registro Correcto');
+        console.log(this.RegisterFormData);
     }
 
 }

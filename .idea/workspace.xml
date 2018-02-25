@@ -3,14 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="19cba34d-3cb8-460f-aec0-d65782c82364" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/mobile/config.xml" afterPath="$PROJECT_DIR$/mobile/config.xml" />
-      <change beforePath="$PROJECT_DIR$/mobile/src/app/app.scss" afterPath="$PROJECT_DIR$/mobile/src/app/app.scss" />
+      <change beforePath="$PROJECT_DIR$/mobile/.gitignore" afterPath="$PROJECT_DIR$/mobile/.gitignore" />
       <change beforePath="$PROJECT_DIR$/mobile/src/pages/register/register-form/register-form.html" afterPath="$PROJECT_DIR$/mobile/src/pages/register/register-form/register-form.html" />
-      <change beforePath="$PROJECT_DIR$/mobile/src/pages/register/register-form/register-form.scss" afterPath="$PROJECT_DIR$/mobile/src/pages/register/register-form/register-form.scss" />
       <change beforePath="$PROJECT_DIR$/mobile/src/pages/register/register-form/register-form.ts" afterPath="$PROJECT_DIR$/mobile/src/pages/register/register-form/register-form.ts" />
-      <change beforePath="$PROJECT_DIR$/mobile/src/services/shared.service.ts" afterPath="$PROJECT_DIR$/mobile/src/services/shared.service.ts" />
     </list>
     <ignored path=".idea/" />
+    <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,40 +33,26 @@
       <file leaf-file-name="register-form.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mobile/src/pages/register/register-form/register-form.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="148" column="47" lean-forward="true" selection-start-line="148" selection-start-column="47" selection-end-line="148" selection-end-column="47" />
+            <state relative-caret-position="559">
+              <caret line="152" column="45" lean-forward="true" selection-start-line="152" selection-start-column="45" selection-end-line="152" selection-end-column="45" />
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
+                <element signature="n#!!block;n#ionViewDidLoad#0;n#RegisterFormPage#0" expanded="false" />
+                <element signature="n#!!block;n#showBackButtonAlert#0;n#RegisterFormPage#0" expanded="false" />
+                <element signature="n#!!block;n#next#0;n#RegisterFormPage#0" expanded="false" />
+                <element signature="n#!!block;n#prev#0;n#RegisterFormPage#0" expanded="false" />
+                <element signature="n#!!block;n#swipeNext#0;n#RegisterFormPage#0" expanded="false" />
+                <element signature="n#!!block;n#getSlideIndex#0;n#RegisterFormPage#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="register-form.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mobile/src/pages/register/register-form/register-form.scss">
+      <file leaf-file-name="register-form.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mobile/src/pages/register/register-form/register-form.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mobile/src/app/app.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="146" column="20" lean-forward="false" selection-start-line="146" selection-start-column="1" selection-end-line="146" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="shared.service.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mobile/src/services/shared.service.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="30" column="7" lean-forward="true" selection-start-line="30" selection-start-column="7" selection-end-line="38" selection-end-column="14" />
+            <state relative-caret-position="376">
+              <caret line="66" column="31" lean-forward="true" selection-start-line="66" selection-start-column="31" selection-end-line="66" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -87,6 +71,8 @@
       <find>opcion</find>
       <find>fech</find>
       <find>, public navParams: NavParams</find>
+      <find>cordova</find>
+      <find>uppe</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -98,7 +84,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/mobile/.gitignore" />
         <option value="$PROJECT_DIR$/mobile/src/pages/home/home.module.ts" />
         <option value="$PROJECT_DIR$/mobile/ionic.config.json" />
         <option value="$PROJECT_DIR$/mobile/package-lock.json" />
@@ -144,10 +129,11 @@
         <option value="$PROJECT_DIR$/mobile/src/pages/board/board-people/board-people.html" />
         <option value="$PROJECT_DIR$/mobile/config.xml" />
         <option value="$PROJECT_DIR$/mobile/src/app/app.module.ts" />
-        <option value="$PROJECT_DIR$/mobile/src/pages/register/register-form/register-form.html" />
         <option value="$PROJECT_DIR$/mobile/src/services/shared.service.ts" />
         <option value="$PROJECT_DIR$/mobile/src/pages/register/register-form/register-form.scss" />
         <option value="$PROJECT_DIR$/mobile/src/app/app.scss" />
+        <option value="$PROJECT_DIR$/mobile/.gitignore" />
+        <option value="$PROJECT_DIR$/mobile/src/pages/register/register-form/register-form.html" />
         <option value="$PROJECT_DIR$/mobile/src/pages/register/register-form/register-form.ts" />
       </list>
     </option>
@@ -216,20 +202,6 @@
               <item name="centralesdeabastosdelarepublicamexicana" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="mobile" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="centralesdeabastosdelarepublicamexicana" type="b2602c69:ProjectViewProjectNode" />
-              <item name="centralesdeabastosdelarepublicamexicana" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="mobile" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="centralesdeabastosdelarepublicamexicana" type="b2602c69:ProjectViewProjectNode" />
-              <item name="centralesdeabastosdelarepublicamexicana" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="mobile" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -249,13 +221,6 @@
               <item name="register" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="register-form" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
-            <path>
-              <item name="centralesdeabastosdelarepublicamexicana" type="b2602c69:ProjectViewProjectNode" />
-              <item name="centralesdeabastosdelarepublicamexicana" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="mobile" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="theme" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -264,7 +229,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Ignored.Files" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="SearchEverywhereHistoryKey" value="share&#9;FILE&#9;file:///Users/gobae/PhpstormProjects/centralesdeabastosdelarepublicamexicana/mobile/src/services/shared.service.ts" />
@@ -317,18 +282,27 @@
       <workItem from="1519379850773" duration="399000" />
       <workItem from="1519405130081" duration="5173000" />
       <workItem from="1519424405118" duration="20461000" />
-      <workItem from="1519514614183" duration="18350000" />
+      <workItem from="1519514614183" duration="23237000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96965000" />
+    <option name="totallyTimeSpent" value="101852000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-1440" y="131" width="1440" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32950193" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -361,20 +335,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/mobile/src/components/accordion-list/accordion-list.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="12" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/components/accordion-list/accordion-list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="40" lean-forward="true" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mobile/src/pages/register/register.module.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -681,24 +641,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/pages/register/register-form/register-form.html">
+    <entry file="file://$PROJECT_DIR$/mobile/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="89" column="58" lean-forward="false" selection-start-line="89" selection-start-column="58" selection-end-line="89" selection-end-column="58" />
-          <folding>
-            <element signature="e#10246#10252#0" expanded="false" />
-            <element signature="e#15471#15477#0" expanded="false" />
-            <element signature="e#15715#15721#0" expanded="false" />
-            <element signature="e#21227#21233#0" expanded="false" />
-            <element signature="e#21531#21537#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/services/shared.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="30" column="7" lean-forward="true" selection-start-line="30" selection-start-column="7" selection-end-line="38" selection-end-column="14" />
+        <state relative-caret-position="510">
+          <caret line="34" column="17" lean-forward="false" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -719,12 +665,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/services/shared.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="30" column="7" lean-forward="true" selection-start-line="30" selection-start-column="7" selection-end-line="38" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/node_modules/@angular/forms/src/model.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-761">
+          <caret line="153" column="4" lean-forward="false" selection-start-line="153" selection-start-column="4" selection-end-line="153" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/pages/register/register-form/register-form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="66" column="31" lean-forward="true" selection-start-line="66" selection-start-column="31" selection-end-line="66" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mobile/src/pages/register/register-form/register-form.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="148" column="47" lean-forward="true" selection-start-line="148" selection-start-column="47" selection-end-line="148" selection-end-column="47" />
+        <state relative-caret-position="559">
+          <caret line="152" column="45" lean-forward="true" selection-start-line="152" selection-start-column="45" selection-end-line="152" selection-end-column="45" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
+            <element signature="n#!!block;n#ionViewDidLoad#0;n#RegisterFormPage#0" expanded="false" />
+            <element signature="n#!!block;n#showBackButtonAlert#0;n#RegisterFormPage#0" expanded="false" />
+            <element signature="n#!!block;n#next#0;n#RegisterFormPage#0" expanded="false" />
+            <element signature="n#!!block;n#prev#0;n#RegisterFormPage#0" expanded="false" />
+            <element signature="n#!!block;n#swipeNext#0;n#RegisterFormPage#0" expanded="false" />
+            <element signature="n#!!block;n#getSlideIndex#0;n#RegisterFormPage#0" expanded="false" />
           </folding>
         </state>
       </provider>
