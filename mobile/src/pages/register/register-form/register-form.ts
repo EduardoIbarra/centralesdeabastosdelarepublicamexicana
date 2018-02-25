@@ -36,8 +36,7 @@ export class RegisterFormPage {
         },
         WebPage: null,
         Email: null,
-        Fax: null,
-        LocalPhone: null,
+        HomePhone: null,
         Cellphone: null,
         //Second form slide
         UserAddress: null,
@@ -51,9 +50,6 @@ export class RegisterFormPage {
         BusinessStreets: null,
         BusinessPostalCode: null,
         BusinessPhone: null,
-        BusinessCellphone: null,
-        BusinessFax: null,
-        BusinessEmail: null,
     };
 
     constructor(
@@ -82,7 +78,7 @@ export class RegisterFormPage {
                 Validators.maxLength(13),
                 Validators.pattern('^([0-9]+[a-zA-Z]+|[a-zA-Z]+[0-9]+)[0-9a-zA-Z]*$'),
             ])],
-            LocalPhone: ['', Validators.compose([
+            HomePhone: ['', Validators.compose([
                 Validators.minLength(10),
                 Validators.maxLength(10),
                 Validators.pattern('/^\\d+$/'),
@@ -107,9 +103,6 @@ export class RegisterFormPage {
                 Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'),
                 Validators.required
             ])],
-            Fax: ['', Validators.compose([
-                Validators.pattern('/^\\d+$/'),
-            ])]
         });
 
         this.RegisterForm2 = formBuilder.group({
@@ -130,7 +123,6 @@ export class RegisterFormPage {
                 Validators.minLength(5),
             ])],
             UserPostalCode: ['', Validators.compose([
-                Validators.required,
                 Validators.minLength(5),
                 Validators.maxLength(5),
                 Validators.pattern('/^\\d+$/'),
@@ -151,7 +143,6 @@ export class RegisterFormPage {
                 Validators.minLength(10),
             ])],
             BusinessPostalCode: ['', Validators.compose([
-                Validators.required,
                 Validators.minLength(5),
                 Validators.maxLength(5),
                 Validators.pattern('/^\\d+$/'),
@@ -160,19 +151,6 @@ export class RegisterFormPage {
                 Validators.minLength(10),
                 Validators.maxLength(10),
                 Validators.pattern('/^\\d+$/'),
-            ])],
-            BusinessCellphone: ['', Validators.compose([
-                Validators.required,
-                Validators.minLength(10),
-                Validators.maxLength(10),
-                Validators.pattern('/^\\d+$/'),
-            ])],
-            BusinessFax: ['', Validators.compose([
-                Validators.pattern('/^\\d+$/'),
-            ])],
-            BusinessEmail: ['', Validators.compose([
-                Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'),
-                Validators.required
             ])],
         });
     }

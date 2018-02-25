@@ -87,7 +87,7 @@ export class RegisterPage {
                     isItemList: false,
                     text: 'bereniceresendiz@canacoqro.com.mx',
                     hasIcon: true,
-                    icon: 'ios-at-outline'
+                    icon: 'md-mail-open'
                 }, {
                     isItemList: false,
                     bold: true,

@@ -12,23 +12,33 @@
     <ion-list padding no-lines>
         <ion-list-header text-center text-wrap class="title-border-bottom"><b>Dirección</b></ion-list-header>
         <ion-item text-wrap>
-            <ion-icon  color="secondary" name="pin"></ion-icon>
+            <ion-icon color="secondary" name="pin"></ion-icon>
             &nbsp;
             Av. Luis Vega y Monroy 405 Col. Balaustradas, Querétaro, 76079
         </ion-item>
 
         <ion-list-header text-center text-wrap class="title-border-bottom"><b>Teléfono</b></ion-list-header>
         <ion-item text-wrap>
-            <ion-icon  color="secondary" name="call"></ion-icon>
+            <ion-icon color="secondary" name="call"></ion-icon>
             &nbsp;
             <span [innerHtml]="sharedService.linkify('(442) 537 53 01 ')">{{sharedService.linkify('(442) 537 53 01 ')}}</span>
         </ion-item>
 
         <ion-list-header text-center text-wrap class="title-border-bottom"><b>Correo Eléctronico</b></ion-list-header>
         <ion-item text-wrap>
-            <ion-icon  color="secondary" name="md-mail-open"></ion-icon>
+            <ion-icon color="secondary" name="md-mail-open"></ion-icon>
             &nbsp;
             contacto@canacoqro.com.mx
+        </ion-item>
+
+        <ion-list-header text-center text-wrap class="title-border-bottom"><b>Mapa</b></ion-list-header>
+        <ion-item text-wrap text-center>
+            <div #map id="map"></div>
+            <br/>
+            <button ion-button  large color="secondary" (tap)="openNavigator()">
+                <ion-icon name="md-navigate"></ion-icon>
+                &nbsp;Ir a CANACO
+            </button>
         </ion-item>
 
     </ion-list>

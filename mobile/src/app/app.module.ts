@@ -8,8 +8,9 @@ import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {Keyboard} from "@ionic-native/keyboard";
 import {CalendarModule} from "ion2-calendar";
-import { Market } from '@ionic-native/market';
+import {Market} from '@ionic-native/market';
 import {SharedService} from "../services/shared.service";
+import {LaunchNavigator} from "@ionic-native/launch-navigator";
 
 @NgModule({
     declarations: [
@@ -18,7 +19,7 @@ import {SharedService} from "../services/shared.service";
     imports: [
         BrowserModule,
         CalendarModule,
-        IonicModule.forRoot(MyApp,{
+        IonicModule.forRoot(MyApp, {
             platforms: {
                 ios: {
                     backButtonText: 'Atrás'
@@ -31,12 +32,13 @@ import {SharedService} from "../services/shared.service";
         MyApp,
     ],
     providers: [
+        {provide: ErrorHandler, useClass: IonicErrorHandler},
         StatusBar,
         SplashScreen,
         Keyboard,
         Market,
         SharedService,
-        {provide: ErrorHandler, useClass: IonicErrorHandler}
+        LaunchNavigator
     ]
 })
 export class AppModule {

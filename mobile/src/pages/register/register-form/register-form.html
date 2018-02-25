@@ -1,7 +1,7 @@
 <ion-header>
 
     <ion-navbar class="big-header-button">
-        <ion-title>Registro</ion-title>
+        <ion-title>Afíliación</ion-title>
     </ion-navbar>
 
 </ion-header>
@@ -111,25 +111,15 @@
                         <p class="error-message">Ingresa un Correo Eléctronico valido</p>
                     </ion-item>
 
-                    <ion-item>
-                        <ion-label floating color="secondary">Fax <span class="optional-input-label">(opcional)</span></ion-label>
-                        <ion-input type="tel" formControlName="Fax" [(ngModel)]="RegisterFormData.Fax"
-                                   [class.invalid]="!RegisterForm1.controls.Fax.valid && (RegisterForm1.controls.Fax.dirty || submitAttemptForm1)"
-                                   [class.valid]="RegisterForm1.controls.Fax.valid"></ion-input>
-                        <ion-icon item-end name="md-print" color="primary"></ion-icon>
-                    </ion-item>
-                    <ion-item *ngIf="!RegisterForm1.controls.Fax.valid  && (RegisterForm1.controls.Fax.dirty || submitAttemptForm1)">
-                        <p class="error-message">Ingresa un número de Fax válido</p>
-                    </ion-item>
 
                     <ion-item>
-                        <ion-label floating color="secondary">Telefono Local <span class="optional-input-label">(Opcional)</span></ion-label>
-                        <ion-input type="tel" formControlName="LocalPhone" [(ngModel)]="RegisterFormData.LocalPhone"
-                                   [class.invalid]="!RegisterForm1.controls.LocalPhone.valid && (RegisterForm1.controls.LocalPhone.dirty || submitAttemptForm1)"
-                                   [class.valid]="RegisterForm1.controls.LocalPhone.valid"></ion-input>
+                        <ion-label floating color="secondary">Telefono Casa <span class="optional-input-label">(Opcional)</span></ion-label>
+                        <ion-input type="tel" formControlName="HomePhone" [(ngModel)]="RegisterFormData.HomePhone"
+                                   [class.invalid]="!RegisterForm1.controls.HomePhone.valid && (RegisterForm1.controls.HomePhone.dirty || submitAttemptForm1)"
+                                   [class.valid]="RegisterForm1.controls.HomePhone.valid"></ion-input>
                         <ion-icon item-end name="call" color="primary"></ion-icon>
                     </ion-item>
-                    <ion-item *ngIf="!RegisterForm1.controls.LocalPhone.valid  && (RegisterForm1.controls.LocalPhone.dirty || submitAttemptForm1)">
+                    <ion-item *ngIf="!RegisterForm1.controls.HomePhone.valid  && (RegisterForm1.controls.HomePhone.dirty || submitAttemptForm1)">
                         <p class="error-message">Ingresa un número de Teléfono válido</p>
                     </ion-item>
 
@@ -288,7 +278,7 @@
                     </ion-item>
 
                     <ion-item>
-                        <ion-label floating color="secondary">Telefono Local <span class="optional-input-label">(Opcional)</span></ion-label>
+                        <ion-label floating color="secondary">Telefono Negocio <span class="optional-input-label">(Opcional)</span></ion-label>
                         <ion-input type="tel" formControlName="BusinessPhone" [(ngModel)]="RegisterFormData.BusinessPhone"
                                    [class.invalid]="!RegisterForm3.controls.BusinessPhone.valid && (RegisterForm3.controls.BusinessPhone.dirty || submitAttemptForm3)"
                                    [class.valid]="RegisterForm3.controls.BusinessPhone.valid"></ion-input>
@@ -297,40 +287,6 @@
                     <ion-item *ngIf="!RegisterForm3.controls.BusinessPhone.valid  && (RegisterForm3.controls.BusinessPhone.dirty || submitAttemptForm3)">
                         <p class="error-message">Ingresa un número de Teléfono válido</p>
                     </ion-item>
-
-                    <ion-item>
-                        <ion-label floating color="secondary">Teléfono Celular <span class="optional-input-label">(Diez Dígitos)</span></ion-label>
-                        <ion-input type="tel" formControlName="BusinessCellphone" [(ngModel)]="RegisterFormData.BusinessCellphone"
-                                   [class.invalid]="!RegisterForm3.controls.BusinessCellphone.valid && (RegisterForm3.controls.BusinessCellphone.dirty || submitAttemptForm3)"
-                                   [class.valid]="RegisterForm3.controls.BusinessCellphone.valid"></ion-input>
-                        <ion-icon item-end name="phone-portrait" color="primary"></ion-icon>
-                    </ion-item>
-                    <ion-item *ngIf="!RegisterForm3.controls.BusinessCellphone.valid  && (RegisterForm3.controls.BusinessCellphone.dirty || submitAttemptForm3)">
-                        <p class="error-message">Ingresa un número de Teléfono válido</p>
-                    </ion-item>
-
-                    <ion-item>
-                        <ion-label floating color="secondary">Fax <span class="optional-input-label">(opcional)</span></ion-label>
-                        <ion-input type="tel" formControlName="BusinessFax" [(ngModel)]="RegisterFormData.BusinessFax"
-                                   [class.invalid]="!RegisterForm3.controls.BusinessFax.valid && (RegisterForm3.controls.BusinessFax.dirty || submitAttemptForm3)"
-                                   [class.valid]="RegisterForm3.controls.BusinessFax.valid"></ion-input>
-                        <ion-icon item-end name="md-print" color="primary"></ion-icon>
-                    </ion-item>
-                    <ion-item *ngIf="!RegisterForm3.controls.BusinessFax.valid  && (RegisterForm3.controls.BusinessFax.dirty || submitAttemptForm3)">
-                        <p class="error-message">Ingresa un número de Fax válido</p>
-                    </ion-item>
-
-                    <ion-item>
-                        <ion-label floating color="secondary">Correo Electrónico</ion-label>
-                        <ion-input type="text" formControlName="BusinessEmail" [(ngModel)]="RegisterFormData.BusinessEmail"
-                                   [class.invalid]="!RegisterForm3.controls.BusinessEmail.valid && (RegisterForm3.controls.BusinessEmail.dirty || submitAttemptForm3)"
-                                   [class.valid]="RegisterForm3.controls.BusinessEmail.valid"></ion-input>
-                        <ion-icon item-end name="md-at" color="primary"></ion-icon>
-                    </ion-item>
-                    <ion-item *ngIf="!RegisterForm3.controls.BusinessEmail.valid  && (RegisterForm3.controls.BusinessEmail.dirty || submitAttemptForm3)">
-                        <p class="error-message">Ingresa un Correo Eléctronico válido</p>
-                    </ion-item>
-
                 </ion-list>
             </form>
             <br/>
@@ -345,7 +301,7 @@
                     <ion-col col-8 text-right>
                         <button ion-button color="secondary" round (tap)="next()">
                             <ion-icon name="md-done-all"></ion-icon>
-                            &nbsp;Registrarse
+                            &nbsp;Afíliarse
                         </button>
                     </ion-col>
                 </ion-row>

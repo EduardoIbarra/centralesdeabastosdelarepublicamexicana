@@ -6,7 +6,7 @@
     </ion-navbar>
     <div class="login-container">
         <img class="logo" src="assets/img/logo.png"/>
-        <form (submit)="doLogin()">
+        <form (submit)="login()">
             <p>Inicia sesión para obtener todos los beneficios que te otorga</p>
             <b>CANACO Quéretaro</b>
             <br/>
@@ -22,13 +22,12 @@
             </ion-item>
             <button ion-button margin color="primary-light">
                 <ion-icon name="ios-log-in"></ion-icon>
-                &nbsp;
-                Iniciar Sesión
+                &nbsp;Iniciar Sesión
             </button>
         </form>
         <br/>
         <ion-title>¿No tienes cuenta?</ion-title>
-        <button ion-button color="dark">Afíliate</button>
+        <button ion-button color="dark" (tap)="goToRegisterForm()">Afíliate</button>
 
     </div>
 
