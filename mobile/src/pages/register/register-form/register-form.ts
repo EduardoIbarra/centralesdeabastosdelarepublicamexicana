@@ -1,8 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
-import {Content, IonicPage, ModalController, NavController, NavParams, Slides} from 'ionic-angular';
+import {AlertController, Content, IonicPage, Navbar, NavController, NavParams, Slides} from 'ionic-angular';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {CalendarModal, CalendarModalOptions, CalendarResult} from "ion2-calendar";
-import * as moment from 'moment'
 
 @IonicPage()
 @Component({
@@ -13,6 +11,7 @@ export class RegisterFormPage {
 
     @ViewChild(Slides) slides: Slides;
     @ViewChild(Content) content: Content;
+    @ViewChild(Navbar) navBar: Navbar;
 
     slideIndex: number = 0;
     RegisterForm1: FormGroup;
@@ -52,8 +51,8 @@ export class RegisterFormPage {
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
+        public alertCtrl: AlertController,
         public formBuilder: FormBuilder,
-        public modalCtrl: ModalController
     ) {
 
         //Form validations
@@ -154,6 +153,29 @@ export class RegisterFormPage {
 
     ionViewDidLoad() {
         this.slides.lockSwipes(true);
+        this.navBar.backButtonClick = (e: UIEvent) =>{
+            this.showBackButtonAlert();
+        }
+    }
+
+    showBackButtonAlert(){
+        let alert = this.alertCtrl.create({
+            title: 'Cancelar Afiliación',
+            message: 'La información que ha ingresado se perderá.',
+            enableBackdropDismiss: false,
+            buttons: [{
+                text: 'Salir',
+                cssClass: 'color-danger',
+                handler: () => {
+                    this.navCtrl.pop();
+                }
+            },{
+                text: 'Seguir aquí',
+                cssClass: 'color-primary-light bold',
+            }]
+        });
+
+        alert.present();
     }
 
     transformToUppercase(inputType){

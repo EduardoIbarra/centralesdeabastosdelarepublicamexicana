@@ -138,6 +138,24 @@
   overflow: initial;
 }
 
+.color-danger {
+  .button-inner{
+    color: map_get($colors, danger);
+  }
+}
+
+.color-primary-light {
+  .button-inner{
+    color: map_get($colors, primary-light);
+  }
+}
+
+.bold {
+  .button-inner{
+    font-weight: bold;
+  }
+}
+
 .big-header-button {
   button {
     top: -5px !important;

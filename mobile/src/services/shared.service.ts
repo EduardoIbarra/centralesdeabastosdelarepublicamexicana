@@ -31,13 +31,12 @@ export class SharedService {
             buttons: [{
                 text: 'Cancelar',
                 role: 'cancel'
-            },
-                {
-                    text: 'Enviar',
-                    handler: () => {
-                        this.showEmailComposer(to);
-                    }
-                }]
+            }, {
+                text: 'Enviar',
+                handler: () => {
+                    this.showEmailComposer(to);
+                }
+            }]
         });
         alert.present();
     }
