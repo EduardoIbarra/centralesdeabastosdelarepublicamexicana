@@ -26,7 +26,8 @@ import {Clipboard} from "@ionic-native/clipboard";
                 ios: {
                     backButtonText: 'Atrás'
                 }
-            }
+            },
+            monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
         }),
     ],
     bootstrap: [IonicApp],

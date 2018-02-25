@@ -30,10 +30,7 @@ export class RegisterFormPage {
         LegalRepresentative: null,
         Rfc: null,
         Curp: null,
-        BirthDay: {
-            text: null,
-            value: null
-        },
+        BirthDay: null,
         WebPage: null,
         Email: null,
         HomePhone: null,
@@ -153,27 +150,6 @@ export class RegisterFormPage {
                 Validators.pattern('/^\\d+$/'),
             ])],
         });
-    }
-
-    openCalendar() {
-        const options: CalendarModalOptions = {
-            title: 'Selecciona Fecha',
-            autoDone: true,
-            closeLabel: 'Cerrar'
-        };
-        let myCalendar = this.modalCtrl.create(CalendarModal, {
-            options: options
-        });
-
-        myCalendar.present();
-
-        myCalendar.onDidDismiss((date: CalendarResult, type: string) => {
-            console.log(date);
-            if (date) {
-                this.RegisterFormData.BirthDay.value = date.string;
-                this.RegisterFormData.BirthDay.text = moment(date.string).format('LL');
-            }
-        })
     }
 
     ionViewDidLoad() {
