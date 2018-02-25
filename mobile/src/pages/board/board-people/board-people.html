@@ -23,7 +23,7 @@
                         <div *ngIf="type === 1 || type === 2">
                            Tel. <span [innerHtml]="sharedService.linkify(item.phone)">{{sharedService.linkify(item.phone)}}</span> Ext. {{item.ext}}
                             <br/>
-                            <span>{{item.email}}</span>
+                            <a (tap)="sharedService.sendEmail(item.email)">{{item.email}}</a>
                         </div>
                         <br/>
                     </ion-card-content>

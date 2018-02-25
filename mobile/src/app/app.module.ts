@@ -11,6 +11,8 @@ import {CalendarModule} from "ion2-calendar";
 import {Market} from '@ionic-native/market';
 import {SharedService} from "../services/shared.service";
 import {LaunchNavigator} from "@ionic-native/launch-navigator";
+import {EmailComposer} from '@ionic-native/email-composer';
+import {Clipboard} from "@ionic-native/clipboard";
 
 @NgModule({
     declarations: [
@@ -38,7 +40,9 @@ import {LaunchNavigator} from "@ionic-native/launch-navigator";
         Keyboard,
         Market,
         SharedService,
-        LaunchNavigator
+        LaunchNavigator,
+        EmailComposer,
+        Clipboard,
     ]
 })
 export class AppModule {

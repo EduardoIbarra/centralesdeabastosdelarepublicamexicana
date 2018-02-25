@@ -28,7 +28,7 @@
         <ion-item text-wrap>
             <ion-icon color="secondary" name="md-mail-open"></ion-icon>
             &nbsp;
-            contacto@canacoqro.com.mx
+            <a (tap)="sharedService.sendEmail('contacto@canacoqro.com.mx')">contacto@canacoqro.com.mx</a>
         </ion-item>
 
         <ion-list-header text-center text-wrap class="title-border-bottom"><b>Mapa</b></ion-list-header>
