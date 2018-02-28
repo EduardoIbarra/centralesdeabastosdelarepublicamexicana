@@ -68,7 +68,8 @@
         "LOCATION_USAGE_DESCRIPTION": "This app requires access to your location for navigation purposes"
       },
       "cordova-plugin-email-composer": {},
-      "cordova-clipboard": {}
+      "cordova-clipboard": {},
+      "ionic-plugin-keyboard": {}
     },
     "platforms": [
       "android",

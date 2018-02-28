@@ -14,3 +14,5 @@ npm install --save @ionic-native/email-composer
 
 ionic cordova plugin add cordova-clipboard
 npm install --save @ionic-native/clipboard
+
+ionic cordova plugin add ionic-plugin-keyboard
