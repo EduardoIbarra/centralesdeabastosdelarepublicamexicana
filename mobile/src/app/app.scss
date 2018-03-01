@@ -139,20 +139,76 @@
 }
 
 .color-danger {
-  .button-inner{
+  .button-inner {
     color: map_get($colors, danger);
   }
 }
 
 .color-primary-light {
-  .button-inner{
+  .button-inner {
     color: map_get($colors, primary-light);
   }
 }
 
 .bold {
-  .button-inner{
+  .button-inner {
     font-weight: bold;
+  }
+}
+
+.loading-rotating-image, .loading-rotating-image-background {
+  position: absolute;
+  margin: -29px -40px;
+  animation: rotate linear 2s infinite;
+  //background: white;
+  //border-radius: 10px;
+}
+
+.loading-text {
+  img {
+    max-width: 30% !important;
+    margin: 0 22% !important;
+    border: transparent !important;
+  }
+  p {
+    bottom: -90px;
+    position: relative;
+    border-radius: 5px;
+    padding: -14px 6px 6px;
+    color: white;
+    border: transparent;
+    text-align: center;
+    letter-spacing: 2px;
+    font-weight: bold;
+    font-size: 17pt;
+    background: rgba(132, 182, 51, 0.85);
+  }
+}
+
+.loading-rotating-image-background {
+  background: white;
+  height: 64px;
+  width: 64px;
+  margin: -27px -38px !important;
+  border-radius: 8px;
+}
+
+.no-spinner-background {
+  .loading-wrapper {
+    background: none !important;
+    box-shadow: none !important;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, 0deg);
+  }
+  50% {
+    transform: scale3d(1.4, 1.4, 1.4) rotate3d(0, 0, 1, 180deg);
+  }
+  100% {
+    transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, 360deg);
   }
 }
 
@@ -162,15 +218,15 @@
     ion-icon {
       font-size: 35px;
       font-weight: 900;
-      &[name='menu']{
+      &[name='menu'] {
         animation: tada 3s infinite !important;
       }
     }
   }
 }
 
-.animate-icon{
-  ion-icon[name='menu']{
+.animate-icon {
+  ion-icon[name='menu'] {
     animation: tada .0s 50s !important;
   }
 }

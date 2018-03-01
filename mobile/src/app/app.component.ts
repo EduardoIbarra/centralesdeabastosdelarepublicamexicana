@@ -4,6 +4,9 @@ import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {Keyboard} from '@ionic-native/keyboard';
 import * as moment from 'moment'
+import {LoadingService} from "../services/loading.service";
+
+// import * as firebase from "firebase";
 
 @Component({
     templateUrl: 'app.html'
@@ -12,11 +15,13 @@ export class MyApp {
     @ViewChild(Nav) nav: Nav;
 
     rootPage: any = 'HomePage';
-activePage: any;
+    activePage: any;
     pages: Array<{ title: string, component: any, icon: string }>;
 
     constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public keyboard: Keyboard) {
+
         this.initializeApp();
+
         this.pages = [
             {title: 'INICIO', component: 'HomePage', icon: 'home'},
             {title: '¡AFÍLIATE AHORA!', component: 'RegisterPage', icon: 'md-clipboard'},
@@ -36,7 +41,6 @@ activePage: any;
             weekdaysShort: ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"],
             weekdays: ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"]
         });
-
     }
 
     initializeApp() {
@@ -44,6 +48,11 @@ activePage: any;
             this.statusBar.styleDefault();
             this.splashScreen.hide();
             this.keyboard.hideKeyboardAccessoryBar(false);
+
+
+            // firebase.auth().onAuthStateChanged((user)=>{
+            //     console.log('Firebase user: ' + user);
+            // });
         });
     }
 

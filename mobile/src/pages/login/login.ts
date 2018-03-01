@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {App, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {FormBuilder, Validators} from "@angular/forms";
+import {AlertService} from "../../services/alert.service";
+import {LoadingService} from "../../services/loading.service";
 
 @IonicPage()
 @Component({
@@ -17,32 +19,42 @@ export class LoginPage {
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
-        public formBuilder: FormBuilder
+        public formBuilder: FormBuilder,
+        public app: App,
+        public loadingService: LoadingService,
+        public alertService: AlertService
     ) {
 
         this.loginForm = formBuilder.group({
-            email: ['', Validators.required],
-            password: ['', Validators.compose([Validators.minLength(6),
-                Validators.required])]
+            email: ['', Validators.compose([
+                Validators.required,
+            ])],
+            password: ['', Validators.compose([
+                Validators.required,
+            ])],
+
+
         });
     }
 
     ionViewDidLoad() {
-        console.log('ionViewDidLoad LoginPage');
+        console.log('ionViewDidLoad LoginPasssge');
     }
 
     login() {
-        if (!this.loginForm.valid) {
-            console.log('Invalid or empty data');
-        } else {
-            const userEmail = this.loginForm.value.email;
-            const userPassword = this.loginForm.value.password;
+        if (this.loginForm.value.email === "miguel@infox.mx" && this.loginForm.value.password === "miguel") {
+            this.loadingService.presentBasicLoading();
 
-            console.log('user data', userEmail, userPassword);
+            setTimeout(()=>{
+                this.loadingService.dismiss();
+                this.app.getRootNav().setRoot('HomePage');
+            },3000)
+        }else{
+            this.alertService.incorrectLoginCredentials();
         }
     }
 
-    goToRegisterForm(){
+    goToRegisterForm() {
         this.navCtrl.push('RegisterFormPage')
     }
 

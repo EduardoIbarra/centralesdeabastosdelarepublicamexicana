@@ -6,21 +6,21 @@
     </ion-navbar>
     <div class="login-container">
         <img class="logo" src="assets/img/logo.png"/>
-        <form (submit)="login()">
+        <form (submit)="login()" [formGroup]="loginForm">
             <p>Inicia sesión para obtener todos los beneficios que te otorga</p>
             <b>CANACO Quéretaro</b>
             <br/>
             <ion-item>
                 <ion-label floating color="secondary">Correo Eléctronico</ion-label>
-                <ion-input type="email"></ion-input>
+                <ion-input type="email" formControlName="email"></ion-input>
                 <ion-icon name="ios-person" class="input-icon" color="secondary" item-start></ion-icon>
             </ion-item>
             <ion-item>
                 <ion-label floating color="secondary">Contraseña</ion-label>
-                <ion-input type="password"></ion-input>
+                <ion-input type="password" formControlName="password"></ion-input>
                 <ion-icon name="lock" class="input-icon" color="secondary" item-start></ion-icon>
             </ion-item>
-            <button ion-button margin color="primary-light">
+            <button ion-button margin color="primary-light" [disabled]="!loginForm.valid">
                 <ion-icon name="ios-log-in"></ion-icon>
                 &nbsp;Iniciar Sesión
             </button>

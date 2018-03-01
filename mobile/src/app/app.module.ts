@@ -1,9 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {ErrorHandler, NgModule} from '@angular/core';
 import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
-
 import {MyApp} from './app.component';
-
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {Keyboard} from "@ionic-native/keyboard";
@@ -13,6 +11,12 @@ import {SharedService} from "../services/shared.service";
 import {LaunchNavigator} from "@ionic-native/launch-navigator";
 import {EmailComposer} from '@ionic-native/email-composer';
 import {Clipboard} from "@ionic-native/clipboard";
+// import * as firebase from "firebase";
+// import {environment} from "../environments/environment";
+import {LoadingService} from "../services/loading.service";
+import {AlertService} from "../services/alert.service";
+
+// firebase.initializeApp(environment);
 
 @NgModule({
     declarations: [
@@ -41,7 +45,9 @@ import {Clipboard} from "@ionic-native/clipboard";
         Keyboard,
         Market,
         SharedService,
+        LoadingService,
         LaunchNavigator,
+        AlertService,
         EmailComposer,
         Clipboard,
     ]
