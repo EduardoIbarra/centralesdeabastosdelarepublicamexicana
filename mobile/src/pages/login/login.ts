@@ -47,7 +47,8 @@ export class LoginPage {
 
             setTimeout(()=>{
                 this.loadingService.dismiss();
-                this.app.getRootNav().setRoot('HomePage');
+                let nav: any = this.app.getRootNavById('n4');
+                nav.setRoot('HomePage');
             },3000)
         }else{
             this.alertService.incorrectLoginCredentials();
