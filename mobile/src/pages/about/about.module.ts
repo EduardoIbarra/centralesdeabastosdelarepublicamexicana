@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {IonicPageModule} from 'ionic-angular';
 import {AboutPage} from './about';
-import {AccordionListComponentModule} from "../../components/accordion-list/accordion-list.module";
+import {SharedModule} from "../../app/shared.module";
 
 @NgModule({
     declarations: [
@@ -9,7 +9,7 @@ import {AccordionListComponentModule} from "../../components/accordion-list/acco
     ],
     imports: [
         IonicPageModule.forChild(AboutPage),
-        AccordionListComponentModule
+        SharedModule
     ],
     exports:[
         AboutPage

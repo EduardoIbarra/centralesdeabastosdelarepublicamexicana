@@ -15,6 +15,8 @@ import {Clipboard} from "@ionic-native/clipboard";
 // import {environment} from "../environments/environment";
 import {LoadingService} from "../services/loading.service";
 import {AlertService} from "../services/alert.service";
+import {SideMenuContentComponent} from "../components/side-menu-content/side-menu-content.component";
+import {SharedModule} from "./shared.module";
 
 // firebase.initializeApp(environment);
 
@@ -25,6 +27,7 @@ import {AlertService} from "../services/alert.service";
     imports: [
         BrowserModule,
         CalendarModule,
+        SharedModule,
         IonicModule.forRoot(MyApp, {
             platforms: {
                 ios: {

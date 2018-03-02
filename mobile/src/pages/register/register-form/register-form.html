@@ -19,7 +19,7 @@
                     <br/>
                     <ion-list-header text-wrap text-center class="title-border-bottom">Información Personal</ion-list-header>
                     <ion-item>
-                        <ion-label floating color="secondary">Clave del socio</ion-label>
+                        <ion-label floating color="secondary">Clave del Socio <span class="optional-input-label">(Opcional)</span></ion-label>
                         <ion-input type="text" formControlName="PartnerKey" [(ngModel)]="RegisterFormData.PartnerKey"
                                    [class.invalid]="!RegisterForm1.controls.PartnerKey.valid && (RegisterForm1.controls.PartnerKey.dirty || submitAttemptForm1)"
                                    [class.valid]="RegisterForm1.controls.PartnerKey.valid"></ion-input>
@@ -28,7 +28,6 @@
                     <ion-item *ngIf="!RegisterForm1.controls.PartnerKey.valid  && (RegisterForm1.controls.PartnerKey.dirty || submitAttemptForm1)">
                         <p class="error-message">Ingresa una clave válida</p>
                     </ion-item>
-
 
                     <ion-item>
                         <ion-label floating color="secondary">Denominación Social</ion-label>
@@ -67,7 +66,7 @@
                     </ion-item>
 
                     <ion-item>
-                        <ion-label floating color="secondary">CURP</ion-label>
+                        <ion-label floating color="secondary">CURP <span class="optional-input-label">(Opcional)</span></ion-label>
                         <ion-input type="text" formControlName="Curp" [(ngModel)]="RegisterFormData.Curp"
                                    [class.invalid]="!RegisterForm1.controls.Curp.valid && (RegisterForm1.controls.Curp.dirty || submitAttemptForm1)"
                                    [class.valid]="RegisterForm1.controls.Curp.valid"></ion-input>
@@ -92,6 +91,22 @@
                     <ion-item *ngIf="!RegisterForm1.controls.BirthDay.valid  && (RegisterForm1.controls.BirthDay.dirty || submitAttemptForm1)">
                         <p class="error-message">Ingresa ingresa tu Fecha de Nacimiento</p>
                     </ion-item>
+
+                    <ion-item>
+                        <ion-label floating color="secondary">Sexo</ion-label>
+                        <ion-select interface="popover" formControlName="Gender" [(ngModel)]="RegisterFormData.Gender"
+                                    [class.invalid]="!RegisterForm1.controls.Gender.valid && (RegisterForm1.controls.Gender.touched || submitAttemptForm1)"
+                                    [class.valid]="RegisterForm1.controls.Gender.valid">
+                            <ion-option value="Female">Femenino</ion-option>
+                            <ion-option value="Male">Masculino</ion-option>
+                            <ion-option value="Other">Otro</ion-option>
+                        </ion-select>
+                        <ion-icon item-end name="transgender" color="primary"></ion-icon>
+                    </ion-item>
+                    <ion-item *ngIf="!RegisterForm1.controls.Gender.valid  && (RegisterForm1.controls.Gender.touched || submitAttemptForm1)">
+                        <p class="error-message">Selecciona tu Sexo</p>
+                    </ion-item>
+
 
                     <ion-item>
                         <ion-label floating color="secondary">Correo Electrónico</ion-label>
@@ -199,7 +214,7 @@
                     </ion-item>
 
                     <ion-item>
-                        <ion-label floating color="secondary">Codigo Postal</ion-label>
+                        <ion-label floating color="secondary">Codigo Postal <span class="optional-input-label">(Opcional)</span></ion-label>
                         <ion-input type="tel" formControlName="UserPostalCode" [(ngModel)]="RegisterFormData.UserPostalCode"
                                    [class.invalid]="!RegisterForm2.controls.UserPostalCode.valid && (RegisterForm2.controls.UserPostalCode.dirty || submitAttemptForm2)"
                                    [class.valid]="RegisterForm2.controls.UserPostalCode.valid"></ion-input>
@@ -271,7 +286,7 @@
                     </ion-item>
 
                     <ion-item>
-                        <ion-label floating color="secondary">Codigo Postal</ion-label>
+                        <ion-label floating color="secondary">Codigo Postal <span class="optional-input-label">(Opcional)</span></ion-label>
                         <ion-input type="tel" formControlName="BusinessPostalCode" [(ngModel)]="RegisterFormData.BusinessPostalCode"
                                    [class.invalid]="!RegisterForm3.controls.BusinessPostalCode.valid && (RegisterForm3.controls.BusinessPostalCode.dirty || submitAttemptForm3)"
                                    [class.valid]="RegisterForm3.controls.BusinessPostalCode.valid"></ion-input>

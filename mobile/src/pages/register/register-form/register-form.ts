@@ -31,6 +31,7 @@ export class RegisterFormPage {
         Rfc: null,
         Curp: null,
         BirthDay: null,
+        Gender: null,
         WebPage: null,
         Email: null,
         HomePhone: null,
@@ -62,7 +63,6 @@ export class RegisterFormPage {
                 Validators.minLength(5),
             ])],
             SocialDenomination: ['', Validators.compose([
-                Validators.minLength(5),
                 Validators.required
             ])],
             LegalRepresentative: ['', Validators.compose([
@@ -86,10 +86,12 @@ export class RegisterFormPage {
                 Validators.pattern('^[0-9]*$'),
             ])],
             Curp: ['', Validators.compose([
-                Validators.required,
                 Validators.minLength(18),
                 Validators.maxLength(18),
                 Validators.pattern('^([0-9]+[a-zA-Z]+|[a-zA-Z]+[0-9]+)[0-9a-zA-Z]*$'),
+            ])],
+            Gender: ['', Validators.compose([
+                Validators.required
             ])],
             BirthDay: ['', Validators.compose([
                 Validators.required
