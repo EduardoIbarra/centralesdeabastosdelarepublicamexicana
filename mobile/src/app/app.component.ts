@@ -57,11 +57,27 @@ export class MyApp {
 
         this.loggedUserSubMenu.push({
             displayName: 'MÁS',
-            iconName: 'menu',
+            iconName: 'settings',
             subItems: [
                 {
-                    iconName: 'person',
                     displayName: 'PERFIL',
+                    iconName: 'ios-person',
+                    component: '',
+                    custom: {
+                        type: 'profile'
+                    }
+                },
+                {
+                    displayName: 'CAMBIAR CONTRASEÑA',
+                    iconName: 'md-lock',
+                    component: '',
+                    custom: {
+                        type: 'profile'
+                    }
+                },
+                {
+                    displayName: 'EDITAR INFORMACIÓN',
+                    iconName: 'md-create',
                     component: '',
                     custom: {
                         type: 'profile'
@@ -69,7 +85,8 @@ export class MyApp {
                 },
                 {
                     displayName: 'CERRAR SESIÓN',
-                    iconName: 'log-out',
+                    iconName: 'md-close',
+                    // iconName: 'md-power',
                     custom: {
                         type: 'logout'
                     }

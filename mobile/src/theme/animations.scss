@@ -300,3 +300,16 @@
     transform: scale3d(1, 1, 1) rotate(360deg)
   }
 }
+
+
+@keyframes border-bottom-animation {
+  0% {
+    border-bottom: 3px solid #7f7f7f;
+  }
+  50% {
+    border-bottom: 3px solid map_get($colors, dark);
+  }
+  100% {
+    border-bottom: 3px solid #7f7f7f;
+  }
+}
