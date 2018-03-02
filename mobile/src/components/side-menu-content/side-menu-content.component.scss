@@ -12,6 +12,10 @@ ion-menu ion-content .scroll-content::-webkit-scrollbar {
   display: none;
 }
 
+.item-inner {
+  margin: 0 !important;
+}
+
 // ------------------------------------ //
 // Simple items                         //
 // ------------------------------------ //
@@ -39,6 +43,18 @@ ion-item.item-wp {
   }
 }
 
+.menu-item {
+  height: 50px !important;
+  line-height: 0;
+  ion-icon {
+    top: 14px;
+  }
+  .menu-item-border {
+    border-bottom: 3px solid map_get($colors, primary) !important;
+    padding-bottom: 5px;
+  }
+}
+
 // ------------------------------------ //
 // Multi level items                    //
 // ------------------------------------ //
@@ -48,7 +64,7 @@ ion-list.accordion-menu {
   top: -10px !important;
   position: relative !important;
   ion-item {
-   background-color: rgba(255, 255, 255, 0);
+    background-color: rgba(255, 255, 255, 0);
   }
   ion-item.header {
 
@@ -79,10 +95,21 @@ ion-list.accordion-menu {
   // Sub options without icons
   ion-item.item.item-block.item-ios.no-icon .item-inner {
     margin-left: 48px;
+    border-bottom: 3px solid map_get($colors, primary) !important;
   }
 
   ion-item.item.item-block.item-md.no-icon .item-inner,
   ion-item.item.item-block.item-wp.no-icon .item-inner {
     margin-left: 40px;
+  }
+
+  .sub-option {
+    ion-icon {
+      font-size: 1.4em;
+      margin-right: 5px !important;
+      position: absolute;
+      top: 10px;
+      left: 11px;
+    }
   }
 }

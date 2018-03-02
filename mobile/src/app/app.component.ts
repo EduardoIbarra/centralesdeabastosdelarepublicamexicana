@@ -1,10 +1,13 @@
 import {Component, ViewChild} from '@angular/core';
-import {Nav, Platform} from 'ionic-angular';
+import {MenuController, Nav, Platform} from 'ionic-angular';
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {Keyboard} from '@ionic-native/keyboard';
 import * as moment from 'moment'
 import {LoadingService} from "../services/loading.service";
+import {MenuOptionModel} from "../components/side-menu-content/models/menu-option-model";
+import {SideMenuSettings} from "../components/side-menu-content/models/side-menu-settings";
+import {SideMenuContentComponent} from "../components/side-menu-content/side-menu-content.component";
 
 // import * as firebase from "firebase";
 
@@ -13,12 +16,22 @@ import {LoadingService} from "../services/loading.service";
 })
 export class MyApp {
     @ViewChild(Nav) nav: Nav;
-
+    @ViewChild(SideMenuContentComponent) sideMenu: SideMenuContentComponent;
     rootPage: any = 'HomePage';
     activePage: any;
     pages: Array<{ title: string, component: any, icon: string }>;
 
-    constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public keyboard: Keyboard) {
+    loggedUserSubMenu = new Array<MenuOptionModel>();
+    sideMenuSettings: SideMenuSettings = {
+        accordionMode: true,
+        showSelectedOption: false,
+        subOptionIndentation: {
+            ios: '16px',
+            md: '16px'
+        }
+    };
+
+    constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public keyboard: Keyboard, public menu: MenuController,) {
 
         this.initializeApp();
 
@@ -41,7 +54,42 @@ export class MyApp {
             weekdaysShort: ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"],
             weekdays: ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"]
         });
+
+        this.loggedUserSubMenu.push({
+            displayName: 'MÁS',
+            iconName: 'menu',
+            subItems: [
+                {
+                    iconName: 'person',
+                    displayName: 'PERFIL',
+                    component: '',
+                    custom: {
+                        type: 'profile'
+                    }
+                },
+                {
+                    displayName: 'CERRAR SESIÓN',
+                    iconName: 'log-out',
+                    custom: {
+                        type: 'logout'
+                    }
+                }
+            ]
+        });
+
     }
+
+    public selectOption(option: MenuOptionModel): void {
+        console.log(option);
+        this.sideMenu.collapseAllOptions();
+
+        this.menu.close();
+        // Collapse all the options
+        // this.nav.setRoot(option.component);
+        // this.activePage = option.component;
+    }
+
+
 
     initializeApp() {
         this.platform.ready().then(() => {
