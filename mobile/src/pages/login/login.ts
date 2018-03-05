@@ -40,7 +40,7 @@ export class LoginPage {
     }
 
     login() {
-        if (this.loginForm.value.email === "miguel@infox.mx" && this.loginForm.value.password === "miguel") {
+        if (this.loginForm.value.email === "miguel@canaco.com" && this.loginForm.value.password === "canaco") {
             this.loadingService.presentLoading();
 
             let UserData = {

@@ -6,7 +6,6 @@
     </ion-header>
 
     <ion-content>
-        <br/>
         <ion-list>
             <button menuClose detail-none ion-item *ngFor="let p of PublicUserPages" (tap)="openPage(p)" [class.activeHighlight]="sharedService.checkActive(p)" class="menu-item">
                 <ion-icon [name]="p.icon"></ion-icon>
@@ -27,7 +26,14 @@
     </ion-header>
 
     <ion-content>
-        <br/>
+        <ion-item *ngIf="sharedService.LoggedUser" class="user-name-container">
+            <ion-avatar item-start>
+                <img src="assets/img/logo.png">
+            </ion-avatar>
+            <span>Bienvenido</span>
+            <br>
+            {{sharedService.LoggedUser.Name}}
+        </ion-item>
         <side-menu-content [settings]="sideMenuSettings" [options]="loggedUserSubMenu" (selectOption)="selectOption($event)"></side-menu-content>
         <ion-list>
             <button menuClose detail-none ion-item *ngFor="let p of LoggedUserPages" (tap)="openPage(p)" [class.activeHighlight]="sharedService.checkActive(p)" class="menu-item">

@@ -1,5 +1,4 @@
 // http://ionicframework.com/docs/theming/
-
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -13,7 +12,6 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
-
 @import '../theme/animations';
 
 @font-face {
@@ -85,7 +83,22 @@
   .activated {
     background: map_get($colors, dark) !important;
   }
-  ion-content, button, ion-toolbar, .toolbar-background-md, .toolbar-background-ios, .toolbar-title {
+  .user-name-container {
+    padding-left: 1px;
+    height: 51px;
+    ion-avatar {
+      margin-right: 5px;
+    }
+    span {
+      font-weight: bold;
+    }
+    ion-label {
+      margin-top: 19px;
+      font-weight: 400;
+      letter-spacing: .5px;
+    }
+  }
+  ion-content, button, ion-toolbar, ion-item, .toolbar-background-md, .toolbar-background-ios, .toolbar-title {
     font-size: 15px;
     background: map_get($colors, menu-dark);
     color: map_get($colors, light);
@@ -112,7 +125,7 @@
   }
 
   .toolbar-background-md, .toolbar-background-ios {
-    border-bottom: 1px solid #7b7b7b !important
+    border-bottom: 2px solid map_get($colors, dark) !important
   }
 }
 
@@ -165,7 +178,7 @@
   animation: rotate-resize linear 2s infinite;
 }
 
-.loading-rotating-image-background{
+.loading-rotating-image-background {
   background: white;
   border-radius: 10px;
 }
@@ -176,8 +189,6 @@
     box-shadow: none !important;
   }
 }
-
-
 
 .big-header-button {
   button {
