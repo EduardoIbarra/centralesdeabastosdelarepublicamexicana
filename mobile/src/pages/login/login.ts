@@ -3,6 +3,8 @@ import {App, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {FormBuilder, Validators} from "@angular/forms";
 import {AlertService} from "../../services/alert.service";
 import {LoadingService} from "../../services/loading.service";
+import {SharedService} from "../../services/shared.service";
+import {Storage} from "@ionic/storage";
 
 @IonicPage()
 @Component({
@@ -16,41 +18,42 @@ export class LoginPage {
     ];
     public loginForm: any;
 
-    constructor(
-        public navCtrl: NavController,
-        public navParams: NavParams,
-        public formBuilder: FormBuilder,
-        public app: App,
-        public loadingService: LoadingService,
-        public alertService: AlertService
-    ) {
+    constructor(public navCtrl: NavController,
+                public navParams: NavParams,
+                public formBuilder: FormBuilder,
+                public app: App,
+                public loadingService: LoadingService,
+                public sharedService: SharedService,
+                public storage: Storage,
+                public alertService: AlertService) {
 
-        this.loginForm = formBuilder.group({
+
+    }
+
+    ionViewDidLoad() {
+        this.loginForm = this.formBuilder.group({
             email: ['', Validators.compose([
                 Validators.required,
             ])],
             password: ['', Validators.compose([
                 Validators.required,
             ])],
-
-
         });
-    }
-
-    ionViewDidLoad() {
-        console.log('ionViewDidLoad LoginPasssge');
     }
 
     login() {
         if (this.loginForm.value.email === "miguel@infox.mx" && this.loginForm.value.password === "miguel") {
-            this.loadingService.presentBasicLoading();
+            this.loadingService.presentLoading();
 
-            setTimeout(()=>{
+            let UserData = {
+                email: this.loginForm.value.email
+            };
+
+            setTimeout(() => {
                 this.loadingService.dismiss();
-                let nav: any = this.app.getRootNavById('n4');
-                nav.setRoot('HomePage');
-            },3000)
-        }else{
+                this.sharedService.SetLoggedUser(UserData);
+            }, 3000)
+        } else {
             this.alertService.incorrectLoginCredentials();
         }
     }

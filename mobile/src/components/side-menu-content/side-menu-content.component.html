@@ -26,7 +26,7 @@
                 <!-- Sub items -->
                 <div [style.height]="option.expanded ? ((itemHeight + 1) * option.subItemsCount) + 'px' : '0px'" class="options">
                     <ng-template ngFor let-item [ngForOf]="option.subOptions">
-                        <button detail-none ion-item class="sub-option menu-item-accordion" [style.padding-left]="subOptionIndentation" [class.no-icon]="menuSettings?.indentSubOptionsWithoutIcons && !item.iconName" [ngClass]="menuSettings?.showSelectedOption && item.selected ? menuSettings.selectedOptionClass : null" tappable (tap)="select(item)">
+                        <button detail-none ion-item class="sub-option menu-item-accordion" [style.padding-left]="subOptionIndentation" [class.no-icon]="menuSettings?.indentSubOptionsWithoutIcons && !item.iconName" [ngClass]="menuSettings?.showSelectedOption && item.selected ? menuSettings.selectedOptionClass : null" tappable (tap)="select(item)" [class.activeHighlight]="sharedService.checkActive(item.targetOption)">
                             <ion-icon *ngIf="item.iconName" [name]="item.iconName"></ion-icon>
                             <div class="menu-item-border-accordion">
                                 {{ item.displayName }}

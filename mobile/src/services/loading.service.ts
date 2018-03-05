@@ -11,7 +11,7 @@ export class LoadingService {
     constructor(public loadingCtrl: LoadingController) {
     }
 
-    presentBasicLoading() {
+    presentLoading() {
         this.loading = this.loadingCtrl.create({
             spinner: 'hide',
             cssClass: 'no-spinner-background',

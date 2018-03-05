@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {MenuController, Nav, Platform} from 'ionic-angular';
+import {App, MenuController, Nav, Platform} from 'ionic-angular';
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {Keyboard} from '@ionic-native/keyboard';
@@ -8,6 +8,9 @@ import {LoadingService} from "../services/loading.service";
 import {MenuOptionModel} from "../components/side-menu-content/models/menu-option-model";
 import {SideMenuSettings} from "../components/side-menu-content/models/side-menu-settings";
 import {SideMenuContentComponent} from "../components/side-menu-content/side-menu-content.component";
+import {SharedService} from "../services/shared.service";
+import * as firebase from "firebase/app";
+import {Storage} from "@ionic/storage";
 
 // import * as firebase from "firebase";
 
@@ -19,7 +22,8 @@ export class MyApp {
     @ViewChild(SideMenuContentComponent) sideMenu: SideMenuContentComponent;
     rootPage: any = 'HomePage';
     activePage: any;
-    pages: Array<{ title: string, component: any, icon: string }>;
+    LoggedUserPages: Array<{ title: string, component: any, icon: string }>;
+    PublicUserPages: Array<{ title: string, component: any, icon: string }>;
 
     loggedUserSubMenu = new Array<MenuOptionModel>();
     sideMenuSettings: SideMenuSettings = {
@@ -31,11 +35,19 @@ export class MyApp {
         }
     };
 
-    constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public keyboard: Keyboard, public menu: MenuController,) {
+    constructor(public platform: Platform,
+                public statusBar: StatusBar,
+                public splashScreen: SplashScreen,
+                public loadingService: LoadingService,
+                public sharedService: SharedService,
+                public app: App,
+                public storage: Storage,
+                public keyboard: Keyboard,
+                public menu: MenuController,) {
 
         this.initializeApp();
 
-        this.pages = [
+        this.PublicUserPages = [
             {title: 'INICIO', component: 'HomePage', icon: 'home'},
             {title: '¡AFÍLIATE AHORA!', component: 'RegisterPage', icon: 'md-clipboard'},
             {title: 'INICIAR SESIÓN', component: 'LoginPage', icon: 'md-exit'},
@@ -46,7 +58,14 @@ export class MyApp {
             {title: 'CONTÁCTANOS', component: 'ContactPage', icon: 'ios-chatbubbles'},
         ];
 
-        this.activePage = this.pages[0];
+        this.LoggedUserPages = [
+            {title: 'INICIO', component: 'HomePage', icon: 'home'},
+            {title: 'DIRECTORIO', component: 'BoardPage', icon: 'md-book'},
+            {title: 'BENEFICIOS', component: 'BenefitsPage', icon: 'logo-buffer'},
+            {title: '¿QUÉ ES INFOX?', component: 'InfoxPage', icon: 'information-circle'},
+            {title: '¿QUIENES SOMOS?', component: 'AboutPage', icon: 'ios-people'},
+            {title: 'CONTÁCTANOS', component: 'ContactPage', icon: 'ios-chatbubbles'},
+        ];
 
         moment.updateLocale('es', {
             monthsShort: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"],
@@ -62,25 +81,25 @@ export class MyApp {
                 {
                     displayName: 'PERFIL',
                     iconName: 'ios-person',
-                    component: '',
+                    component: 'ProfilePage',
                     custom: {
                         type: 'profile'
+                    }
+                },
+                {
+                    displayName: 'HISTORIAL',
+                    iconName: 'logo-usd',
+                    component: 'PaymentHistoryPage',
+                    custom: {
+                        type: ''
                     }
                 },
                 {
                     displayName: 'CAMBIAR CONTRASEÑA',
                     iconName: 'md-lock',
-                    component: '',
+                    component: 'ChangePasswordPage',
                     custom: {
-                        type: 'profile'
-                    }
-                },
-                {
-                    displayName: 'EDITAR INFORMACIÓN',
-                    iconName: 'md-create',
-                    component: '',
-                    custom: {
-                        type: 'profile'
+                        type: ''
                     }
                 },
                 {
@@ -93,19 +112,29 @@ export class MyApp {
                 }
             ]
         });
-
     }
 
     public selectOption(option: MenuOptionModel): void {
-        console.log(option);
-        this.sideMenu.collapseAllOptions();
+        this.sharedService.activePage = option.component;
+        // this.sideMenu.collapseAllOptions();
+
+
+        if (option.custom.type === 'logout') {
+            this.loadingService.presentLoading();
+            this.sharedService.activePage = this.PublicUserPages[0].component;
+            this.sharedService.logout();
+            this.menu.close();
+
+            setTimeout(()=>{
+                this.loadingService.dismiss();
+            }, 1000)
+            return;
+        }
+        if (!option.component) return;
 
         this.menu.close();
-        // Collapse all the options
-        // this.nav.setRoot(option.component);
-        // this.activePage = option.component;
+        this.nav.setRoot(option.component);
     }
-
 
 
     initializeApp() {
@@ -118,20 +147,31 @@ export class MyApp {
             // firebase.auth().onAuthStateChanged((user)=>{
             //     console.log('Firebase user: ' + user);
             // });
+
+            this.storage.get('LoggedUser').then((LoggedUser) => {
+                this.sharedService.LoggedUser = LoggedUser;
+
+                this.menu.enable(false, 'PublicUserMenu');
+                this.menu.enable(false, 'LoggedUserMenu');
+                console.log('Logged user: ', this.sharedService.LoggedUser);
+                if (this.sharedService.LoggedUser) {
+                    this.sharedService.activePage = this.LoggedUserPages[0].component;
+                    this.menu.enable(true, 'LoggedUserMenu');
+                } else {
+                    this.sharedService.activePage = this.PublicUserPages[0].component;
+                    this.menu.enable(true, 'PublicUserMenu');
+                }
+            });
+
+
         });
     }
 
     openPage(page) {
         this.nav.setRoot(page.component);
-        this.activePage = page;
-    }
-
-    //Higlight tab on sidemenu
-    checkActive(page) {
-        if (page.component == 'LanguageSelectionPage') {
-            return false;
-        } else {
-            return page == this.activePage;
-        }
+        this.sharedService.activePage = page.component;
+        setTimeout(() => {
+            this.sideMenu.collapseAllOptions();
+        }, 300);
     }
 }

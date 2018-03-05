@@ -17,6 +17,7 @@ import {LoadingService} from "../services/loading.service";
 import {AlertService} from "../services/alert.service";
 import {SideMenuContentComponent} from "../components/side-menu-content/side-menu-content.component";
 import {SharedModule} from "./shared.module";
+import {IonicStorageModule, Storage} from '@ionic/storage';
 
 // firebase.initializeApp(environment);
 
@@ -36,6 +37,7 @@ import {SharedModule} from "./shared.module";
             },
             monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
         }),
+        IonicStorageModule.forRoot(),
     ],
     bootstrap: [IonicApp],
     entryComponents: [

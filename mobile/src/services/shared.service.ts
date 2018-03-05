@@ -1,15 +1,22 @@
 import {Injectable} from '@angular/core';
 import {EmailComposer, EmailComposerOptions} from "@ionic-native/email-composer";
-import {AlertController} from "ionic-angular";
+import {AlertController, App, MenuController} from "ionic-angular";
 import {Clipboard} from "@ionic-native/clipboard";
+import {Storage} from "@ionic/storage";
 @Injectable()
 
 export class SharedService {
 
+    LoggedUser: any;
+    activePage: any;
+
     constructor(
         public emailComposer: EmailComposer,
         public alertCtrl: AlertController,
-        public clipboard: Clipboard
+        public menu: MenuController,
+        public app: App,
+        public clipboard: Clipboard,
+        public storage: Storage,
     ) {}
 
     linkify(inputText) {
@@ -65,4 +72,31 @@ export class SharedService {
         alert.present();
     }
 
+    logout() {
+        this.LoggedUser = null;
+        this.storage.set('LoggedUser', null);
+        this.menu.enable(true, 'PublicUserMenu');
+        this.menu.enable(false, 'LoggedUserMenu');
+        let nav: any = this.app.getRootNavById('n4');
+        nav.setRoot('HomePage');
+    }
+
+    SetLoggedUser(UserData){
+        this.LoggedUser = {
+            Email: UserData.email,
+            Name: 'Miguel Hernández'
+        };
+
+        this.storage.set('LoggedUser', this.LoggedUser);
+        this.activePage = 'HomePage';
+        this.menu.enable(false, 'PublicUserMenu');
+        this.menu.enable(true, 'LoggedUserMenu');
+        let nav: any = this.app.getRootNavById('n4');
+        nav.setRoot('HomePage');
+    }
+
+    //Higlight tab on sidemenu
+    checkActive(page) {
+        return page.component == this.activePage
+    }
 }
