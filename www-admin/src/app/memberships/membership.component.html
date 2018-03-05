@@ -1,4 +1,5 @@
 <div class="container">
+  <br />
   <h2>Solicitudes de Afiliación</h2>
   <hr />
   <table class="table table-bordered table-hover table-striped">
@@ -11,6 +12,18 @@
       <th>Domicilio Fiscal</th>
       <th>Status</th>
       <th></th>
+    </tr>
+    <tr *ngFor="let m of memberships">
+      <td>{{m.clave_socio}}</td>
+      <td>{{m.representante_legal}}</td>
+      <td>{{m.rfc}}</td>
+      <td><a href="mailto:{{m.correo_electronico}}">{{m.correo_electronico}}</a></td>
+      <td>{{m.telefono_local}} {{m.telefono_celular}}</td>
+      <td>{{m.domicilio_comercial}}, Colonia {{m.dc_colonia}}, {{m.municipio}}, CP {{m.dc_codigo_postal}}</td>
+      <td>-</td>
+      <td>
+        <button class="btn btn-primary btn-sm" (click)="openMemberModal(m)">Ver Más</button>
+      </td>
     </tr>
   </table>
 </div>
