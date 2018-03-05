@@ -30,9 +30,8 @@
             <ion-avatar item-start>
                 <img src="assets/img/logo.png">
             </ion-avatar>
-            <span>Bienvenido</span>
-            <br>
-            {{sharedService.LoggedUser.Name}}
+            <p>Bienvenido</p>
+            <span>{{sharedService.LoggedUser.Name}}</span>
         </ion-item>
         <side-menu-content [settings]="sideMenuSettings" [options]="loggedUserSubMenu" (selectOption)="selectOption($event)"></side-menu-content>
         <ion-list>

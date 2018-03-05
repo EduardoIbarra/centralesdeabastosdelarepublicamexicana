@@ -100,9 +100,17 @@ $animation-duration: 0.3s;
       transition: height $animation-duration ease;
       overflow-y: hidden;
       height: 0;
-      padding-left: 15px;
+      //padding-left: 15px;
 
       .sub-option {
+        border-left: 16px solid transparent !important;
+        &.activeHighlight{
+          border-left: 16px solid map_get($colors, primary) !important;
+          .menu-item-border-accordion {
+            border-bottom: none !important;
+            animation: none !important;
+          }
+        }
         ion-icon {
           font-size: 1.4em;
           margin-right: 5px !important;

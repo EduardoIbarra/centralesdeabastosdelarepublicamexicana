@@ -31,7 +31,7 @@ export class MyApp {
         showSelectedOption: false,
         subOptionIndentation: {
             ios: '16px',
-            md: '16px'
+            // md: '16px'
         }
     };
 

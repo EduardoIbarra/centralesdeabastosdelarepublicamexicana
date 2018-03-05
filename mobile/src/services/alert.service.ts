@@ -12,7 +12,7 @@ export class AlertService {
     incorrectLoginCredentials() {
         let alert = this.alertCtrl.create({
             title: 'Información incorrecta',
-            message: 'Correo electrónico y/o contraseña incorrecto. Intenta de nuevo',
+            message: 'Correo electrónico y/o contraseña incorrecto. Intenta de nuevo.',
             buttons: ['Cerrar']
         });
         alert.present();
