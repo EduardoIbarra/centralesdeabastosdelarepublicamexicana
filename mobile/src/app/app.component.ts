@@ -29,10 +29,6 @@ export class MyApp {
     sideMenuSettings: SideMenuSettings = {
         accordionMode: true,
         showSelectedOption: false,
-        subOptionIndentation: {
-            ios: '16px',
-            // md: '16px'
-        }
     };
 
     constructor(public platform: Platform,
