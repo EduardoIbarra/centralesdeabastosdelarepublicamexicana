@@ -3,16 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="19cba34d-3cb8-460f-aec0-d65782c82364" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/mobile/package.json" afterPath="$PROJECT_DIR$/mobile/package.json" />
-      <change beforePath="$PROJECT_DIR$/mobile/src/app/app.component.ts" afterPath="$PROJECT_DIR$/mobile/src/app/app.component.ts" />
-      <change beforePath="$PROJECT_DIR$/mobile/src/app/app.html" afterPath="$PROJECT_DIR$/mobile/src/app/app.html" />
-      <change beforePath="$PROJECT_DIR$/mobile/src/app/app.module.ts" afterPath="$PROJECT_DIR$/mobile/src/app/app.module.ts" />
-      <change beforePath="$PROJECT_DIR$/mobile/src/components/side-menu-content/side-menu-content.component.html" afterPath="$PROJECT_DIR$/mobile/src/components/side-menu-content/side-menu-content.component.html" />
-      <change beforePath="$PROJECT_DIR$/mobile/src/components/side-menu-content/side-menu-content.component.ts" afterPath="$PROJECT_DIR$/mobile/src/components/side-menu-content/side-menu-content.component.ts" />
-      <change beforePath="$PROJECT_DIR$/mobile/src/pages/contact/contact.html" afterPath="$PROJECT_DIR$/mobile/src/pages/contact/contact.html" />
       <change beforePath="$PROJECT_DIR$/mobile/src/pages/login/login.ts" afterPath="$PROJECT_DIR$/mobile/src/pages/login/login.ts" />
-      <change beforePath="$PROJECT_DIR$/mobile/src/services/loading.service.ts" afterPath="$PROJECT_DIR$/mobile/src/services/loading.service.ts" />
-      <change beforePath="$PROJECT_DIR$/mobile/src/services/shared.service.ts" afterPath="$PROJECT_DIR$/mobile/src/services/shared.service.ts" />
     </list>
     <ignored path=".idea/" />
     <ignored path=".idea/workspace.xml" />
@@ -62,8 +53,8 @@
       <file leaf-file-name="login.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mobile/src/pages/login/login.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="451">
-              <caret line="39" column="16" lean-forward="false" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="16" />
+            <state relative-caret-position="416">
+              <caret line="40" column="4" lean-forward="false" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -433,12 +424,12 @@
       <workItem from="1519931913514" duration="420000" />
       <workItem from="1519936758710" duration="4599000" />
       <workItem from="1519972375257" duration="9791000" />
-      <workItem from="1520207747968" duration="8499000" />
+      <workItem from="1520207747968" duration="8617000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="140360000" />
+    <option name="totallyTimeSpent" value="140478000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -458,7 +449,7 @@
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" x="100" y="122" width="1720" height="858" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37694705" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37694705" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16773163" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -876,8 +867,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mobile/src/pages/login/login.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="39" column="16" lean-forward="false" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="16" />
+        <state relative-caret-position="416">
+          <caret line="40" column="4" lean-forward="false" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="4" />
           <folding />
         </state>
       </provider>

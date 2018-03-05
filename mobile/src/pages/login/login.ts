@@ -27,17 +27,15 @@ export class LoginPage {
                 public storage: Storage,
                 public alertService: AlertService) {
 
-
-    }
-
-    ionViewDidLoad() {
-        this.loginForm = this.formBuilder.group({
+        this.loginForm = formBuilder.group({
             email: ['', Validators.compose([
                 Validators.required,
             ])],
             password: ['', Validators.compose([
                 Validators.required,
             ])],
+
+
         });
     }
 
