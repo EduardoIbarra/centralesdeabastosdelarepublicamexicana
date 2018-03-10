@@ -20,6 +20,19 @@ import {SharedModule} from "./shared.module";
 import {IonicStorageModule, Storage} from '@ionic/storage';
 
 // firebase.initializeApp(environment);
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import {MembershipService} from "../services/membership.service";
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyBAcoeRPY5dz3NYRTYM-pVHkCiqNd23udg",
+  authDomain: "canacoqro-aa683.firebaseapp.com",
+  databaseURL: "https://canacoqro-aa683.firebaseio.com",
+  projectId: "canacoqro-aa683",
+  storageBucket: "canacoqro-aa683.appspot.com",
+  messagingSenderId: "635369272832"
+};
 
 @NgModule({
     declarations: [
@@ -38,6 +51,9 @@ import {IonicStorageModule, Storage} from '@ionic/storage';
             monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
         }),
         IonicStorageModule.forRoot(),
+        AngularFireModule.initializeApp(firebaseConfig),
+        AngularFireDatabaseModule,
+        AngularFireAuthModule
     ],
     bootstrap: [IonicApp],
     entryComponents: [
@@ -55,6 +71,7 @@ import {IonicStorageModule, Storage} from '@ionic/storage';
         AlertService,
         EmailComposer,
         Clipboard,
+        MembershipService
     ]
 })
 export class AppModule {
