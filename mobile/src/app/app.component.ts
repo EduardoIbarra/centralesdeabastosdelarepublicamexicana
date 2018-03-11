@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {App, MenuController, Nav, Platform} from 'ionic-angular';
+import {AlertController, App, MenuController, Nav, Platform} from 'ionic-angular';
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {Keyboard} from '@ionic-native/keyboard';
@@ -11,6 +11,7 @@ import {SideMenuContentComponent} from "../components/side-menu-content/side-men
 import {SharedService} from "../services/shared.service";
 import * as firebase from "firebase/app";
 import {Storage} from "@ionic/storage";
+import {AlertService} from "../services/alert.service";
 
 // import * as firebase from "firebase";
 
@@ -34,6 +35,7 @@ export class MyApp {
     constructor(public platform: Platform,
                 public statusBar: StatusBar,
                 public splashScreen: SplashScreen,
+                public alertCtrl: AlertController,
                 public loadingService: LoadingService,
                 public sharedService: SharedService,
                 public app: App,
@@ -164,10 +166,42 @@ export class MyApp {
     }
 
     openPage(page) {
-        this.nav.setRoot(page.component);
-        this.sharedService.activePage = page.component;
-        setTimeout(() => {
-            this.sideMenu.collapseAllOptions();
-        }, 300);
+        console.log(this.nav.getActive().name);
+        if (this.nav.getActive().name === 'RegisterFormPage') {
+            this.showLeavingRegisterFormAlert(page);
+        } else {
+            this.nav.setRoot(page.component);
+            this.sharedService.activePage = page.component;
+            setTimeout(() => {
+                this.sideMenu.collapseAllOptions();
+            }, 300);
+        }
+
     }
+
+
+    showLeavingRegisterFormAlert(page) {
+        let alert = this.alertCtrl.create({
+            title: 'Cancelar Afiliación',
+            message: 'La información que ha ingresado se perderá.',
+            enableBackdropDismiss: false,
+            buttons: [{
+                text: 'Salir',
+                cssClass: 'color-danger',
+                handler: () => {
+                    this.nav.setRoot(page.component);
+                    this.sharedService.activePage = page.component;
+                    setTimeout(() => {
+                        this.sideMenu.collapseAllOptions();
+                    }, 300);
+                }
+            }, {
+                text: 'Seguir aquí',
+                cssClass: 'color-primary-light bold',
+            }]
+        });
+
+        alert.present();
+    }
+
 }

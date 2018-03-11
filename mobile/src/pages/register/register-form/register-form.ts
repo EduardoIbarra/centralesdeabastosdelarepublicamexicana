@@ -4,6 +4,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import * as moment from 'moment'
 import {MembershipService} from "../../../services/membership.service";
 import {LoadingService} from "../../../services/loading.service";
+import {AlertService} from "../../../services/alert.service";
 
 @IonicPage()
 @Component({
@@ -184,11 +185,10 @@ export class RegisterFormPage {
     ionViewDidLoad() {
         // this.slides.lockSwipes(true);
         this.navBar.backButtonClick = (e: UIEvent) => {
-            this.showBackButtonAlert();
+            this.showLeavingRegisterFormAlert();
         }
     }
-
-    showBackButtonAlert() {
+    showLeavingRegisterFormAlert() {
         let alert = this.alertCtrl.create({
             title: 'Cancelar Afiliación',
             message: 'La información que ha ingresado se perderá.',
@@ -207,6 +207,7 @@ export class RegisterFormPage {
 
         alert.present();
     }
+
 
     next(formNumber) {
         if (formNumber === 1) {
