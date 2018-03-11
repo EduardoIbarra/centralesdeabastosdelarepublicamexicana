@@ -1,6 +1,9 @@
 import {Component, ViewChild} from '@angular/core';
 import {AlertController, Content, IonicPage, Navbar, NavController, NavParams, Slides} from 'ionic-angular';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import * as moment from 'moment'
+import {MembershipService} from "../../../services/membership.service";
+import {LoadingService} from "../../../services/loading.service";
 
 @IonicPage()
 @Component({
@@ -30,7 +33,10 @@ export class RegisterFormPage {
         LegalRepresentative: null,
         Rfc: null,
         Curp: null,
-        BirthDay: null,
+        BirthDay: {
+            value: null,
+            text: null
+        },
         Gender: null,
         WebPage: null,
         Email: null,
@@ -44,18 +50,19 @@ export class RegisterFormPage {
         UserPostalCode: null,
         //Third form slide
         BusinessAddress: null,
+        BusinessCity: null,
         BusinessSettlement: null,
         BusinessStreets: null,
         BusinessPostalCode: null,
         BusinessPhone: null,
     };
 
-    constructor(
-        public navCtrl: NavController,
-        public navParams: NavParams,
-        public alertCtrl: AlertController,
-        public formBuilder: FormBuilder,
-    ) {
+    constructor(public navCtrl: NavController,
+                public navParams: NavParams,
+                public membershipService: MembershipService,
+                public loadingService: LoadingService,
+                public alertCtrl: AlertController,
+                public formBuilder: FormBuilder,) {
 
         //Form validations
         this.RegisterForm1 = formBuilder.group({
@@ -136,6 +143,10 @@ export class RegisterFormPage {
                 Validators.required,
                 Validators.minLength(5)
             ])],
+            BusinessCity: ['', Validators.compose([
+                Validators.required,
+                Validators.minLength(5)
+            ])],
             BusinessStreets: ['', Validators.compose([
                 Validators.required,
                 Validators.minLength(10),
@@ -171,7 +182,7 @@ export class RegisterFormPage {
     }
 
     ionViewDidLoad() {
-        this.slides.lockSwipes(true);
+        // this.slides.lockSwipes(true);
         this.navBar.backButtonClick = (e: UIEvent) => {
             this.showBackButtonAlert();
         }
@@ -201,6 +212,8 @@ export class RegisterFormPage {
         if (formNumber === 1) {
             if (this.RegisterForm1.valid) {
                 this.submitAttemptForm1 = false;
+                this.RegisterFormData.BirthDay.value = moment(this.RegisterFormData.BirthDay.text).unix();
+                console.log(this.RegisterFormData);
                 this.swipeNext();
             } else {
                 this.submitAttemptForm1 = true;
@@ -243,8 +256,16 @@ export class RegisterFormPage {
     }
 
     registerUser() {
-        console.log('Registro Correcto');
         console.log(this.RegisterFormData);
+        this.loadingService.presentLoading();
+        this.membershipService.createMembership(this.RegisterFormData).then((response)=>{
+            console.log(response);
+            this.loadingService.dismiss();
+        }).catch((error)=>{
+            console.log(error);
+            this.loadingService.dismiss();
+        });
+
     }
 
 }

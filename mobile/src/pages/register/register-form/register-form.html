@@ -83,7 +83,7 @@
                                 formControlName="BirthDay"
                                 cancelText="Cancelar"
                                 doneText="Seleccionar"
-                                [(ngModel)]="RegisterFormData.BirthDay"
+                                [(ngModel)]="RegisterFormData.BirthDay.text"
                                 [class.invalid]="!RegisterForm1.controls.BirthDay.valid && (RegisterForm1.controls.BirthDay.dirty || submitAttemptForm1)"
                                 [class.valid]="RegisterForm1.controls.BirthDay.valid"></ion-datetime>
                         <ion-icon item-end name="md-calendar" color="primary"></ion-icon>
@@ -97,9 +97,8 @@
                         <ion-select interface="popover" formControlName="Gender" [(ngModel)]="RegisterFormData.Gender"
                                     [class.invalid]="!RegisterForm1.controls.Gender.valid && (RegisterForm1.controls.Gender.touched || submitAttemptForm1)"
                                     [class.valid]="RegisterForm1.controls.Gender.valid">
-                            <ion-option value="Female">Femenino</ion-option>
-                            <ion-option value="Male">Masculino</ion-option>
-                            <ion-option value="Other">Otro</ion-option>
+                            <ion-option value="female">Femenino</ion-option>
+                            <ion-option value="male">Masculino</ion-option>
                         </ion-select>
                         <ion-icon item-end name="transgender" color="primary"></ion-icon>
                     </ion-item>
@@ -283,6 +282,17 @@
                     </ion-item>
                     <ion-item *ngIf="!RegisterForm3.controls.BusinessStreets.valid  && (RegisterForm3.controls.BusinessStreets.dirty || submitAttemptForm3)">
                         <p class="error-message">Ingresa las entre calles de tu domicilio</p>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label floating color="secondary">Municipio</ion-label>
+                        <ion-input type="text" formControlName="BusinessCity" [(ngModel)]="RegisterFormData.BusinessCity"
+                                   [class.invalid]="!RegisterForm3.controls.BusinessCity.valid && (RegisterForm3.controls.BusinessCity.dirty || submitAttemptForm3)"
+                                   [class.valid]="RegisterForm3.controls.BusinessCity.valid"></ion-input>
+                        <ion-icon item-end name="md-home" color="primary"></ion-icon>
+                    </ion-item>
+                    <ion-item *ngIf="!RegisterForm3.controls.BusinessCity.valid  && (RegisterForm3.controls.BusinessCity.dirty || submitAttemptForm3)">
+                        <p class="error-message">Ingresa un municipio válido</p>
                     </ion-item>
 
                     <ion-item>

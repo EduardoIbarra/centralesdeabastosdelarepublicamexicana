@@ -21,14 +21,13 @@ export class HomePage {
     ];
 
     constructor(public navCtrl: NavController, public navParams: NavParams, private membershipsService: MembershipService) {
-      this.membershipsService.getMembership().valueChanges()
-        .subscribe((response)=>{
-          console.log(response);
-        })
     }
 
     ionViewDidLoad() {
-        console.log('ionViewDidLoad HomePage');
+        this.membershipsService.getMembership().valueChanges()
+            .subscribe((response) => {
+                console.log(response);
+            })
     }
 
     goToPage(page) {

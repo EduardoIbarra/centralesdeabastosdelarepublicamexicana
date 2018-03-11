@@ -11,28 +11,15 @@ import {SharedService} from "../services/shared.service";
 import {LaunchNavigator} from "@ionic-native/launch-navigator";
 import {EmailComposer} from '@ionic-native/email-composer';
 import {Clipboard} from "@ionic-native/clipboard";
-// import * as firebase from "firebase";
-// import {environment} from "../environments/environment";
 import {LoadingService} from "../services/loading.service";
 import {AlertService} from "../services/alert.service";
-import {SideMenuContentComponent} from "../components/side-menu-content/side-menu-content.component";
 import {SharedModule} from "./shared.module";
-import {IonicStorageModule, Storage} from '@ionic/storage';
-
-// firebase.initializeApp(environment);
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
-import { AngularFireAuthModule } from 'angularfire2/auth';
+import {IonicStorageModule} from '@ionic/storage';
+import {AngularFireModule} from 'angularfire2';
+import {AngularFireDatabaseModule} from 'angularfire2/database';
+import {AngularFireAuthModule} from 'angularfire2/auth';
 import {MembershipService} from "../services/membership.service";
-
-export const firebaseConfig = {
-  apiKey: "AIzaSyBAcoeRPY5dz3NYRTYM-pVHkCiqNd23udg",
-  authDomain: "canacoqro-aa683.firebaseapp.com",
-  databaseURL: "https://canacoqro-aa683.firebaseio.com",
-  projectId: "canacoqro-aa683",
-  storageBucket: "canacoqro-aa683.appspot.com",
-  messagingSenderId: "635369272832"
-};
+import {firebaseConfig} from "../environments/environment";
 
 @NgModule({
     declarations: [

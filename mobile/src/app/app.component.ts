@@ -121,7 +121,7 @@ export class MyApp {
             this.sharedService.logout();
             this.menu.close();
 
-            setTimeout(()=>{
+            setTimeout(() => {
                 this.loadingService.dismiss();
             }, 1000)
             return;
