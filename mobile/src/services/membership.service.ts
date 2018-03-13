@@ -26,22 +26,22 @@ export class MembershipService {
             fecha_nacimiento: membership.BirthDay.value,
             pagina_web: membership.WebPage,
             correo_electronico: membership.Email,
-            celular: parseInt(membership.Cellphone),
-            telefono_casa: parseInt(membership.HomePhone),
+            celular: parseInt(membership.Cellphone) || null,
+            telefono_casa: parseInt(membership.HomePhone) || null,
             genero: membership.Gender,
             //Domicilio del usuario
             domicilio_personal: membership.UserAddress,
             colonia: membership.UserSettlement,
             municipio: membership.UserCity,
-            codigo_postal: parseInt(membership.UserPostalCode),
+            codigo_postal: parseInt(membership.UserPostalCode) || null,
             entre_calles: membership.UserStreets,
             //Domicilio del negocio
             dc_colonia: membership.BusinessSettlement,
             dc_entre_calles: membership.BusinessStreets,
             dc_municipio: membership.BusinessCity,
-            dc_telefono_local: parseInt(membership.BusinessPhone),
+            dc_telefono_local: parseInt(membership.BusinessPhone) || null,
             domicilio_comercial: membership.BusinessAddress,
-            dc_codigo_postal: parseInt(membership.BusinessPostalCode),
+            dc_codigo_postal: parseInt(membership.BusinessPostalCode) || null,
         };
 
         return this.afDB.database.ref('memberships/' + data.id).set(data);

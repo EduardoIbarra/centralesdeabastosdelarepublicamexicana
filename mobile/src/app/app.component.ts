@@ -166,7 +166,6 @@ export class MyApp {
     }
 
     openPage(page) {
-        console.log(this.nav.getActive().name);
         if (this.nav.getActive().name === 'RegisterFormPage') {
             this.showLeavingRegisterFormAlert(page);
         } else {
