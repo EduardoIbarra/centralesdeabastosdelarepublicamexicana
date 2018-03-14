@@ -71,6 +71,13 @@
   }
 }
 
+.cancel-button {
+  color: map_get($colors, danger) !important;
+  &.action-sheet-button-md{
+    font-weight: bold;
+  }
+}
+
 .dark-menu {
   .menu-logo-img {
     text-align: center;

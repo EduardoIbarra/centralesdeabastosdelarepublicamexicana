@@ -20,3 +20,10 @@ ionic cordova plugin add ionic-plugin-keyboard
 npm install firebase --save
 
 npm install --save web-animations-js
+
+ionic cordova plugin add cordova-plugin-camera
+npm install --save @ionic-native/camera
+
+
+
+

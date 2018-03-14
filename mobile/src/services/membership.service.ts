@@ -29,6 +29,7 @@ export class MembershipService {
             celular: parseInt(membership.Cellphone) || null,
             telefono_casa: parseInt(membership.HomePhone) || null,
             genero: membership.Gender,
+            imagenes: membership.Images,
             //Domicilio del usuario
             domicilio_personal: membership.UserAddress,
             colonia: membership.UserSettlement,

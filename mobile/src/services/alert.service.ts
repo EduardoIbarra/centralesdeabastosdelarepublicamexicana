@@ -17,4 +17,13 @@ export class AlertService {
         });
         alert.present();
     }
+
+    errorTakingPicture() {
+        let alert = this.alertCtrl.create({
+            title: 'Ha ocurrido un error',
+            message: 'Hemos tenido un problema al seleccionar la imagen, intenta de nuevo más tarde',
+            buttons: ['Cerrar']
+        });
+        alert.present();
+    }
 }

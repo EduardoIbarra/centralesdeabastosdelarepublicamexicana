@@ -92,4 +92,5 @@
     <plugin name="cordova-plugin-email-composer" spec="^0.8.15" />
     <plugin name="cordova-clipboard" spec="^1.1.1" />
     <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
+    <plugin name="cordova-plugin-camera" spec="^4.0.2" />
 </widget>

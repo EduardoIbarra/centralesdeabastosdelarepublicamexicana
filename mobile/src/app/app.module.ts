@@ -20,6 +20,7 @@ import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 import {MembershipService} from "../services/membership.service";
 import {firebaseConfig} from "../environments/environment";
+import {Camera} from "@ionic-native/camera";
 
 @NgModule({
     declarations: [
@@ -58,6 +59,7 @@ import {firebaseConfig} from "../environments/environment";
         AlertService,
         EmailComposer,
         Clipboard,
+        Camera,
         MembershipService
     ]
 })

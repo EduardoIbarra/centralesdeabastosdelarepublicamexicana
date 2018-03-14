@@ -152,6 +152,35 @@
                         <p class="error-message">Ingresa una Página Web</p>
                     </ion-item>
 
+                    <ion-item>
+                        <div class="valid image-input-padding">
+                            <label color="secondary" ion-text >Indentificación Oficial <span class="optional-input-label">(opcional)</span></label>
+                            <br/>
+                            <button ion-button (tap)="openImageOptions()" *ngIf="RegisterFormData.Images.length === 0">
+                                <ion-icon name="md-add-circle"></ion-icon>&nbsp;
+                                Agregar
+                            </button>
+                            <div class="images-container" *ngIf="RegisterFormData.Images.length > 0">
+                                <ion-slides pager #imagesSlider>
+                                    <ion-slide *ngFor="let i of RegisterFormData.Images; let imageIndex = index">
+                                        <img [src]="i">
+                                        <ion-fab bottom left>
+                                            <button ion-fab mini (tap)="openImageOptions()">
+                                                <ion-icon name="md-add-circle"></ion-icon>
+                                            </button>
+                                        </ion-fab>
+                                        <ion-fab bottom right>
+                                            <button ion-fab mini color="danger"  (tap)="removeImage(imageIndex)">
+                                                <ion-icon name="trash"></ion-icon>
+                                            </button>
+                                        </ion-fab>
+
+                                    </ion-slide>
+                                </ion-slides>
+                            </div>
+                        </div>
+                        <ion-icon item-end name="camera" color="primary"></ion-icon>
+                    </ion-item>
                 </ion-list>
             </form>
             <br/>
