@@ -21,6 +21,8 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
 import {MembershipService} from "../services/membership.service";
 import {firebaseConfig} from "../environments/environment";
 import {Camera} from "@ionic-native/camera";
+import {TooltipsModule} from "ionic-tooltips";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
     declarations: [
@@ -41,7 +43,8 @@ import {Camera} from "@ionic-native/camera";
         IonicStorageModule.forRoot(),
         AngularFireModule.initializeApp(firebaseConfig),
         AngularFireDatabaseModule,
-        AngularFireAuthModule
+        AngularFireAuthModule,
+        BrowserAnimationsModule
     ],
     bootstrap: [IonicApp],
     entryComponents: [

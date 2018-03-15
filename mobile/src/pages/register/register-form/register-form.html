@@ -154,7 +154,7 @@
 
                     <ion-item>
                         <div class="valid image-input-padding">
-                            <label color="secondary" ion-text >Indentificación Oficial <span class="optional-input-label">(opcional)</span></label>
+                            <label color="secondary" ion-text>Indentificación Oficial <span class="optional-input-label">(opcional)</span></label>
                             <br/>
                             <button ion-button (tap)="openImageOptions()" *ngIf="RegisterFormData.Images.length === 0">
                                 <ion-icon name="md-add-circle"></ion-icon>&nbsp;
@@ -170,7 +170,7 @@
                                             </button>
                                         </ion-fab>
                                         <ion-fab bottom right>
-                                            <button ion-fab mini color="danger"  (tap)="removeImage(imageIndex)">
+                                            <button ion-fab mini color="danger" (tap)="removeImage(imageIndex)">
                                                 <ion-icon name="trash"></ion-icon>
                                             </button>
                                         </ion-fab>
@@ -181,6 +181,9 @@
                         </div>
                         <ion-icon item-end name="camera" color="primary"></ion-icon>
                     </ion-item>
+                    <button ion-button clear color="dark" (tap)="alertService.acceptedDocumentsImages()">
+                        ¿Qué documentos puedo subir?
+                    </button>
                 </ion-list>
             </form>
             <br/>

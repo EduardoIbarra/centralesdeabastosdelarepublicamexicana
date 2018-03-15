@@ -71,6 +71,12 @@
   }
 }
 
+tooltip-box{
+  font-size: 19px !important;
+  border-radius: 10px !important;
+  font-weight: 700 !important;
+}
+
 .cancel-button {
   color: map_get($colors, danger) !important;
   &.action-sheet-button-md{

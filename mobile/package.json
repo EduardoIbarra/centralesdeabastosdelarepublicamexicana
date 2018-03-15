@@ -12,6 +12,7 @@
     "ionic:serve": "ionic-app-scripts serve"
   },
   "dependencies": {
+    "@angular/animations": "5.0.3",
     "@angular/common": "5.0.3",
     "@angular/compiler": "5.0.3",
     "@angular/compiler-cli": "5.0.3",
@@ -48,8 +49,10 @@
     "ion2-calendar": "^2.1.6-beta.2",
     "ionic-angular": "3.9.2",
     "ionic-plugin-keyboard": "^2.2.1",
+    "ionic-tooltips": "^2.0.1",
     "ionicons": "3.0.0",
     "moment": "^2.20.1",
+    "node-sass": "^4.7.2",
     "promise-polyfill": "^7.1.0",
     "rxjs": "^5.5.6",
     "sw-toolbox": "3.6.0",

@@ -2,6 +2,8 @@ import {NgModule} from '@angular/core';
 import {IonicPageModule} from 'ionic-angular';
 import {RegisterFormPage} from './register-form';
 import {CalendarModule} from "ion2-calendar";
+import {SharedModule} from "../../../app/shared.module";
+import {TooltipsModule} from "ionic-tooltips";
 
 @NgModule({
     declarations: [
@@ -9,10 +11,10 @@ import {CalendarModule} from "ion2-calendar";
     ],
     imports: [
         IonicPageModule.forChild(RegisterFormPage),
-        CalendarModule
+        SharedModule,
     ],
     exports:[
-        RegisterFormPage
+        RegisterFormPage,
     ]
 })
 export class RegisterFormPageModule {

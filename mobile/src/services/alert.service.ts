@@ -26,4 +26,14 @@ export class AlertService {
         });
         alert.present();
     }
+
+    acceptedDocumentsImages() {
+        let alert = this.alertCtrl.create({
+            title: 'Documentos Aceptados',
+            subTitle: 'Información protegida por CANACO QRO.',
+            message: 'Los documentos que se pueden subir son son imágenes de: ' + '<br/><b>INE</b> o <b>Cédula fiscal.</b>',
+            buttons: ['Aceptar']
+        });
+        alert.present();
+    }
 }

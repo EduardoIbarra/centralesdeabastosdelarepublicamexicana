@@ -283,8 +283,7 @@ export class RegisterFormPage {
     registerUser() {
         console.log(this.RegisterFormData);
         this.loadingService.presentLoading();
-        this.membershipService.createMembership(this.RegisterFormData).then((response) => {
-            console.log(response);
+        this.membershipService.createMembership(this.RegisterFormData).then(() => {
             this.loadingService.dismiss();
             this.navCtrl.push('CompleteMembershipPage').then(() => {
                 this.navCtrl.remove(this.navCtrl.getPrevious().index);
