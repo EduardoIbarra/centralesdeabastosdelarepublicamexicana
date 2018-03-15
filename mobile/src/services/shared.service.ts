@@ -3,6 +3,7 @@ import {EmailComposer, EmailComposerOptions} from "@ionic-native/email-composer"
 import {AlertController, App, MenuController} from "ionic-angular";
 import {Clipboard} from "@ionic-native/clipboard";
 import {Storage} from "@ionic/storage";
+
 @Injectable()
 
 export class SharedService {
@@ -10,14 +11,13 @@ export class SharedService {
     LoggedUser: any;
     activePage: any;
 
-    constructor(
-        public emailComposer: EmailComposer,
-        public alertCtrl: AlertController,
-        public menu: MenuController,
-        public app: App,
-        public clipboard: Clipboard,
-        public storage: Storage,
-    ) {}
+    constructor(public emailComposer: EmailComposer,
+                public alertCtrl: AlertController,
+                public menu: MenuController,
+                public app: App,
+                public clipboard: Clipboard,
+                public storage: Storage,) {
+    }
 
     linkify(inputText) {
         let regex = new RegExp(
@@ -53,10 +53,10 @@ export class SharedService {
             to: to,
         };
 
-        this.emailComposer.open(email).then((data)=>{
+        this.emailComposer.open(email).then((data) => {
             console.log(data);
-            if(!data)this.showEmailComposerNotAvailable(to);
-        }).catch((error)=>{
+            if (!data) this.showEmailComposerNotAvailable(to);
+        }).catch((error) => {
             console.log(error);
             this.showEmailComposerNotAvailable(to);
         });
@@ -81,7 +81,7 @@ export class SharedService {
         nav.setRoot('HomePage');
     }
 
-    SetLoggedUser(UserData){
+    SetLoggedUser(UserData) {
         this.LoggedUser = {
             Email: UserData.email,
             Name: 'Miguel Hernández'
@@ -98,5 +98,10 @@ export class SharedService {
     //Higlight tab on sidemenu
     checkActive(page) {
         return page.component == this.activePage
+    }
+
+    setPageRoot(page) {
+        let nav: any = this.app.getRootNavById('n4');
+        nav.setRoot(page);
     }
 }

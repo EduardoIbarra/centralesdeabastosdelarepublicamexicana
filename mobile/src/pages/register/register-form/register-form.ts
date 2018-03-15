@@ -285,7 +285,7 @@ export class RegisterFormPage {
         this.loadingService.presentLoading();
         this.membershipService.createMembership(this.RegisterFormData).then(() => {
             this.loadingService.dismiss();
-            this.navCtrl.push('CompleteMembershipPage').then(() => {
+            this.navCtrl.push('CompleteMembershipPage', {email: this.RegisterFormData.Email}).then(() => {
                 this.navCtrl.remove(this.navCtrl.getPrevious().index);
             });
         }).catch((error) => {
