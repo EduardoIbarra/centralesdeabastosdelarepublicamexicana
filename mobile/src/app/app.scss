@@ -1,5 +1,4 @@
 // http://ionicframework.com/docs/theming/
-
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -13,6 +12,7 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+@import '../theme/animations';
 
 @font-face {
   font-family: Lato;
@@ -21,6 +21,10 @@
 
 * {
   font-family: Lato;
+}
+
+.activeHighlight {
+  background-color: map-get($colors, dark) !important;
 }
 
 .no-rotate {
@@ -53,6 +57,7 @@
 .title-border-bottom {
   border-bottom: 3px solid map_get($colors, primary) !important;
   font-weight: bold;
+  text-transform: uppercase;
   &.list-header-md {
     border-top: none;
   }
@@ -63,6 +68,19 @@
   font-weight: bold;
   &.list-header-md {
     border-top: none;
+  }
+}
+
+tooltip-box{
+  font-size: 19px !important;
+  border-radius: 10px !important;
+  font-weight: 700 !important;
+}
+
+.cancel-button {
+  color: map_get($colors, danger) !important;
+  &.action-sheet-button-md{
+    font-weight: bold;
   }
 }
 
@@ -78,7 +96,25 @@
   .activated {
     background: map_get($colors, dark) !important;
   }
-  ion-content, button, ion-toolbar, .toolbar-background-md, .toolbar-background-ios, .toolbar-title {
+  .user-name-container {
+    padding-left: 1px;
+    height: 51px;
+    ion-avatar {
+      margin-right: 5px;
+    }
+    p {
+      color: whitesmoke;
+      margin: 0;
+      padding-top: 5px;
+    }
+    span {
+      margin-top: 19px;
+      font-weight: 400;
+      letter-spacing: .5px;
+      font-size: large;
+    }
+  }
+  ion-content, button, ion-toolbar, ion-item, .toolbar-background-md, .toolbar-background-ios, .toolbar-title {
     font-size: 15px;
     background: map_get($colors, menu-dark);
     color: map_get($colors, light);
@@ -92,7 +128,7 @@
       height: 50px;
       line-height: 0;
       ion-icon {
-        top: 17px;
+        top: 14px;
         position: absolute;
       }
       .menu-item-border {
@@ -105,7 +141,7 @@
   }
 
   .toolbar-background-md, .toolbar-background-ios {
-    border-bottom: 1px solid #7b7b7b !important
+    border-bottom: 2px solid map_get($colors, dark) !important
   }
 }
 
@@ -125,12 +161,49 @@
 }
 
 .optional-input-label {
-  color: map_get($colors, secondary);
-  font-size: small;
+  color: rgba(31, 85, 41, 0.52);
+  font-size: 12px;
+  font-weight: bold;
 }
 
 .no-overflow {
   overflow: initial;
+}
+
+.color-danger {
+  .button-inner {
+    color: map_get($colors, danger);
+  }
+}
+
+.color-primary-light {
+  .button-inner {
+    color: map_get($colors, primary-light);
+  }
+}
+
+.bold {
+  .button-inner {
+    font-weight: bold;
+  }
+}
+
+.loading-rotating-image {
+  position: absolute;
+  margin: -29px -40px;
+  animation: rotate-resize linear 2s infinite;
+}
+
+.loading-rotating-image-background {
+  background: white;
+  border-radius: 10px;
+}
+
+.no-spinner-background {
+  .loading-wrapper {
+    background: none !important;
+    box-shadow: none !important;
+  }
 }
 
 .big-header-button {
@@ -139,13 +212,23 @@
     ion-icon {
       font-size: 35px;
       font-weight: 900;
+      &[name='menu'] {
+        animation: swing 3s infinite !important;
+      }
     }
   }
 }
 
+.animate-icon {
+  ion-icon[name='menu'] {
+    animation: tada .0s 50s !important;
+  }
+}
+
+//Enable custom validation class on inputs
 form {
   ion-item {
-    ion-input, ion-textarea, ion-select {
+    ion-input, ion-textarea, ion-select, ion-datetime {
       border-bottom: 1px solid #bfbfbf !important;
     }
     .item-inner {

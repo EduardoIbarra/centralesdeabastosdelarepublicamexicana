@@ -1,6 +1,10 @@
 import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {App, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {FormBuilder, Validators} from "@angular/forms";
+import {AlertService} from "../../services/alert.service";
+import {LoadingService} from "../../services/loading.service";
+import {SharedService} from "../../services/shared.service";
+import {Storage} from "@ionic/storage";
 
 @IonicPage()
 @Component({
@@ -14,32 +18,46 @@ export class LoginPage {
     ];
     public loginForm: any;
 
-    constructor(
-        public navCtrl: NavController,
-        public navParams: NavParams,
-        public formBuilder: FormBuilder
-    ) {
+    constructor(public navCtrl: NavController,
+                public navParams: NavParams,
+                public formBuilder: FormBuilder,
+                public app: App,
+                public loadingService: LoadingService,
+                public sharedService: SharedService,
+                public storage: Storage,
+                public alertService: AlertService) {
 
         this.loginForm = formBuilder.group({
-            email: ['', Validators.required],
-            password: ['', Validators.compose([Validators.minLength(6),
-                Validators.required])]
+            email: ['', Validators.compose([
+                Validators.required,
+            ])],
+            password: ['', Validators.compose([
+                Validators.required,
+            ])],
+
+
         });
     }
 
-    ionViewDidLoad() {
-        console.log('ionViewDidLoad LoginPage');
+    login() {
+        if (this.loginForm.value.email === "miguel@canaco.com" && this.loginForm.value.password === "canaco") {
+            this.loadingService.presentLoading();
+
+            let UserData = {
+                email: this.loginForm.value.email
+            };
+
+            setTimeout(() => {
+                this.loadingService.dismiss();
+                this.sharedService.SetLoggedUser(UserData);
+            }, 3000)
+        } else {
+            this.alertService.incorrectLoginCredentials();
+        }
     }
 
-    doLogin() {
-        if (!this.loginForm.valid) {
-            console.log('Invalid or empty data');
-        } else {
-            const userEmail = this.loginForm.value.email;
-            const userPassword = this.loginForm.value.password;
-
-            console.log('user data', userEmail, userPassword);
-        }
+    goToRegisterForm() {
+        this.navCtrl.push('RegisterFormPage')
     }
 
 }

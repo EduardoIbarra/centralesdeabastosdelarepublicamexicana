@@ -29,7 +29,7 @@
                             <img src="assets/img/register/register.png">
                         </div>
                         <ion-card-header class="no-overflow">
-                            <b>REGISTRO</b>
+                            <b>AFÍLIACION</b>
                         </ion-card-header>
                     </button>
                 </ion-col>
@@ -43,8 +43,10 @@
             <p *ngFor="let l of item.content" text-wrap text-justify padding-bottom>
                 <ion-icon name="{{l.icon? l.icon: 'md-checkmark'}}" *ngIf="l.isItemList || l.hasIcon" class="no-rotate"></ion-icon>
                 <b *ngIf="l.bold && !l.phoneNumber">{{l.text}}</b>
-                <span *ngIf="!l.bold && !l.phoneNumber">{{l.text}}</span>
-                <span *ngIf="l.phoneNumber" [innerHtml]="linkify(l.phoneNumber)">{{linkify(l.phoneNumber)}}</span> <span *ngIf="l.ext">{{l.ext}}</span>
+                <span *ngIf="!l.bold && !l.phoneNumber && !l.mail">{{l.text}}</span>
+                <a (tap)="sharedService.sendEmail(l.text)" *ngIf="l.mail">{{l.text}}</a>
+                <span *ngIf="!l.bold && !l.phoneNumber && !l.mail">{{l.text}}</span>
+                <span *ngIf="l.phoneNumber" [innerHtml]="sharedService.linkify(l.phoneNumber)">{{sharedService.linkify(l.phoneNumber)}}</span> <span *ngIf="l.ext">{{l.ext}}</span>
             </p>
         </accordion-list>
         <br/>

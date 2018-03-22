@@ -7,7 +7,7 @@ page-benefits {
     }
     ion-card {
       height: 100% !important;
-      margin: 0 !important;
+      margin: 0 auto!important;
       border-bottom: 2px solid map_get($colors, primary);
       box-shadow: none;
       ion-card-content {

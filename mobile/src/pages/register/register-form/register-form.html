@@ -1,7 +1,7 @@
 <ion-header>
 
     <ion-navbar class="big-header-button">
-        <ion-title>Registro</ion-title>
+        <ion-title>Afíliación</ion-title>
     </ion-navbar>
 
 </ion-header>
@@ -19,7 +19,7 @@
                     <br/>
                     <ion-list-header text-wrap text-center class="title-border-bottom">Información Personal</ion-list-header>
                     <ion-item>
-                        <ion-label floating color="secondary">Clave del socio</ion-label>
+                        <ion-label floating color="secondary">Clave del Socio <span class="optional-input-label">(Opcional)</span></ion-label>
                         <ion-input type="text" formControlName="PartnerKey" [(ngModel)]="RegisterFormData.PartnerKey"
                                    [class.invalid]="!RegisterForm1.controls.PartnerKey.valid && (RegisterForm1.controls.PartnerKey.dirty || submitAttemptForm1)"
                                    [class.valid]="RegisterForm1.controls.PartnerKey.valid"></ion-input>
@@ -29,18 +29,17 @@
                         <p class="error-message">Ingresa una clave válida</p>
                     </ion-item>
 
-
                     <ion-item>
-                        <ion-label floating color="secondary">Denominacion Social</ion-label>
-                        <ion-select interface="popover" formControlName="CompanyName" [(ngModel)]="RegisterFormData.CompanyName"
-                                    [class.invalid]="!RegisterForm1.controls.CompanyName.valid && (RegisterForm1.controls.CompanyName.touched || submitAttemptForm1)"
-                                    [class.valid]="RegisterForm1.controls.CompanyName.valid">
+                        <ion-label floating color="secondary">Denominación Social</ion-label>
+                        <ion-select interface="popover" formControlName="SocialDenomination" [(ngModel)]="RegisterFormData.SocialDenomination"
+                                    [class.invalid]="!RegisterForm1.controls.SocialDenomination.valid && (RegisterForm1.controls.SocialDenomination.touched || submitAttemptForm1)"
+                                    [class.valid]="RegisterForm1.controls.SocialDenomination.valid">
                             <ion-option value="Fiscal">Fiscal</ion-option>
                             <ion-option value="Moral">Moral</ion-option>
                         </ion-select>
                         <ion-icon item-end name="briefcase" color="primary"></ion-icon>
                     </ion-item>
-                    <ion-item *ngIf="!RegisterForm1.controls.CompanyName.valid  && (RegisterForm1.controls.CompanyName.touched || submitAttemptForm1)">
+                    <ion-item *ngIf="!RegisterForm1.controls.SocialDenomination.valid  && (RegisterForm1.controls.SocialDenomination.touched || submitAttemptForm1)">
                         <p class="error-message">Selecciona la Denominación Social</p>
                     </ion-item>
 
@@ -57,18 +56,18 @@
 
                     <ion-item>
                         <ion-label floating color="secondary">RFC</ion-label>
-                        <ion-input type="text" formControlName="Rfc" [(ngModel)]="RegisterFormData.Rfc" (keyup)="transformToUppercase('RFC')"
-                                   [class.invalid]="!RegisterForm1.controls.Rfc.valid && (RegisterForm1.controls.Rfc.dirty || submitAttemptForm1)"
-                                   [class.valid]="RegisterForm1.controls.Rfc.valid"></ion-input>
+                        <ion-input type="text" formControlName="Rfc" [(ngModel)]="RegisterFormData.Rfc"
+                                   [class.invalid]="!RegisterForm1.controls.Rfc.valid && (RegisterForm1.controls.Rfc.dirty || submitAttemptForm1) || !validRfcInput"
+                                   [class.valid]="RegisterForm1.controls.Rfc.valid && validRfcInput"></ion-input>
                         <ion-icon item-end name="md-copy" color="primary"></ion-icon>
                     </ion-item>
-                    <ion-item *ngIf="!RegisterForm1.controls.Rfc.valid  && (RegisterForm1.controls.Rfc.dirty || submitAttemptForm1)">
-                        <p class="error-message">Ingresa tu RFC válido</p>
+                    <ion-item *ngIf="!RegisterForm1.controls.Rfc.valid  && (RegisterForm1.controls.Rfc.dirty || submitAttemptForm1) || !validRfcInput">
+                        <p class="error-message" text-wrap>Ingresa tu RFC válido correspondiente a tu denominacion social</p>
                     </ion-item>
 
                     <ion-item>
-                        <ion-label floating color="secondary">CURP</ion-label>
-                        <ion-input type="text" formControlName="Curp" [(ngModel)]="RegisterFormData.Curp" (keyup)="transformToUppercase('CURP')"
+                        <ion-label floating color="secondary">CURP <span class="optional-input-label">(Opcional)</span></ion-label>
+                        <ion-input type="text" formControlName="Curp" [(ngModel)]="RegisterFormData.Curp"
                                    [class.invalid]="!RegisterForm1.controls.Curp.valid && (RegisterForm1.controls.Curp.dirty || submitAttemptForm1)"
                                    [class.valid]="RegisterForm1.controls.Curp.valid"></ion-input>
                         <ion-icon item-end name="ios-paper-outline" color="primary"></ion-icon>
@@ -79,14 +78,67 @@
 
                     <ion-item>
                         <ion-label floating color="secondary">Fecha de Nacimiento</ion-label>
-                        <ion-input type="text" formControlName="BirthDay" [(ngModel)]="RegisterFormData.BirthDay.text"
-                                   (ionFocus)="openCalendar()" readonly
-                                   [class.invalid]="!RegisterForm1.controls.BirthDay.valid && (RegisterForm1.controls.BirthDay.dirty || submitAttemptForm1)"
-                                   [class.valid]="RegisterForm1.controls.BirthDay.valid"></ion-input>
+                        <ion-datetime
+                                displayFormat="DD/MMMM/YYYY"
+                                formControlName="BirthDay"
+                                cancelText="Cancelar"
+                                doneText="Seleccionar"
+                                [(ngModel)]="RegisterFormData.BirthDay.text"
+                                [class.invalid]="!RegisterForm1.controls.BirthDay.valid && (RegisterForm1.controls.BirthDay.dirty || submitAttemptForm1)"
+                                [class.valid]="RegisterForm1.controls.BirthDay.valid"></ion-datetime>
                         <ion-icon item-end name="md-calendar" color="primary"></ion-icon>
                     </ion-item>
                     <ion-item *ngIf="!RegisterForm1.controls.BirthDay.valid  && (RegisterForm1.controls.BirthDay.dirty || submitAttemptForm1)">
                         <p class="error-message">Ingresa ingresa tu Fecha de Nacimiento</p>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label floating color="secondary">Sexo</ion-label>
+                        <ion-select interface="popover" formControlName="Gender" [(ngModel)]="RegisterFormData.Gender"
+                                    [class.invalid]="!RegisterForm1.controls.Gender.valid && (RegisterForm1.controls.Gender.touched || submitAttemptForm1)"
+                                    [class.valid]="RegisterForm1.controls.Gender.valid">
+                            <ion-option value="female">Femenino</ion-option>
+                            <ion-option value="male">Masculino</ion-option>
+                        </ion-select>
+                        <ion-icon item-end name="transgender" color="primary"></ion-icon>
+                    </ion-item>
+                    <ion-item *ngIf="!RegisterForm1.controls.Gender.valid  && (RegisterForm1.controls.Gender.touched || submitAttemptForm1)">
+                        <p class="error-message">Selecciona tu Sexo</p>
+                    </ion-item>
+
+
+                    <ion-item>
+                        <ion-label floating color="secondary">Correo Electrónico</ion-label>
+                        <ion-input type="text" formControlName="Email" [(ngModel)]="RegisterFormData.Email"
+                                   [class.invalid]="!RegisterForm1.controls.Email.valid && (RegisterForm1.controls.Email.dirty || submitAttemptForm1)"
+                                   [class.valid]="RegisterForm1.controls.Email.valid"></ion-input>
+                        <ion-icon item-end name="md-at" color="primary"></ion-icon>
+                    </ion-item>
+                    <ion-item *ngIf="!RegisterForm1.controls.Email.valid  && (RegisterForm1.controls.Email.dirty || submitAttemptForm1)">
+                        <p class="error-message">Ingresa un Correo Eléctronico valido</p>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label floating color="secondary">Teléfono Celular <span class="optional-input-label">(Diez Dígitos)</span></ion-label>
+                        <ion-input type="tel" formControlName="Cellphone" [(ngModel)]="RegisterFormData.Cellphone"
+                                   [class.invalid]="!RegisterForm1.controls.Cellphone.valid && (RegisterForm1.controls.Cellphone.dirty || submitAttemptForm1)"
+                                   [class.valid]="RegisterForm1.controls.Cellphone.valid"></ion-input>
+                        <ion-icon item-end name="phone-portrait" color="primary"></ion-icon>
+                    </ion-item>
+                    <ion-item *ngIf="!RegisterForm1.controls.Cellphone.valid  && (RegisterForm1.controls.Cellphone.dirty || submitAttemptForm1)">
+                        <p class="error-message">Ingresa un número de Teléfono válido</p>
+                    </ion-item>
+
+
+                    <ion-item>
+                        <ion-label floating color="secondary">Telefono Casa <span class="optional-input-label">(Opcional)</span></ion-label>
+                        <ion-input type="tel" formControlName="HomePhone" [(ngModel)]="RegisterFormData.HomePhone"
+                                   [class.invalid]="!RegisterForm1.controls.HomePhone.valid && (RegisterForm1.controls.HomePhone.dirty || submitAttemptForm1)"
+                                   [class.valid]="RegisterForm1.controls.HomePhone.valid"></ion-input>
+                        <ion-icon item-end name="call" color="primary"></ion-icon>
+                    </ion-item>
+                    <ion-item *ngIf="!RegisterForm1.controls.HomePhone.valid  && (RegisterForm1.controls.HomePhone.dirty || submitAttemptForm1)">
+                        <p class="error-message">Ingresa un número de Teléfono válido</p>
                     </ion-item>
 
                     <ion-item>
@@ -101,54 +153,42 @@
                     </ion-item>
 
                     <ion-item>
-                        <ion-label floating color="secondary">Correo Electrónico</ion-label>
-                        <ion-input type="text" formControlName="Email" [(ngModel)]="RegisterFormData.Email"
-                                   [class.invalid]="!RegisterForm1.controls.Email.valid && (RegisterForm1.controls.Email.dirty || submitAttemptForm1)"
-                                   [class.valid]="RegisterForm1.controls.Email.valid"></ion-input>
-                        <ion-icon item-end name="md-at" color="primary"></ion-icon>
-                    </ion-item>
-                    <ion-item *ngIf="!RegisterForm1.controls.Email.valid  && (RegisterForm1.controls.Email.dirty || submitAttemptForm1)">
-                        <p class="error-message">Ingresa un Correo Eléctronico valido</p>
-                    </ion-item>
+                        <div class="valid image-input-padding">
+                            <label color="secondary" ion-text>Indentificación Oficial <span class="optional-input-label">(opcional)</span></label>
+                            <br/>
+                            <button ion-button (tap)="openImageOptions()" *ngIf="RegisterFormData.Images.length === 0">
+                                <ion-icon name="md-add-circle"></ion-icon>&nbsp;
+                                Agregar
+                            </button>
+                            <div class="images-container" *ngIf="RegisterFormData.Images.length > 0">
+                                <ion-slides pager #imagesSlider>
+                                    <ion-slide *ngFor="let i of RegisterFormData.Images; let imageIndex = index">
+                                        <img [src]="i">
+                                        <ion-fab bottom left>
+                                            <button ion-fab mini (tap)="openImageOptions()">
+                                                <ion-icon name="md-add-circle"></ion-icon>
+                                            </button>
+                                        </ion-fab>
+                                        <ion-fab bottom right>
+                                            <button ion-fab mini color="danger" (tap)="removeImage(imageIndex)">
+                                                <ion-icon name="trash"></ion-icon>
+                                            </button>
+                                        </ion-fab>
 
-                    <ion-item>
-                        <ion-label floating color="secondary">Fax <span class="optional-input-label">(opcional)</span></ion-label>
-                        <ion-input type="tel" formControlName="Fax" [(ngModel)]="RegisterFormData.Fax"
-                                   [class.invalid]="!RegisterForm1.controls.Fax.valid && (RegisterForm1.controls.Fax.dirty || submitAttemptForm1)"
-                                   [class.valid]="RegisterForm1.controls.Fax.valid"></ion-input>
-                        <ion-icon item-end name="md-print" color="primary"></ion-icon>
+                                    </ion-slide>
+                                </ion-slides>
+                            </div>
+                        </div>
+                        <ion-icon item-end name="camera" color="primary"></ion-icon>
                     </ion-item>
-                    <ion-item *ngIf="!RegisterForm1.controls.Fax.valid  && (RegisterForm1.controls.Fax.dirty || submitAttemptForm1)">
-                        <p class="error-message">Ingresa un número de Fax válido</p>
-                    </ion-item>
-
-                    <ion-item>
-                        <ion-label floating color="secondary">Telefono Local <span class="optional-input-label">(Opcional)</span></ion-label>
-                        <ion-input type="tel" formControlName="LocalPhone" [(ngModel)]="RegisterFormData.LocalPhone"
-                                   [class.invalid]="!RegisterForm1.controls.LocalPhone.valid && (RegisterForm1.controls.LocalPhone.dirty || submitAttemptForm1)"
-                                   [class.valid]="RegisterForm1.controls.LocalPhone.valid"></ion-input>
-                        <ion-icon item-end name="call" color="primary"></ion-icon>
-                    </ion-item>
-                    <ion-item *ngIf="!RegisterForm1.controls.LocalPhone.valid  && (RegisterForm1.controls.LocalPhone.dirty || submitAttemptForm1)">
-                        <p class="error-message">Ingresa un número de Teléfono válido</p>
-                    </ion-item>
-
-                    <ion-item>
-                        <ion-label floating color="secondary">Teléfono Celular <span class="optional-input-label">(Diez Dígitos)</span></ion-label>
-                        <ion-input type="tel" formControlName="Cellphone" [(ngModel)]="RegisterFormData.Cellphone"
-                                   [class.invalid]="!RegisterForm1.controls.Cellphone.valid && (RegisterForm1.controls.Cellphone.dirty || submitAttemptForm1)"
-                                   [class.valid]="RegisterForm1.controls.Cellphone.valid"></ion-input>
-                        <ion-icon item-end name="phone-portrait" color="primary"></ion-icon>
-                    </ion-item>
-                    <ion-item *ngIf="!RegisterForm1.controls.Cellphone.valid  && (RegisterForm1.controls.Cellphone.dirty || submitAttemptForm1)">
-                        <p class="error-message">Ingresa un número de Teléfono válido</p>
-                    </ion-item>
-
+                    <button ion-button clear color="dark" (tap)="alertService.acceptedDocumentsImages()">
+                        ¿Qué documentos puedo subir?
+                    </button>
                 </ion-list>
             </form>
             <br/>
             <div text-ceter>
-                <button ion-button color="secondary" round (tap)="next()">
+                <button ion-button color="secondary" round (tap)="next(1)">
                     Siguiente&nbsp;
                     <ion-icon name="md-arrow-forward"></ion-icon>
                 </button>
@@ -205,7 +245,7 @@
                     </ion-item>
 
                     <ion-item>
-                        <ion-label floating color="secondary">Codigo Postal</ion-label>
+                        <ion-label floating color="secondary">Codigo Postal <span class="optional-input-label">(Opcional)</span></ion-label>
                         <ion-input type="tel" formControlName="UserPostalCode" [(ngModel)]="RegisterFormData.UserPostalCode"
                                    [class.invalid]="!RegisterForm2.controls.UserPostalCode.valid && (RegisterForm2.controls.UserPostalCode.dirty || submitAttemptForm2)"
                                    [class.valid]="RegisterForm2.controls.UserPostalCode.valid"></ion-input>
@@ -229,7 +269,7 @@
                         </button>
                     </ion-col>
                     <ion-col col-6 text-right>
-                        <button ion-button color="secondary" round (tap)="next()">
+                        <button ion-button color="secondary" round (tap)="next(2)">
                             Siguiente&nbsp;
                             <ion-icon name="md-arrow-forward"></ion-icon>
                         </button>
@@ -277,7 +317,18 @@
                     </ion-item>
 
                     <ion-item>
-                        <ion-label floating color="secondary">Codigo Postal</ion-label>
+                        <ion-label floating color="secondary">Municipio</ion-label>
+                        <ion-input type="text" formControlName="BusinessCity" [(ngModel)]="RegisterFormData.BusinessCity"
+                                   [class.invalid]="!RegisterForm3.controls.BusinessCity.valid && (RegisterForm3.controls.BusinessCity.dirty || submitAttemptForm3)"
+                                   [class.valid]="RegisterForm3.controls.BusinessCity.valid"></ion-input>
+                        <ion-icon item-end name="md-home" color="primary"></ion-icon>
+                    </ion-item>
+                    <ion-item *ngIf="!RegisterForm3.controls.BusinessCity.valid  && (RegisterForm3.controls.BusinessCity.dirty || submitAttemptForm3)">
+                        <p class="error-message">Ingresa un municipio válido</p>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label floating color="secondary">Codigo Postal <span class="optional-input-label">(Opcional)</span></ion-label>
                         <ion-input type="tel" formControlName="BusinessPostalCode" [(ngModel)]="RegisterFormData.BusinessPostalCode"
                                    [class.invalid]="!RegisterForm3.controls.BusinessPostalCode.valid && (RegisterForm3.controls.BusinessPostalCode.dirty || submitAttemptForm3)"
                                    [class.valid]="RegisterForm3.controls.BusinessPostalCode.valid"></ion-input>
@@ -288,7 +339,7 @@
                     </ion-item>
 
                     <ion-item>
-                        <ion-label floating color="secondary">Telefono Local <span class="optional-input-label">(Opcional)</span></ion-label>
+                        <ion-label floating color="secondary">Telefono Negocio <span class="optional-input-label">(Opcional)</span></ion-label>
                         <ion-input type="tel" formControlName="BusinessPhone" [(ngModel)]="RegisterFormData.BusinessPhone"
                                    [class.invalid]="!RegisterForm3.controls.BusinessPhone.valid && (RegisterForm3.controls.BusinessPhone.dirty || submitAttemptForm3)"
                                    [class.valid]="RegisterForm3.controls.BusinessPhone.valid"></ion-input>
@@ -297,40 +348,6 @@
                     <ion-item *ngIf="!RegisterForm3.controls.BusinessPhone.valid  && (RegisterForm3.controls.BusinessPhone.dirty || submitAttemptForm3)">
                         <p class="error-message">Ingresa un número de Teléfono válido</p>
                     </ion-item>
-
-                    <ion-item>
-                        <ion-label floating color="secondary">Teléfono Celular <span class="optional-input-label">(Diez Dígitos)</span></ion-label>
-                        <ion-input type="tel" formControlName="BusinessCellphone" [(ngModel)]="RegisterFormData.BusinessCellphone"
-                                   [class.invalid]="!RegisterForm3.controls.BusinessCellphone.valid && (RegisterForm3.controls.BusinessCellphone.dirty || submitAttemptForm3)"
-                                   [class.valid]="RegisterForm3.controls.BusinessCellphone.valid"></ion-input>
-                        <ion-icon item-end name="phone-portrait" color="primary"></ion-icon>
-                    </ion-item>
-                    <ion-item *ngIf="!RegisterForm3.controls.BusinessCellphone.valid  && (RegisterForm3.controls.BusinessCellphone.dirty || submitAttemptForm3)">
-                        <p class="error-message">Ingresa un número de Teléfono válido</p>
-                    </ion-item>
-
-                    <ion-item>
-                        <ion-label floating color="secondary">Fax <span class="optional-input-label">(opcional)</span></ion-label>
-                        <ion-input type="tel" formControlName="BusinessFax" [(ngModel)]="RegisterFormData.BusinessFax"
-                                   [class.invalid]="!RegisterForm3.controls.BusinessFax.valid && (RegisterForm3.controls.BusinessFax.dirty || submitAttemptForm3)"
-                                   [class.valid]="RegisterForm3.controls.BusinessFax.valid"></ion-input>
-                        <ion-icon item-end name="md-print" color="primary"></ion-icon>
-                    </ion-item>
-                    <ion-item *ngIf="!RegisterForm3.controls.BusinessFax.valid  && (RegisterForm3.controls.BusinessFax.dirty || submitAttemptForm3)">
-                        <p class="error-message">Ingresa un número de Fax válido</p>
-                    </ion-item>
-
-                    <ion-item>
-                        <ion-label floating color="secondary">Correo Electrónico</ion-label>
-                        <ion-input type="text" formControlName="BusinessEmail" [(ngModel)]="RegisterFormData.BusinessEmail"
-                                   [class.invalid]="!RegisterForm3.controls.BusinessEmail.valid && (RegisterForm3.controls.BusinessEmail.dirty || submitAttemptForm3)"
-                                   [class.valid]="RegisterForm3.controls.BusinessEmail.valid"></ion-input>
-                        <ion-icon item-end name="md-at" color="primary"></ion-icon>
-                    </ion-item>
-                    <ion-item *ngIf="!RegisterForm3.controls.BusinessEmail.valid  && (RegisterForm3.controls.BusinessEmail.dirty || submitAttemptForm3)">
-                        <p class="error-message">Ingresa un Correo Eléctronico válido</p>
-                    </ion-item>
-
                 </ion-list>
             </form>
             <br/>
@@ -343,9 +360,9 @@
                         </button>
                     </ion-col>
                     <ion-col col-8 text-right>
-                        <button ion-button color="secondary" round (tap)="next()">
+                        <button ion-button color="secondary" round (tap)="next(3)">
                             <ion-icon name="md-done-all"></ion-icon>
-                            &nbsp;Registrarse
+                            &nbsp;Afíliarse
                         </button>
                     </ion-col>
                 </ion-row>

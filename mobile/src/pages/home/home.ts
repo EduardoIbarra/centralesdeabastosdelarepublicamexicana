@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {MembershipService} from "../../services/membership.service";
 
 @IonicPage()
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html',
+    selector: 'page-home',
+    templateUrl: 'home.html',
 })
 export class HomePage {
 
@@ -20,14 +20,17 @@ export class HomePage {
         }
     ];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+    constructor(public navCtrl: NavController, public navParams: NavParams, private membershipsService: MembershipService) {
+    }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad HomePage');
-  }
+    ionViewDidLoad() {
+        this.membershipsService.getMembership().valueChanges()
+            .subscribe((response) => {
+                console.log(response);
+            })
+    }
 
-    goToPage(page){
+    goToPage(page) {
         this.navCtrl.push(page);
     }
 

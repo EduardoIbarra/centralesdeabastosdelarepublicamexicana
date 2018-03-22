@@ -5,3 +5,26 @@ npm install ion2-calendar moment --save
 
 ionic cordova plugin add cordova-plugin-market
 npm install --save @ionic-native/market
+
+ionic cordova plugin add uk.co.workingedge.phonegap.plugin.launchnavigator
+npm install --save @ionic-native/launch-navigator
+
+ionic cordova plugin add cordova-plugin-email-composer
+npm install --save @ionic-native/email-composer
+
+ionic cordova plugin add cordova-clipboard
+npm install --save @ionic-native/clipboard
+
+ionic cordova plugin add ionic-plugin-keyboard
+
+npm install firebase --save
+
+npm install --save web-animations-js
+
+ionic cordova plugin add cordova-plugin-camera
+npm install --save @ionic-native/camera
+
+
+npm install @angular/animations
+
+npm install ionic-tooltips --save
