@@ -9,11 +9,9 @@ import {MenuOptionModel} from "../components/side-menu-content/models/menu-optio
 import {SideMenuSettings} from "../components/side-menu-content/models/side-menu-settings";
 import {SideMenuContentComponent} from "../components/side-menu-content/side-menu-content.component";
 import {SharedService} from "../services/shared.service";
-import * as firebase from "firebase/app";
 import {Storage} from "@ionic/storage";
-import {AlertService} from "../services/alert.service";
 
-// import * as firebase from "firebase";
+declare var Mercadopago: any;
 
 @Component({
     templateUrl: 'app.html'
@@ -141,11 +139,6 @@ export class MyApp {
             this.splashScreen.hide();
             this.keyboard.hideKeyboardAccessoryBar(false);
 
-
-            // firebase.auth().onAuthStateChanged((user)=>{
-            //     console.log('Firebase user: ' + user);
-            // });
-
             this.storage.get('LoggedUser').then((LoggedUser) => {
                 this.sharedService.LoggedUser = LoggedUser;
 
@@ -161,7 +154,7 @@ export class MyApp {
                 }
             });
 
-
+            this.mercadoPagoInit();
         });
     }
 
@@ -177,7 +170,6 @@ export class MyApp {
         }
 
     }
-
 
     showLeavingRegisterFormAlert(page) {
         let alert = this.alertCtrl.create({
@@ -203,4 +195,54 @@ export class MyApp {
         alert.present();
     }
 
+    mercadoPagoInit() {
+        Mercadopago.setPublishableKey("TEST-5cd7fcdf-bd14-46d5-a741-8ea7b5ef68d7");
+        let object = {'payment_method_id': 'visa'};
+        Mercadopago.getPaymentMethod(object, (status, response)=>{
+            console.log(response);
+        });
+
+        // Mercadopago.getIdentificationTypes((status, response)=>{
+        //     console.log(response);
+        // });
+        // Mercadopago.getInstallments({
+        //     "payment_method_id": "visa",
+        //     "amount": 100
+        // }, function (status, response) {
+        //     // console.log(response);
+        // });
+
+
+
+
+
+
+
+        // OpenPay.setId('mrtezzirtht6piewm54o');
+        // OpenPay.setApiKey('pk_c0a63b5356524d2095a0df7172965ed9');
+        // OpenPay.setSandboxMode(true);
+        //
+        // // console.log(OpenPay.getSandboxMode());
+        //
+        // OpenPay.token.create({
+        //     card_number: "4111111111111111",
+        //     holder_name: "Juan Perez Ramirez",
+        //     expiration_year: "20",
+        //     expiration_month: "12",
+        //     cvv2: "110",
+        //     address: {
+        //         city: "Querétaro",
+        //         line3: "Queretaro",
+        //         postal_code: "76900",
+        //         line1: "Av 5 de Febrero",
+        //         line2: "Roble 207",
+        //         state: "Queretaro",
+        //         country_code: "MX"
+        //     }
+        // }, (response) => {
+        //     console.log(response);
+        // }, (error) => {
+        //     console.log(error);
+        // });
+    }
 }
