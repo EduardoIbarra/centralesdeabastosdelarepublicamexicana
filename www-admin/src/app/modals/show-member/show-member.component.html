@@ -1,14 +1,246 @@
 <div class="modal-dialog">
-  <div class="modal-content">
-    <div class="modal-header">
-      Miembro
+    <div class="modal-content">
+        <div class="modal-header">
+            <b>Información de la Membresía</b>
+            <div class="pull-right">
+                <label for="editEnabled"> Habilitar Edición</label>
+                <input type="checkbox" id="editEnabled" (click)="toggleEditCheckbox()">
+            </div>
+        </div>
+        <div class="modal-body">
+            <div class="section-group">
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-outline-primary" (click)="toggleSectionButton(1)" [class.active]="activeSection === 1">
+                        <input type="radio"> Informacion Personal
+                    </label>
+                    <label class="btn btn-outline-primary" (click)="toggleSectionButton(2)" [class.active]="activeSection === 2">
+                        <input type="radio"> Domicilio Personal
+                    </label>
+                    <label class="btn btn-outline-primary" (click)="toggleSectionButton(3)" [class.active]="activeSection === 3">
+                        <input type="radio"> Domicilio Comercial
+                    </label>
+                </div>
+            </div>
+            <div class="main-content">
+                <form class="form-horizontal" [formGroup]="membershipForm">
+
+                    <div *ngIf="activeSection === 1">
+                        <h3>Información Personal</h3>
+                        <hr>
+
+                        <div class="form-group">
+                            <label for="clave_socio">Clave del Socio
+                                <small *ngIf="editEnabled">(Opcional)</small>
+                            </label>
+                            <input type="number" class="form-control" id="clave_socio" [class.invalid]="!validSocioInput" formControlName="clave_socio" [(ngModel)]="userData.clave_socio" [readonly]="!editEnabled">
+                            <p *ngIf="!membershipForm.controls.clave_socio.valid && (membershipForm.controls.clave_socio.dirty || submitAttemptForm)|| !validSocioInput " class="error-message">Ingresa una clave válida</p>
+                            <br>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="denominacion_social">Clave del Socio</label>
+                            <select formControlName="denominacion_social" class="form-control" id="denominacion_social" [(ngModel)]="userData.denominacion_social">
+                                <option value="Fiscal">Fiscal</option>
+                                <option value="Moral">Moral</option>
+                            </select>
+                            <br>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="representante_legal">Representante Legal</label>
+                            <input type="text" class="form-control" id="representante_legal" formControlName="representante_legal" [(ngModel)]="userData.representante_legal" [readonly]="!editEnabled">
+                            <p *ngIf="!membershipForm.controls.representante_legal.valid && (membershipForm.controls.representante_legal.dirty || submitAttemptForm)" class="error-message">Ingresa un nombre válido</p>
+                            <br>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rfc">RFC</label>
+                            <input type="text" class="form-control" id="rfc" formControlName="rfc" [class.invalid]="!validRfcInput" [(ngModel)]="userData.rfc" [readonly]="!editEnabled">
+                            <p *ngIf="!membershipForm.controls.rfc.valid && (membershipForm.controls.rfc.dirty || submitAttemptForm) || !validRfcInput" class="error-message">Ingresa tu RFC válido correspondiente a tu denominacion social</p>
+                            <br>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="curp">CURP
+                                <small *ngIf="editEnabled">(Opcional)</small>
+                            </label>
+                            <input type="text" class="form-control" id="curp" formControlName="curp" [(ngModel)]="userData.curp" [readonly]="!editEnabled">
+                            <p *ngIf="!membershipForm.controls.curp.valid && (membershipForm.controls.curp.dirty || submitAttemptForm)" class="error-message">Ingresa CURP válido</p>
+                            <br>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="fecha_nacimiento">Fecha de Nacimiento</label>
+                            <div class="input-group">
+                                <input class="form-control" ngbDatepicker #d="ngbDatepicker" placeholder="MM-DD-YYYY" id="fecha_nacimiento" [minDate]="minDate" [maxDate]="maxDate" formControlName="fecha_nacimiento" [(ngModel)]="userData.fecha_nacimiento.text" [readonly]="!editEnabled" (focus)="editEnabled? d.toggle():null">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" (click)="editEnabled? d.toggle():null" type="button">
+                                        <fa name="birthday-cake"></fa>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="genero">Sexo</label>
+                            <select formControlName="genero" class="form-control" id="genero" [(ngModel)]="userData.genero">
+                                <option value="female">Femenino</option>
+                                <option value="male">Masculino</option>
+                            </select>
+                            <br>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="correo_electronico">Correo Electrónico</label>
+                            <input type="text" class="form-control" id="correo_electronico" formControlName="correo_electronico" [(ngModel)]="userData.correo_electronico" [readonly]="!editEnabled">
+                            <p *ngIf="!membershipForm.controls.correo_electronico.valid && (membershipForm.controls.correo_electronico.dirty || submitAttemptForm)" class="error-message">Ingresa un Correo Eléctronico valido</p>
+                            <br>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="celular">Teléfono Celular
+                                <small *ngIf="editEnabled">(Diez Dígitos)</small>
+                            </label>
+                            <input type="tel" class="form-control" id="celular" formControlName="celular" [(ngModel)]="userData.celular" [readonly]="!editEnabled">
+                            <p *ngIf="!membershipForm.controls.celular.valid && (membershipForm.controls.celular.dirty || submitAttemptForm)" class="error-message">Ingresa un número de teléfono válido</p>
+                            <br>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telefono_casa">Teléfono Celular
+                                <small *ngIf="editEnabled">(Opcional)</small>
+                            </label>
+                            <input type="tel" class="form-control" id="telefono_casa" formControlName="telefono_casa" [(ngModel)]="userData.telefono_casa" [readonly]="!editEnabled">
+                            <p *ngIf="!membershipForm.controls.telefono_casa.valid && (membershipForm.controls.telefono_casa.dirty || submitAttemptForm)" class="error-message">Ingresa un número de teléfono válido</p>
+                            <br>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pagina_web">Página Web
+                                <small *ngIf="editEnabled">(Opcional)</small>
+                            </label>
+                            <input type="text" class="form-control" id="pagina_web" formControlName="pagina_web" [(ngModel)]="userData.pagina_web" [readonly]="!editEnabled">
+                            <p *ngIf="!membershipForm.controls.pagina_web.valid && (membershipForm.controls.pagina_web.dirty || submitAttemptForm)" class="error-message">Ingresa una dirección web válida</p>
+                            <br>
+                        </div>
+
+                        <div class="form-group" *ngIf="userData.imagenes">
+                            <label>Imágen(es) de Indentifcación</label>
+                            <div class="img-container">
+                                <ngb-carousel *ngIf="userData.imagenes.length > 0">
+                                    <ng-template ngbSlide *ngFor="let i of userData.imagenes">
+                                        <img [src]="i" alt="Random first slide">
+                                    </ng-template>
+                                </ngb-carousel>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div *ngIf="activeSection === 2">
+                        <h3>Domicilio Personal</h3>
+                        <hr>
+
+                        <div class="form-group">
+                            <label for="domicilio_personal">Domicilio Personal</label>
+                            <input type="text" class="form-control" id="domicilio_personal" formControlName="domicilio_personal" [(ngModel)]="userData.domicilio_personal" [readonly]="!editEnabled">
+                            <p *ngIf="!membershipForm.controls.domicilio_personal.valid && (membershipForm.controls.domicilio_personal.dirty || submitAttemptForm)" class="error-message">Ingresa un domicilio válido</p>
+                            <br>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="colonia">Colonia</label>
+                            <input type="text" class="form-control" id="colonia" formControlName="colonia" [(ngModel)]="userData.colonia" [readonly]="!editEnabled">
+                            <p *ngIf="!membershipForm.controls.colonia.valid && (membershipForm.controls.colonia.dirty || submitAttemptForm)" class="error-message">Ingresa una colonia válida</p>
+                            <br>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="entre_calles">Entre Calles</label>
+                            <textarea class="form-control" id="entre_calles" formControlName="entre_calles" [(ngModel)]="userData.entre_calles" [readonly]="!editEnabled"></textarea>
+                            <p *ngIf="!membershipForm.controls.entre_calles.valid && (membershipForm.controls.entre_calles.dirty || submitAttemptForm)" class="error-message">Ingresa las entre calles del domicilio</p>
+                            <br>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="municipio">Municipio</label>
+                            <input type="text" class="form-control" id="municipio" formControlName="municipio" [(ngModel)]="userData.municipio" [readonly]="!editEnabled">
+                            <p *ngIf="!membershipForm.controls.municipio.valid && (membershipForm.controls.municipio.dirty || submitAttemptForm)" class="error-message">Ingresa un municipio válido</p>
+                            <br>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="codigo_postal">Codigo Postal
+                                <small *ngIf="editEnabled">(Opcional)</small>
+                            </label>
+                            <input type="number" class="form-control" id="codigo_postal" formControlName="codigo_postal" [(ngModel)]="userData.codigo_postal" [readonly]="!editEnabled">
+                            <p *ngIf="!membershipForm.controls.codigo_postal.valid && (membershipForm.controls.codigo_postal.dirty || submitAttemptForm)" class="error-message">Ingresa el Código Postal válido</p>
+                            <br>
+                        </div>
+                    </div>
+
+
+                    <div *ngIf="activeSection === 3">
+                        <h3>Domicilio Comercial</h3>
+                        <hr>
+
+                        <div class="form-group">
+                            <label for="domicilio_comercial">Domicilio Comercial</label>
+                            <input type="text" class="form-control" id="domicilio_comercial" formControlName="domicilio_comercial" [(ngModel)]="userData.domicilio_comercial" [readonly]="!editEnabled">
+                            <p *ngIf="!membershipForm.controls.domicilio_comercial.valid && (membershipForm.controls.domicilio_comercial.dirty || submitAttemptForm)" class="error-message">Ingresa un domicilio válido</p>
+                            <br>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dc_colonia">Colonia</label>
+                            <input type="text" class="form-control" id="dc_colonia" formControlName="dc_colonia" [(ngModel)]="userData.dc_colonia" [readonly]="!editEnabled">
+                            <p *ngIf="!membershipForm.controls.dc_colonia.valid && (membershipForm.controls.dc_colonia.dirty || submitAttemptForm)" class="error-message">Ingresa una colonia válida</p>
+                            <br>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dc_entre_calles">Entre Calles</label>
+                            <textarea class="form-control" id="dc_entre_calles" formControlName="dc_entre_calles" [(ngModel)]="userData.dc_entre_calles" [readonly]="!editEnabled"></textarea>
+                            <p *ngIf="!membershipForm.controls.dc_entre_calles.valid && (membershipForm.controls.dc_entre_calles.dirty || submitAttemptForm)" class="error-message">Ingresa las entre calles del domicilio</p>
+                            <br>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dc_municipio">Municipio</label>
+                            <input type="text" class="form-control" id="dc_municipio" formControlName="dc_municipio" [(ngModel)]="userData.dc_municipio" [readonly]="!editEnabled">
+                            <p *ngIf="!membershipForm.controls.dc_municipio.valid && (membershipForm.controls.dc_municipio.dirty || submitAttemptForm)" class="error-message">Ingresa un municipio válido</p>
+                            <br>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dc_codigo_postal">Codigo Postal
+                                <small *ngIf="editEnabled">(Opcional)</small>
+                            </label>
+                            <input type="number" class="form-control" id="dc_codigo_postal" formControlName="dc_codigo_postal" [(ngModel)]="userData.dc_codigo_postal" [readonly]="!editEnabled">
+                            <p *ngIf="!membershipForm.controls.dc_codigo_postal.valid && (membershipForm.controls.dc_codigo_postal.dirty || submitAttemptForm)" class="error-message">Ingresa el Código Postal válido</p>
+                            <br>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dc_telefono_local">Teléfono Negocio
+                                <small *ngIf="editEnabled">(Opcional)</small>
+                            </label>
+                            <input type="tel" class="form-control" id="dc_telefono_local" formControlName="dc_telefono_local" [(ngModel)]="userData.dc_telefono_local" [readonly]="!editEnabled">
+                            <p *ngIf="!membershipForm.controls.dc_telefono_local.valid && (membershipForm.controls.dc_telefono_local.dirty || submitAttemptForm)" class="error-message">Ingresa un número de teléfono válido</p>
+                            <br>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" (click)="close()">Cancelar</button>
+                <button type="button" class="btn btn-primary" (click)="apply()">Guardar</button>
+            </div>
+            <p *ngIf="membershipForm.invalid" class="padding warning-message">
+                <fa name="exclamation-triangle"></fa>
+                Verifique que todos los campos sean válidos
+            </p>
+        </div>
     </div>
-    <div class="modal-body" style="height: auto;">
-      Body
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-default" (click)="close()" >Cancelar</button>
-      <button type="button" class="btn btn-primary" (click)="apply()" >Guardar</button>
-    </div>
-  </div>
 </div>

@@ -1,0 +1,36 @@
+@import './variables';
+
+.pull-right {
+  float: right;
+}
+
+.error-message {
+  color: orangered;
+}
+
+.warning-message {
+  color: orange;
+}
+
+input.ng-invalid, .invalid {
+  border-color: orangered;
+  box-shadow: none;
+  &:focus {
+    border-color: orangered;
+    box-shadow: none;
+  }
+}
+
+.padding {
+  padding: 16px;
+}
+
+.carousel-item {
+  text-align: center !important;
+}
+
+.carousel-control-next-icon, .carousel-control-prev-icon {
+  background-color: black !important;
+  border-radius: 2px !important;
+  border: 2px solid black !important;
+}
