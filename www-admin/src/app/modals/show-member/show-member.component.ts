@@ -35,7 +35,6 @@ export class CustomDatepickerI18n extends NgbDatepickerI18n {
 }
 
 
-import {Component, ViewChild} from '@angular/core';
 import {DialogComponent, DialogService} from 'ng2-bootstrap-modal';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {NgbInputDatepicker} from '@ng-bootstrap/ng-bootstrap';

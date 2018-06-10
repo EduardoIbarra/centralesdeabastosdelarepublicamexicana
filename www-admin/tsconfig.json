@@ -15,5 +15,11 @@
       "es2017",
       "dom"
     ]
-  }
+  },
+  "exclude": [
+    "bower_components/**",
+    "node_modules/**",
+    "typings/main.d.ts",
+    "typings/main/**",
+  ]
 }
