@@ -1,24 +1,31 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Canaco</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<div class="container">
+  <img src="assets/img/canaco_logo.jpg" alt="Logo">
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id="mainMenu">
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="#">Inicio</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Quiénes Somos?</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active" href="#">Afíliate Ahora <span class="sr-only">(activo)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Qué es Infox?</a>
-      </li>
-    </ul>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a [routerLinkActive]="['active']" class="nav-link">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a [routerLinkActive]="['active']" class="nav-link" routerLink="about">Quiénes Somos?</a>
+        </li>
+        <li class="nav-item">
+          <a [routerLinkActive]="['active']" class="nav-link" routerLink="memberships">Afíliate Ahora <span class="sr-only">(activo)</span></a>
+        </li>
+        <li class="nav-item">
+          <a [routerLinkActive]="['active']" class="nav-link" routerLink="membership-types">Tipos de Afiliación<span class="sr-only">(activo)</span></a>
+        </li>
+        <li class="nav-item">
+          <a [routerLinkActive]="['active']" class="nav-link" routerLink="infox">Qué es Infox?</a>
+        </li>
+      </ul>
+    </div>
   </div>
 </nav>
 <router-outlet></router-outlet>

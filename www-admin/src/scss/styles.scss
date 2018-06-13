@@ -34,3 +34,44 @@ input.ng-invalid, .invalid {
   border-radius: 2px !important;
   border: 2px solid black !important;
 }
+body {
+  background-color: #f7f7f7 !important;
+}
+nav#mainMenu {
+  background-color: #2B2B2B !important;
+  color: #81d742 !important;
+}
+.navbar-light .navbar-nav .nav-link {
+  color: #81d742 !important;
+}
+.navbar-light .navbar-brand {
+  color: #81d742 !important;
+}
+.btn-primary {
+  color: #fff;
+  background-color: #81d742;
+  border-color: #81d742;
+}
+.btn-primary:hover {
+  color: #fff;
+  background-color: #81d742;
+  border-color: #81d742;
+}
+.center {
+  text-align: center;
+}
+.btn-outline-primary:not(:disabled):not(.disabled):active, .btn-outline-primary:not(:disabled):not(.disabled).active, .show > .btn-outline-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #81d742;
+  border-color: #81d742;
+}
+.btn-outline-primary {
+  color: #81d742;
+  background-color: transparent;
+  background-image: none;
+  border-color: #81d742;
+}
+.nav-link.active {
+  color: white !important;
+  background-color: black;
+}

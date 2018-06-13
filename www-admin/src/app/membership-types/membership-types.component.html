@@ -1,0 +1,21 @@
+<div class="container">
+  <br />
+  <h2>Solicitudes de Afiliación  <button class="btn btn-primary btn-sm" (click)="openMemberModal({})">Agregar Nuevo</button></h2>
+  <hr/>
+  <table class="table table-bordered table-hover table-striped">
+    <tr>
+      <th>Nombre</th>
+      <th>Gestoría</th>
+      <th>Precio</th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let m of membership_types">
+      <td>{{m.name}}</td>
+      <td>{{m.gestoria}}</td>
+      <td><b>${{m.price | number:'1.2-2'}}</b></td>
+      <td>
+        <button class="btn btn-primary btn-sm" (click)="openMemberModal(m)">Ver Más</button>
+      </td>
+    </tr>
+  </table>
+</div>

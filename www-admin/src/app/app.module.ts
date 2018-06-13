@@ -19,39 +19,52 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AngularFontAwesomeModule} from "angular-font-awesome";
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {platformBrowserDynamic} from "@angular/platform-browser-dynamic";
+import { MembershipTypesComponent } from './membership-types/membership-types.component';
+import { MembershipTypesService } from './services/membership-types.service';
+import { ShowMembershipTypeComponent } from './modals/show-membership-type/show-membership-type.component';
+import { AboutComponent } from './about/about.component';
+import { InfoxComponent } from './infox/infox.component';
 
 const appRoutes: Routes = [
-    {path: '', redirectTo: 'memberships', pathMatch: 'full'},
-    {path: 'memberships', component: MembershipComponent},
+  {path: '', redirectTo: 'memberships', pathMatch: 'full'},
+  {path: 'memberships', component: MembershipComponent},
+  {path: 'about', component: AboutComponent},
+  {path: 'infox', component: InfoxComponent},
+  {path: 'membership-types', component: MembershipTypesComponent}
 ];
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        MembershipComponent,
-        ShowMemberComponent
-    ],
-    imports: [
-        BrowserModule,
-        ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
-        RouterModule.forRoot(appRoutes),
-        NgbModule.forRoot(),
-        AngularFireModule.initializeApp(environment.firebase),
-        AngularFirestoreModule, // imports firebase/firestore, only needed for database features
-        AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
-        AngularFireStorageModule, // imports firebase/storage only needed for storage features
-        AngularFireDatabaseModule,
-        BootstrapModalModule,
-        FormsModule,
-        ReactiveFormsModule,
-        AngularFontAwesomeModule,
-    ],
-    providers: [
-        MembershipsService,
-        { provide: LOCALE_ID, useValue: 'es' }
-    ],
-    bootstrap: [AppComponent],
-    entryComponents: [ShowMemberComponent]
+  declarations: [
+    AppComponent,
+    MembershipComponent,
+    ShowMemberComponent,
+    MembershipTypesComponent,
+    ShowMembershipTypeComponent,
+    AboutComponent,
+    InfoxComponent
+  ],
+  imports: [
+    BrowserModule,
+    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
+    RouterModule.forRoot(appRoutes),
+    NgbModule.forRoot(),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
+    AngularFireStorageModule, // imports firebase/storage only needed for storage features
+    AngularFireDatabaseModule,
+    BootstrapModalModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AngularFontAwesomeModule,
+  ],
+  providers: [
+    MembershipsService,
+    //{ provide: LOCALE_ID, useValue: 'es' },
+    MembershipTypesService
+  ],
+  bootstrap: [AppComponent],
+  entryComponents: [ShowMemberComponent, ShowMembershipTypeComponent]
 })
 export class AppModule {
 }

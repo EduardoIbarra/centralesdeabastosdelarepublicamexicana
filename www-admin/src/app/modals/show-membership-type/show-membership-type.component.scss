@@ -1,0 +1,29 @@
+.modal-body {
+  padding: 0;
+}
+
+.main-content {
+  padding: 1rem;
+  height: 60vh;
+  overflow: overlay;
+}
+
+.section-group {
+  padding: 2px;
+  text-align: center;
+}
+
+.img-container {
+  width: 90%;
+  margin: 0 auto;
+  img {
+    max-height: 60vh;
+  }
+}
+
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 512px;
+  }
+}
+

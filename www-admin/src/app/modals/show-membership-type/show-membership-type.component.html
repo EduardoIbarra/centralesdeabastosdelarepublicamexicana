@@ -1,0 +1,170 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <b>Tipo de Membresía</b>
+      <div class="pull-right">
+        <label for="editEnabled"> Habilitar Edición</label>
+        <input type="checkbox" id="editEnabled" (click)="toggleEditCheckbox()">
+      </div>
+    </div>
+    <div class="modal-body">
+      <div class="section-group">
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-outline-primary" (click)="toggleSectionButton(1)" [class.active]="activeSection === 1">
+            <input type="radio"> Información General
+          </label>
+          <label class="btn btn-outline-primary" (click)="toggleSectionButton(2)" [class.active]="activeSection === 2">
+            <input type="radio"> Beneficios
+          </label>
+          <label class="btn btn-outline-primary" (click)="toggleSectionButton(3)" [class.active]="activeSection === 3">
+            <input type="radio"> Domicilio Comercial
+          </label>
+        </div>
+      </div>
+      <div class="main-content">
+        <div class="form-horizontal">
+
+          <div *ngIf="activeSection === 1">
+            <h3>Información General</h3>
+            <hr>
+
+            <div class="form-group">
+              <label for="name">Nombre</label>
+              <input type="text" class="form-control" id="name" [(ngModel)]="userData.name" [readonly]="!editEnabled">
+              <br>
+            </div>
+
+            <div class="form-group">
+              <label for="gestoria">Gestoría</label>
+              <input type="text" class="form-control" id="gestoria" [(ngModel)]="userData.gestoria" [readonly]="!editEnabled">
+              <br>
+            </div>
+
+            <div class="form-group">
+              <label for="price">Precio</label>
+              <input type="text" class="form-control" id="price" [(ngModel)]="userData.price" [readonly]="!editEnabled">
+              <br>
+            </div>
+
+          </div>
+
+
+          <div *ngIf="activeSection === 2">
+            <h3>Beneficios</h3>
+            <hr>
+
+            <div class="form-group">
+              <label for="asesoria_contable">Asesoría Contable</label>
+              <select class="form-control" id="asesoria_contable" [(ngModel)]="userData.asesoria_contable" [disabled]="!editEnabled">
+                <option value="true">Sí</option>
+                <option value="false">No</option>
+              </select>
+              <br>
+            </div>
+
+            <div class="form-group">
+              <label for="asesoria_legal">Asesoría Legal</label>
+              <select class="form-control" id="asesoria_legal" [(ngModel)]="userData.asesoria_legal" [disabled]="!editEnabled">
+                <option value="true">Sí</option>
+                <option value="false">No</option>
+              </select>
+              <br>
+            </div>
+
+            <div class="form-group">
+              <label for="bolsa_de_trabajo">Bolsa de Trabajo</label>
+              <select class="form-control" id="bolsa_de_trabajo" [(ngModel)]="userData.bolsa_de_trabajo" [disabled]="!editEnabled">
+                <option value="true">Sí</option>
+                <option value="false">No</option>
+              </select>
+              <br>
+            </div>
+
+            <div class="form-group">
+              <label for="conferencias_gratuitas">Conferencias Gratuitas</label>
+              <select class="form-control" id="conferencias_gratuitas" [(ngModel)]="userData.conferencias_gratuitas" [disabled]="!editEnabled">
+                <option value="true">Sí</option>
+                <option value="false">No</option>
+              </select>
+              <br>
+            </div>
+
+            <div class="form-group">
+              <label for="engomado_siem">Conferencias Gratuitas</label>
+              <select class="form-control" id="engomado_siem" [(ngModel)]="userData.engomado_siem" [disabled]="!editEnabled">
+                <option value="true">Sí</option>
+                <option value="false">No</option>
+              </select>
+              <br>
+            </div>
+
+            <div class="form-group">
+              <label for="enlace_inadem">Conferencias Gratuitas</label>
+              <select class="form-control" id="enlace_inadem" [(ngModel)]="userData.enlace_inadem" [disabled]="!editEnabled">
+                <option value="true">Sí</option>
+                <option value="false">No</option>
+              </select>
+              <br>
+            </div>
+
+            <div class="form-group">
+              <label for="salones_gratuitos">Salones Gratuitos</label>
+              <select class="form-control" id="salones_gratuitos" [(ngModel)]="userData.salones_gratuitos" [disabled]="!editEnabled">
+                <option value="true">Sí</option>
+                <option value="false">No</option>
+              </select>
+              <br>
+            </div>
+          </div>
+
+
+          <div *ngIf="activeSection === 3">
+            <h3>Domicilio Comercial</h3>
+            <hr>
+
+            <div class="form-group">
+              <label for="beca_capacitacion">Beca Capacitación (%)</label>
+              <input type="number" class="form-control" id="beca_capacitacion" [(ngModel)]="userData.beca_capacitacion" [readonly]="!editEnabled">
+              <br>
+            </div>
+
+            <div class="form-group">
+              <label for="capacitacion_proteccion_civil">Capacitación Protección Civil</label>
+              <input type="number" class="form-control" id="capacitacion_proteccion_civil" [(ngModel)]="userData.capacitacion_proteccion_civil" [readonly]="!editEnabled">
+              <br>
+            </div>
+
+            <div class="form-group">
+              <label for="descuento_publicaciones_revista">Descuento Publicaciones Revistas (%)</label>
+              <input type="number" class="form-control" id="descuento_publicaciones_revista" [(ngModel)]="userData.descuento_publicaciones_revista" [readonly]="!editEnabled">
+              <br>
+            </div>
+
+            <div class="form-group">
+              <label for="descuento_salones">Descuento Salones (%)</label>
+              <input type="number" class="form-control" id="descuento_salones" [(ngModel)]="userData.descuento_salones" [readonly]="!editEnabled">
+              <br>
+            </div>
+
+            <div class="form-group">
+              <label for="diseno_logotipo_papeleria">Diseño Logotipo Papelería (%)</label>
+              <input type="number" class="form-control" id="diseno_logotipo_papeleria" [(ngModel)]="userData.diseno_logotipo_papeleria" [readonly]="!editEnabled">
+              <br>
+            </div>
+
+            <div class="form-group">
+              <label for="encarte_revista">Encarte Revista (%)</label>
+              <input type="number" class="form-control" id="encarte_revista" [(ngModel)]="userData.encarte_revista" [readonly]="!editEnabled">
+              <br>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" (click)="close()">Cancelar</button>
+        <button type="button" class="btn btn-primary" (click)="apply()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
