@@ -1,12 +1,7 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the ChangePasswordPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {LoadingService} from "../../../services/loading.service";
+import {AlertService} from "../../../services/alert.service";
 
 @IonicPage()
 @Component({
@@ -15,11 +10,29 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ChangePasswordPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  user: any = {
+    email: null
+  };
+
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public loadingService: LoadingService,
+    public alertService: AlertService,
+  ) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ChangePasswordPage');
+  resetPassword() {
+    this.loadingService.presentLoading();
+    setTimeout(() => {
+      this.loadingService.dismiss();
+      this.alertService.resetPassword();
+    }, 1500);
+  }
+
+  validMail(email: string) {
+    let regex = /\S+@\S+\.\S+/;
+    return regex.test(email);
   }
 
 }

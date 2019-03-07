@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {AlertController, NavController} from "ionic-angular";
+import {AlertController} from "ionic-angular";
 
 @Injectable()
 
@@ -32,6 +32,14 @@ export class AlertService {
             title: 'Documentos Aceptados',
             subTitle: 'Información protegida por CANACO QRO.',
             message: 'Los documentos que se pueden subir son son imágenes de: ' + '<br/><b>INE</b> o <b>Cédula fiscal.</b>',
+            buttons: ['Aceptar']
+        });
+        alert.present();
+    }
+
+    resetPassword() {
+        let alert = this.alertCtrl.create({
+            title: 'Un mensaje ha sido enviado a tu dirección de correo para reestablecer tu contraseña.',
             buttons: ['Aceptar']
         });
         alert.present();

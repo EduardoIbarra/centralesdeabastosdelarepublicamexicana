@@ -1,14 +1,213 @@
 <ion-header>
-    <ion-navbar class="big-header-button">
-        <button ion-button menuToggle="left">
-            <ion-icon name="menu"></ion-icon>
-        </button>
-        <ion-title>Perfil</ion-title>
-    </ion-navbar>
+
+  <ion-navbar class="big-header-button">
+    <button ion-button menuToggle="left">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Perfíl</ion-title>
+  </ion-navbar>
+
 </ion-header>
 
 
-
 <ion-content padding>
+  <section *ngIf="dataLoaded">
+    <ion-slides>
+      <ion-slide>
+        <form>
+          <ion-list>
+            <br/>
+            <ion-list-header text-wrap text-center class="title-border-bottom">Información Personal</ion-list-header>
+            <ion-item *ngIf="user.PartnerKey">
+              <h3 color="secondary" ion-text>Clave del Socio</h3>
+              <p>{{user.PartnerKey}}</p>
+              <ion-icon item-end name="md-key" color="primary"></ion-icon>
+            </ion-item>
 
+            <ion-item>
+              <h3 color="secondary" ion-text>Denominación Social</h3>
+              <p>{{user.SocialDenomination}}</p>
+              <ion-icon item-end name="briefcase" color="primary"></ion-icon>
+            </ion-item>
+
+            <ion-item>
+              <h3 color="secondary" ion-text>Representante Legal</h3>
+              <p>{{user.LegalRepresentative}}</p>
+              <ion-icon item-end name="person" color="primary"></ion-icon>
+            </ion-item>
+
+            <ion-item>
+              <h3 color="secondary" ion-text>RFC</h3>
+              <p>{{user.Rfc}}</p>
+              <ion-icon item-end name="md-copy" color="primary"></ion-icon>
+            </ion-item>
+
+            <ion-item *ngIf="user.Curp">
+              <h3 color="secondary" ion-text>CURP</h3>
+              <p>{{user.Curp}}</p>
+              <ion-icon item-end name="ios-paper-outline" color="primary"></ion-icon>
+            </ion-item>
+
+            <ion-item>
+              <h3 color="secondary" ion-text>Fecha de Nacimiento</h3>
+              <p>{{user.BirthDay.text}}</p>
+              <ion-icon item-end name="md-calendar" color="primary"></ion-icon>
+            </ion-item>
+
+            <ion-item>
+              <h3 color="secondary" ion-text>Sexo</h3>
+              <p>{{user.Gender}}</p>
+              <ion-icon item-end name="transgender" color="primary"></ion-icon>
+            </ion-item>
+
+            <ion-item>
+              <h3 color="secondary" ion-text>Correo Electrónico</h3>
+              <p>{{user.Email}}</p>
+              <ion-icon item-end name="md-at" color="primary"></ion-icon>
+            </ion-item>
+            <ion-item>
+              <h3 color="secondary" ion-text>Teléfono Celular</h3>
+              <p>{{user.Cellphone}}</p>
+              <ion-icon item-end name="phone-portrait" color="primary"></ion-icon>
+            </ion-item>
+
+            <ion-item *ngIf="user.HomePhone">
+              <h3 color="secondary" ion-text>Telefono Casa</h3>
+              <p>{{user.HomePhone}}</p>
+              <ion-icon item-end name="call" color="primary"></ion-icon>
+            </ion-item>
+
+            <ion-item>
+              <h3 color="secondary" ion-text>Página Web</h3>
+              <p>{{user.WebPage}}</p>
+              <ion-icon item-end name="ios-globe-outline" color="primary"></ion-icon>
+            </ion-item>
+
+            <ion-item>
+              <div class="valid image-input-padding">
+                <label color="secondary" ion-text>Indentificación Oficial</label>
+                <div class="images-container" *ngIf="user.Images.length > 0">
+                  <ion-slides pager>
+                    <ion-slide *ngFor="let i of user.Images;">
+                      <img [src]="i">
+                    </ion-slide>
+                  </ion-slides>
+                </div>
+              </div>
+              <ion-icon item-end name="camera" color="primary"></ion-icon>
+            </ion-item>
+          </ion-list>
+        </form>
+        <br/>
+        <div text-ceter>
+          <button ion-button color="secondary" round (tap)="next()">
+            Siguiente&nbsp;
+            <ion-icon name="md-arrow-forward"></ion-icon>
+          </button>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <form>
+          <ion-list>
+            <br/>
+            <ion-list-header text-wrap text-center class="title-border-bottom"><b>Domicilio Personal</b></ion-list-header>
+            <ion-item>
+              <h3 color="secondary" ion-text>Domicilio Personal</h3>
+              <p>{{user.UserAddress}}</p>
+              <ion-icon item-end name="md-home" color="primary"></ion-icon>
+            </ion-item>
+
+            <ion-item>
+              <h3 color="secondary" ion-text>Colonia</h3>
+              <p>{{user.UserSettlement}}</p>
+              <ion-icon item-end name="md-home" color="primary"></ion-icon>
+            </ion-item>
+            <ion-item>
+              <h3 color="secondary" ion-text>Entre Calles</h3>
+              <p>{{user.UserStreets}}</p>
+              <ion-icon item-end name="md-home" color="primary"></ion-icon>
+            </ion-item>
+            <ion-item>
+              <h3 color="secondary" ion-text>Municipio</h3>
+              <p>{{user.UserCity}}</p>
+              <ion-icon item-end name="md-home" color="primary"></ion-icon>
+            </ion-item>
+            <ion-item *ngIf="user.UserPostalCode">
+              <h3 color="secondary" ion-text>Codigo Postal</h3>
+              <p>{{user.UserPostalCode}}</p>
+              <ion-icon item-end name="ios-keypad" color="primary"></ion-icon>
+            </ion-item>
+          </ion-list>
+        </form>
+        <br/>
+
+        <ion-grid no-padding>
+          <ion-row>
+            <ion-col col-6 text-left>
+              <button ion-button color="secondary" round (tap)="prev()">
+                <ion-icon name="md-arrow-back"></ion-icon>
+                &nbsp;Atrás
+              </button>
+            </ion-col>
+            <ion-col col-6 text-right>
+              <button ion-button color="secondary" round (tap)="next()">
+                Siguiente&nbsp;
+                <ion-icon name="md-arrow-forward"></ion-icon>
+              </button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-slide>
+      <ion-slide>
+        <form>
+          <ion-list>
+            <br/>
+            <ion-list-header text-wrap text-center class="title-border-bottom"><b>Domicilio Fiscal</b></ion-list-header>
+            <ion-item>
+              <h3 color="secondary" ion-text>Domicilio Comercial</h3>
+              <p>{{user.BusinessAddress}}</p>
+              <ion-icon item-end name="md-home" color="primary"></ion-icon>
+            </ion-item>
+            <ion-item>
+              <h3 color="secondary" ion-text>Colonia</h3>
+              <p>{{user.BusinessSettlement}}</p>
+              <ion-icon item-end name="md-home" color="primary"></ion-icon>
+            </ion-item>
+            <ion-item>
+              <h3 color="secondary" ion-text>Entre Calles</h3>
+              <p>{{user.BusinessStreets}}</p>
+              <ion-icon item-end name="md-home" color="primary"></ion-icon>
+            </ion-item>
+
+            <ion-item>
+              <h3 color="secondary" ion-text>Municipio</h3>
+              <p>{{user.BusinessCity}}</p>
+              <ion-icon item-end name="md-home" color="primary"></ion-icon>
+            </ion-item>
+            <ion-item *ngIf="user.BusinessPostalCode">
+              <h3 color="secondary" ion-text>Codigo Postal</h3>
+              <p>{{user.BusinessPostalCode}}</p>
+              <ion-icon item-end name="ios-keypad" color="primary"></ion-icon>
+            </ion-item>
+            <ion-item *ngIf="user.BusinessPhone">
+              <h3 color="secondary" ion-text>Telefono Negocio</h3>
+              <p>{{user.BusinessPhone}}</p>
+              <ion-icon item-end name="call" color="primary"></ion-icon>
+            </ion-item>
+          </ion-list>
+        </form>
+        <br/>
+        <ion-grid no-padding>
+          <ion-row>
+            <ion-col>
+              <button ion-button color="secondary" round (tap)="prev()">
+                <ion-icon name="md-arrow-back"></ion-icon>
+                &nbsp;Atrás
+              </button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-slide>
+    </ion-slides>
+  </section>
 </ion-content>

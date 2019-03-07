@@ -1,3 +1,18 @@
 page-profile {
+  .swiper-pagination-progress .swiper-pagination-progressbar {
+    background: map_get($colors, secondary) !important;
+  }
 
+  ion-slides {
+    height: inherit;
+  }
+
+  .image-input-padding {
+    padding-bottom: 10px;
+    padding-top: 16px;
+  }
+
+  .images-container {
+    padding-top: 10px;
+  }
 }
